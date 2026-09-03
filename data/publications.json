@@ -134,14 +134,6 @@
       "theme": "robust",
       "links": "[Website] https://siquanhuang.github.io/Multi-metrics/ | [Paper] https://arxiv.org/pdf/2303.06601 | [Code] https://github.com/siquanhuang/Multi-metrics | [Poster] static/files/_ICCV2023_Multi_metrics.pdf",
       "abstract": "A defense that adaptively combines multiple distance metrics to detect backdoored client updates in federated learning."
-    },
-    "(BIBM 2022) More than Encoder: Introducing Transformer Decoder to Upsample": {
-      "title": "More than Encoder: Introducing Transformer Decoder to Upsample",
-      "authors": "Yijiang Li, Wentian Cai, Ying Gao, Chengming Li, Xiping Hu",
-      "venue": "IEEE BIBM 2022",
-      "theme": "earlier",
-      "links": "[Paper] https://arxiv.org/pdf/2106.10637",
-      "abstract": "Brings the transformer decoder into the upsampling path of medical image segmentation networks."
     }
   }
 }
