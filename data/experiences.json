@@ -3,11 +3,12 @@
   "description": "My professional and academic experiences",
   "files": {
     "education1.txt": {
-      "title": "Ph.D. in Machine Learning and Data Science, Electrical and Computer Engineering",
+      "title": "Ph.D. in Machine Learning and Data Science",
       "organization": "University of California San Diego",
       "duration": "2024 - Present",
       "description": "Jacobs Fellowship. GPA 3.94 / 4.0.",
-      "link": "https://ucsd.edu/"
+      "link": "https://ucsd.edu/",
+      "department": "Electrical and Computer Engineering"
     },
     "education2.txt": {
       "title": "M.S.E. in Computer Science",

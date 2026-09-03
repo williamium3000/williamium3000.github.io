@@ -538,6 +538,7 @@ function renderPlainCV() {
             + `<div class="pv-when">${pvEscape(exp.duration)}</div>`
             + `<div class="pv-what">`
             +   `<span class="pv-role">${pvEscape(exp.title)}</span><br>`
+            +   (exp.department ? `<span class="pv-role">${pvEscape(exp.department)}</span><br>` : '')
             +   (exp.link
                     ? `<a class="pv-org" href="${pvEscapeAttr(exp.link)}" target="_blank" rel="noopener">${pvEscape(exp.organization)}</a>`
                     : `<span class="pv-org">${pvEscape(exp.organization)}</span>`)
@@ -907,6 +908,9 @@ function formatFileContent(filename, file) {
         }
         if (file.venue) {
             content += `Venue: ${file.venue}\n`;
+        }
+        if (file.department) {
+            content += `Department: ${file.department}\n`;
         }
         if (file.organization) {
             content += `Organization: ${file.organization}\n`;
