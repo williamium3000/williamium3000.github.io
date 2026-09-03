@@ -37,15 +37,13 @@
       "title": "Research Intern",
       "organization": "Beijing Academy of Artificial Intelligence",
       "duration": "Jun 2024 - Oct 2024",
-      "description": "Video large language models.",
-      "link": "https://www.baai.ac.cn/en/"
+      "description": "Video large language models."
     },
     "position2.txt": {
       "title": "Research Intern",
       "organization": "SenseTime Research",
       "duration": "Jul 2021 - Nov 2022",
-      "description": "Sample-efficient learning: semi- and weakly-supervised learning for segmentation and detection.",
-      "link": "https://www.sensetime.com/en"
+      "description": "Sample-efficient learning: semi- and weakly-supervised learning for segmentation and detection."
     },
     "position3.txt": {
       "title": "Machine Learning Engineer",
@@ -74,15 +72,23 @@
     },
     "service1.txt": {
       "title": "Reviewer",
-      "organization": "ICML, CVPR, AISTATS, ICLR",
-      "duration": "2025",
-      "description": "Conference reviewing."
+      "organization": "BMVC, ICLR",
+      "duration": "2027"
     },
     "service2.txt": {
       "title": "Reviewer",
+      "organization": "ECCV, CVPR, ICML, NeurIPS, AISTATS, BMVC, AAAI, ICLR",
+      "duration": "2026"
+    },
+    "service3.txt": {
+      "title": "Reviewer",
+      "organization": "ICML, CVPR, AISTATS, ICLR",
+      "duration": "2025"
+    },
+    "service4.txt": {
+      "title": "Reviewer",
       "organization": "NeurIPS",
-      "duration": "2024",
-      "description": "Conference reviewing."
+      "duration": "2024"
     },
     "activity1.txt": {
       "title": "Co-founder",
