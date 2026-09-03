@@ -144,7 +144,10 @@
                     <a href="mailto:yijiangli@ucsd.edu">email me</a>.</p>
                 <div class="pv-calendly" id="pv-calendly">
                     <div class="pv-calendly-status" id="pv-calendly-status">Loading the calendar…</div>
-                    <div class="calendly-inline-widget" data-url="https://calendly.com/liyijiang3000/30-min-chat?hide_gdpr_banner=1" style="min-width:300px;height:640px;"></div>
+                    <iframe id="pv-calendly-frame"
+                        src="https://calendly.com/liyijiang3000/30-min-chat?embed_domain=williamium3000.github.io&amp;embed_type=Inline&amp;hide_gdpr_banner=1"
+                        title="Book a chat with William Yijiang Li"
+                        loading="lazy"></iframe>
                 </div>
                 <p class="pv-calendly-fallback">Or book directly at
                     <a href="https://calendly.com/liyijiang3000/30-min-chat" target="_blank" rel="noopener">calendly.com/liyijiang3000/30-min-chat</a>.</p>
@@ -182,58 +185,27 @@
     <script>document.getElementById('pv-year').textContent = new Date().getFullYear();</script>
     <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
     <script>
-        // Load Calendly once the chat section is near the viewport. If the widget
-        // never renders (blocked script, offline, tracker blocker), collapse the
-        // empty frame so only the plain booking link is left.
+        // The Calendly iframe is embedded directly. A successfully rendered widget
+        // posts messages back to the parent, which is the only reliable success
+        // signal for a cross-origin frame (its load event fires for error pages
+        // too). Without one, collapse the frame and leave just the booking link.
         (function () {
             var box = document.getElementById('pv-calendly');
             var status = document.getElementById('pv-calendly-status');
-            var slot = box && box.querySelector('.calendly-inline-widget');
-            var target = document.getElementById('pv-chat');
-            if (!box || !slot) return;
+            if (!box) return;
 
-            if (!target || !('IntersectionObserver' in window)) {
-                load();
-            } else {
-                var io = new IntersectionObserver(function (entries) {
-                    if (entries.some(function (e) { return e.isIntersecting; })) {
-                        load();
-                        io.disconnect();
-                    }
-                }, { rootMargin: '600px 0px' });
-                io.observe(target);
-            }
+            var settled = false;
 
-            function giveUp() {
-                box.hidden = true;
-            }
+            window.addEventListener('message', function (event) {
+                if (settled) return;
+                if (!/(^|\.)calendly\.com$/.test(new URL(event.origin).hostname)) return;
+                settled = true;
+                if (status) status.remove();
+            });
 
-            function watchForWidget() {
-                var waited = 0;
-                var timer = setInterval(function () {
-                    if (slot.querySelector('iframe')) {
-                        clearInterval(timer);
-                        if (status) status.remove();
-                        return;
-                    }
-                    waited += 500;
-                    if (waited >= 8000) {
-                        clearInterval(timer);
-                        giveUp();
-                    }
-                }, 500);
-            }
-
-            function load() {
-                if (document.getElementById('calendly-js')) return;
-                var s = document.createElement('script');
-                s.id = 'calendly-js';
-                s.src = 'https://assets.calendly.com/assets/external/widget.js';
-                s.async = true;
-                s.onerror = giveUp;
-                document.body.appendChild(s);
-                watchForWidget();
-            }
+            setTimeout(function () {
+                if (!settled) box.hidden = true;
+            }, 10000);
         })();
     </script>
 </body>

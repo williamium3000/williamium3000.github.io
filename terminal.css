@@ -1268,6 +1268,14 @@ body.pv-active {
     display: none;
 }
 
+#pv-calendly-frame {
+    display: block;
+    width: 100%;
+    min-width: 300px;
+    height: 700px;
+    border: 0;
+}
+
 .pv-calendly-status {
     position: absolute;
     inset: 0;
