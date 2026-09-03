@@ -47,15 +47,6 @@
       "links": "[Paper] https://arxiv.org/pdf/2403.10045 | [Code] https://github.com/yumozi/GUARD",
       "abstract": "Regularizes the curvature of the loss landscape during dataset distillation so that models trained on the distilled data inherit adversarial robustness."
     },
-    "(Preprint) Beyond Finite Data: Towards Data-free Out-of-distribution Generalization via Extrapolation": {
-      "title": "Beyond Finite Data: Towards Data-free Out-of-distribution Generalization via Extrapolation",
-      "authors": "Yijiang Li, Sucheng Ren, Weipeng Deng, Yuzhi Xu, Ying Gao, Haohan Wang",
-      "venue": "Preprint, under review",
-      "theme": "efficient",
-      "links": "[Paper] https://arxiv.org/pdf/2403.05523",
-      "abstract": "Using large language models to extrapolate novel domains from a text description of the task, enabling out-of-distribution generalization without any target-domain data.",
-      "image": "images/llm_dg.png"
-    },
     "(ICCV 2023) Diverse Co-training Makes Strong Semi-supervised Segmentor": {
       "title": "Diverse Co-training Makes Strong Semi-supervised Segmentor",
       "authors": "Yijiang Li, Xinjiang Wang, Lihe Yang, Litong Feng, Wayne Zhang, Ying Gao",
