@@ -52,23 +52,26 @@
       "description": "Large-scale public sentiment analysis and risk control."
     },
     "teaching1.txt": {
-      "title": "Teaching Assistant, EN.553.436/636 Introduction to Data Science",
+      "title": "Teaching Assistant",
       "organization": "Johns Hopkins University · Prof. Tamás Budavári",
       "duration": "Fall 2023",
-      "description": "Teaching assistant for the graduate and undergraduate sections of Introduction to Data Science."
+      "description": "Teaching assistant for the graduate and undergraduate sections of Introduction to Data Science.",
+      "department": "EN.553.436/636 Introduction to Data Science"
     },
     "teaching2.txt": {
-      "title": "Course Assistant, EN.601.482/682 Machine Learning: Deep Learning",
+      "title": "Course Assistant",
       "organization": "Johns Hopkins University · Prof. Mathias Unberath",
       "duration": "Fall 2023",
       "description": "Course assistant for the deep learning course. https://deep.cs.jhu.edu/deeplearning.html",
-      "link": "https://deep.cs.jhu.edu/deeplearning.html"
+      "link": "https://deep.cs.jhu.edu/deeplearning.html",
+      "department": "EN.601.482/682 Machine Learning: Deep Learning"
     },
     "teaching3.txt": {
-      "title": "Teaching Assistant, EN.553.436/636 Introduction to Data Science",
+      "title": "Teaching Assistant",
       "organization": "Johns Hopkins University · Prof. Tamás Budavári, Prof. Soledad Villar",
       "duration": "Spring 2023",
-      "description": "Teaching assistant for Introduction to Data Science."
+      "description": "Teaching assistant for Introduction to Data Science.",
+      "department": "EN.553.436/636 Introduction to Data Science"
     },
     "service1.txt": {
       "title": "Reviewer",
