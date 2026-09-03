@@ -2,6 +2,13 @@
   "type": "directory",
   "description": "My research publications",
   "files": {
+    "(ICML 2026) Less is Enough: Synthesizing Diverse Data in Feature Space of LLMs": {
+      "title": "Less is Enough: Synthesizing Diverse Data in Feature Space of LLMs",
+      "authors": "Zhongzhi Li, Xuansheng Wu, Yijiang Li, Lijie Hu, Ninghao Liu",
+      "venue": "ICML 2026",
+      "links": "[Paper] https://arxiv.org/pdf/2602.10388 | [Code] https://github.com/Zhongzhi660/FAC-Synthesis",
+      "abstract": "Measures data diversity as Feature Activation Coverage in a sparse-autoencoder feature space, then synthesizes samples covering the features a seed set is missing — matching far larger synthetic corpora with 2K samples."
+    },
     "(ICML 2025) Core Knowledge Deficits in Multi-Modal Language Models": {
       "title": "Core Knowledge Deficits in Multi-Modal Language Models",
       "authors": "Yijiang Li, Qingying Gao, Tianwei Zhao, Bingyang Wang, Haoran Sun, Haiyun Lyu, Dezhi Luo, Hokin Deng",
