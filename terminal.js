@@ -520,6 +520,14 @@ function initScrollSpy() {
 // Underline my own name wherever it appears in an author list.
 const PV_SELF = 'Yijiang Li';
 
+// Bold an award note appended to a venue, e.g. "CVPR 2023, Highlight (top 2.5%)".
+function pvHighlightAward(venue) {
+    return pvEscape(venue).replace(
+        /(Highlight|Oral|Spotlight|Best Paper[^,]*)([^,]*)$/,
+        '<span class="pv-award">$1$2</span>'
+    );
+}
+
 function pvHighlightSelf(authors) {
     return pvEscape(authors).split(PV_SELF).join(`<span class="pv-self">${PV_SELF}</span>`);
 }
@@ -535,7 +543,7 @@ function renderPlainPubs() {
         return `<div class="pv-pub">`
             + `<span class="pv-pub-title">${pvEscape(pub.title)}.</span> `
             + `<span class="pv-pub-authors">${pvHighlightSelf(pub.authors)}.</span> `
-            + `<span class="pv-pub-venue">${pvEscape(pub.venue)}.</span> `
+            + `<span class="pv-pub-venue">${pvHighlightAward(pub.venue)}.</span> `
             + `<span class="pv-pub-links">${links}</span>`
             + `</div>`;
     }).join('');

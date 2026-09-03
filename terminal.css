@@ -1343,3 +1343,9 @@ body.pv-active {
     text-decoration: underline;
     text-underline-offset: 2px;
 }
+
+/* Award note on a venue, e.g. Highlight (top 2.5%). */
+.pv-pub .pv-award {
+    font-weight: 600;
+    font-style: normal;
+}
