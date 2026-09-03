@@ -6,13 +6,15 @@
       "title": "Ph.D. in Machine Learning and Data Science, ECE",
       "organization": "University of California San Diego",
       "duration": "2024 - Present",
-      "description": "Jacobs Fellowship. GPA 3.94 / 4.0."
+      "description": "Jacobs Fellowship. GPA 3.94 / 4.0.",
+      "link": "https://ucsd.edu/"
     },
     "education2.txt": {
       "title": "M.S.E. in Computer Science",
       "organization": "Johns Hopkins University",
       "duration": "2023 - 2024",
-      "description": "GPA 4.0 / 4.0. Research assistant with Prof. Alan Yuille in CCVL."
+      "description": "GPA 4.0 / 4.0. Research assistant with Prof. Alan Yuille in CCVL.",
+      "link": "https://www.jhu.edu/"
     },
     "education3.txt": {
       "title": "B.E. in Computer Science",
@@ -24,13 +26,15 @@
       "title": "Research Intern",
       "organization": "Beijing Academy of Artificial Intelligence",
       "duration": "Jun 2024 - Oct 2024",
-      "description": "Video large language models."
+      "description": "Video large language models.",
+      "link": "https://www.baai.ac.cn/en/"
     },
     "position2.txt": {
       "title": "Research Intern",
       "organization": "SenseTime Research",
       "duration": "Jul 2021 - Nov 2022",
-      "description": "Sample-efficient learning: semi- and weakly-supervised learning for segmentation and detection."
+      "description": "Sample-efficient learning: semi- and weakly-supervised learning for segmentation and detection.",
+      "link": "https://www.sensetime.com/en"
     },
     "position3.txt": {
       "title": "Machine Learning Engineer",
@@ -48,7 +52,8 @@
       "title": "Course Assistant, EN.601.482/682 Machine Learning: Deep Learning",
       "organization": "Johns Hopkins University · Prof. Mathias Unberath",
       "duration": "Fall 2023",
-      "description": "Course assistant for the deep learning course. https://deep.cs.jhu.edu/deeplearning.html"
+      "description": "Course assistant for the deep learning course. https://deep.cs.jhu.edu/deeplearning.html",
+      "link": "https://deep.cs.jhu.edu/deeplearning.html"
     },
     "teaching3.txt": {
       "title": "Teaching Assistant, EN.553.436/636 Introduction to Data Science",
@@ -72,7 +77,8 @@
       "title": "Co-founder",
       "organization": "GrowAI",
       "duration": "2024 - Present",
-      "description": "A research organization and community promoting research on AI that can learn and grow like humans. https://growing-ai-like-a-child.github.io/"
+      "description": "A research organization and community promoting research on AI that can learn and grow like humans. https://growing-ai-like-a-child.github.io/",
+      "link": "https://growing-ai-like-a-child.github.io/"
     }
   }
 }

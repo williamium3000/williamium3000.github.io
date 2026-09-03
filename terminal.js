@@ -159,7 +159,7 @@ function switchToTerminalView() {
 // Load JSON data
 async function loadData() {
     try {
-        const dataFiles = ['me', 'publications', 'experiences', 'news', 'blog'];
+        const dataFiles = ['me', 'publications', 'experiences', 'news', 'life', 'blog'];
         const promises = dataFiles.map(file => 
             fetch(`data/${file}.json`, { cache: 'no-cache' })
                 .then(response => response.json())
@@ -246,6 +246,21 @@ Available papers:
         });
         summary += `\nUse 'view <filename>' to read an item.\nFor example: view ${Object.keys(content.news.files)[0]}\n`;
         content.news.summary = summary;
+    }
+
+    // Generate life summary
+    if (content.life && content.life.files) {
+        let summary = `
+╔═══════════════════════════════════════════════════════════════╗
+║                        BEYOND RESEARCH                        ║
+╚═══════════════════════════════════════════════════════════════╝
+
+`;
+        Object.entries(content.life.files).forEach(([filename, fileData]) => {
+            summary += `  • ${filename} - ${fileData.title}\n`;
+        });
+        summary += `\nUse 'view <filename>' to read more.\n`;
+        content.life.summary = summary;
     }
 
     // Generate blog summary
@@ -371,6 +386,27 @@ function renderPlainView() {
     renderPlainNews();
     renderPlainPubs();
     renderPlainCV();
+    renderPlainLife();
+}
+
+function renderPlainLife() {
+    const host = document.getElementById('pv-life-body');
+    if (!host) return;
+    const items = content.life && content.life.files;
+    if (!items) return;
+
+    host.innerHTML = Object.values(items).map(item => {
+        const photos = (item.images || []).map((src, i) => {
+            const cap = (item.captions || [])[i] || item.title;
+            return `<figure class="pv-life-photo"><img src="${pvEscapeAttr(src)}" alt="${pvEscapeAttr(cap)}" loading="lazy">`
+                 + `<figcaption>${pvEscape(cap)}</figcaption></figure>`;
+        }).join('');
+        return `<div class="pv-life">`
+            + `<div class="pv-life-title">${pvEscape(item.title)}</div>`
+            + `<p class="pv-life-text">${pvRenderInlineMarkdown(item.content)}</p>`
+            + (photos ? `<div class="pv-life-photos">${photos}</div>` : '')
+            + `</div>`;
+    }).join('');
 }
 
 const PV_NEWS_VISIBLE = 6;
@@ -490,11 +526,17 @@ function renderPlainPubs() {
         }
         items.forEach(pub => {
             const links = pvParseLinks(pub.links);
-            html += `<div class="pv-pub">`
+            const thumb = pub.image
+                ? `<img class="pv-pub-thumb" src="${pvEscapeAttr(pub.image)}" alt="" loading="lazy">`
+                : '';
+            html += `<div class="pv-pub${pub.image ? ' has-thumb' : ''}">`
+                + `<div class="pv-pub-text">`
                 + `<span class="pv-pub-title">${pvEscape(pub.title)}.</span> `
                 + `<span class="pv-pub-authors">${pvEscape(pub.authors)}.</span> `
                 + `<span class="pv-pub-venue">${pvEscape(pub.venue)}.</span> `
                 + `<span class="pv-pub-links">${links}</span>`
+                + `</div>`
+                + thumb
                 + `</div>`;
         });
         html += `</div>`;
@@ -518,7 +560,9 @@ function renderPlainCV() {
             + `<div class="pv-when">${pvEscape(exp.duration)}</div>`
             + `<div class="pv-what">`
             +   `<span class="pv-role">${pvEscape(exp.title)}</span><br>`
-            +   `<span class="pv-org">${pvEscape(exp.organization)}</span>`
+            +   (exp.link
+                    ? `<a class="pv-org" href="${pvEscapeAttr(exp.link)}" target="_blank" rel="noopener">${pvEscape(exp.organization)}</a>`
+                    : `<span class="pv-org">${pvEscape(exp.organization)}</span>`)
             + `</div>`
             + `</div>`;
     };
@@ -705,7 +749,7 @@ function showHelp() {
 Available commands:
 ───────────────────────────────────────────────────────────────
   ls [directory]       List files and directories
-  cd <directory>       Change directory (publications, news, experiences, blog)
+  cd <directory>       Change directory (news, publications, experiences, life, blog)
   view <file>          Open file in vim-style viewer
   cat <file>           Alias for 'view'
   pwd                  Print current directory
@@ -744,6 +788,7 @@ Available files and directories:
   <span class="directory">news/</span>            Recent news and updates
   <span class="directory">publications/</span>    My research publications
   <span class="directory">experiences/</span>     Education, positions, teaching and service
+  <span class="directory">life/</span>            Football, travel and other things
   <span class="directory">blog/</span>            Blog posts and writings
 
 Type 'view &lt;filename&gt;' to open a file, or 'cd &lt;directory&gt;' to navigate.
@@ -806,7 +851,7 @@ function viewFile(filename) {
 
     // Check if it's a me file
     if (filename === 'me' || filename === 'me.txt') {
-        openVimViewer('me', content.me.content);
+        openVimViewer('me', terminalFormatMarkdown(content.me.content));
         return;
     }
 
@@ -839,6 +884,24 @@ function viewFile(filename) {
     }
 
     addOutput(`File not found: ${filename}`, 'error');
+}
+
+// Terminal rendering of the light markdown used in data/me.json:
+// **bold** -> BOLD-ish (kept as-is), [text](url) -> text[n] with a numbered
+// reference list appended, so the vim viewer stays readable.
+function terminalFormatMarkdown(raw) {
+    if (!raw) return '';
+    const refs = [];
+    let text = raw.replace(/\[([^\]]+)\]\((https?:[^)\s]+)\)/g, (m, label, url) => {
+        refs.push(url);
+        return `${label}[${refs.length}]`;
+    });
+    text = text.replace(/\*\*(.+?)\*\*/g, '$1');
+    if (refs.length) {
+        text += `\n───────────────────────────────────────────────────────────────\nREFERENCES\n───────────────────────────────────────────────────────────────\n`;
+        refs.forEach((url, i) => { text += `[${i + 1}] ${url}\n`; });
+    }
+    return text;
 }
 
 function formatFileContent(filename, file) {
@@ -878,6 +941,14 @@ function formatFileContent(filename, file) {
         if (file.links) {
             content += `───────────────────────────────────────────────────────────────\n`;
             content += `LINKS\n\n${file.links}\n`;
+        }
+        if (file.images && file.images.length) {
+            content += `───────────────────────────────────────────────────────────────\n`;
+            content += `PHOTOS\n\n`;
+            file.images.forEach((src, i) => {
+                const cap = (file.captions || [])[i] || '';
+                content += `  ${cap ? cap + ': ' : ''}${location.origin}${location.pathname.replace(/[^/]*$/, '')}${src}\n`;
+            });
         }
         
         return content;
@@ -958,6 +1029,18 @@ function displayInteractiveList() {
         });
     }
     
+    if (!displayContent) {
+        displayContent = `═══════════════════════════════════════════════════════════════\n`;
+        displayContent += `  ${interactiveType.toUpperCase()}\n`;
+        displayContent += `═══════════════════════════════════════════════════════════════\n\n`;
+        displayContent += `Use ↑/↓ or j/k to navigate, Enter to view, q to quit\n\n`;
+        displayContent += `───────────────────────────────────────────────────────────────\n\n`;
+        interactiveList.forEach(([filename, fileData], index) => {
+            const pointer = index === selectedIndex ? '→ ' : '  ';
+            displayContent += `${pointer}${fileData.title || filename}\n\n`;
+        });
+    }
+
     vimViewer.classList.remove('hidden');
     vimViewer.dataset.fromList = 'false'; // Reset the flag
     document.querySelector('.vim-filename').textContent = interactiveType;
@@ -1132,7 +1215,7 @@ function autocomplete() {
         }
     } else if (parts.length === 2 && (parts[0] === 'cd' || parts[0] === 'view' || parts[0] === 'ls')) {
         // Complete filename/directory
-        const dirs = ['me', 'news', 'publications', 'experiences', 'blog'];
+        const dirs = ['me', 'news', 'publications', 'experiences', 'life', 'blog'];
         const matches = dirs.filter(dir => dir.startsWith(parts[1]));
         if (matches.length === 1) {
             terminalInput.value = parts[0] + ' ' + matches[0];

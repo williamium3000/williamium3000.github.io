@@ -71,6 +71,8 @@
                 <a href="#pv-news" class="pv-nav">news</a>
                 <a href="#pv-publications" class="pv-nav">publications</a>
                 <a href="#pv-cv" class="pv-nav">cv</a>
+                <a href="#pv-life" class="pv-nav">life</a>
+                <a href="#pv-chat" class="pv-nav">chat</a>
             </div>
 
             <div class="pv-block extra">
@@ -109,8 +111,11 @@
                 <div class="pv-masthead-text">
                     <h1>Yijiang (William) Li <span class="pv-zh">黎羿江</span></h1>
                     <div class="pv-sub">UC San Diego ECE · PhD 2024— · Jacobs Fellow</div>
+                    <div class="pv-sub pv-sub-quiet">黎羿江 · pronounced Yee Jee-ahng Lee</div>
                     <div class="pv-contact">
                         <a href="mailto:yijiangli@ucsd.edu">yijiangli [at] ucsd [dot] edu</a>
+                        <span class="pv-contact-sep">·</span>
+                        <span>Jacobs Hall, 9500 Gilman Dr, La Jolla, CA 92093</span>
                     </div>
                 </div>
                 <img class="pv-photo" src="images/profile.png" alt="Yijiang (William) Li" width="112" height="112">
@@ -133,6 +138,22 @@
             <section id="pv-cv">
                 <h2>CV</h2>
                 <div id="pv-cv-body"><!-- rendered by terminal.js --></div>
+            </section>
+
+            <section id="pv-life">
+                <h2>Beyond research</h2>
+                <div id="pv-life-body"><!-- rendered by terminal.js --></div>
+            </section>
+
+            <section id="pv-chat">
+                <h2>Chat?</h2>
+                <p>I am happy to discuss collaborations and chat about research. Pick a time slot below, or just
+                    <a href="mailto:yijiangli@ucsd.edu">email me</a>.</p>
+                <div class="pv-calendly">
+                    <div class="calendly-inline-widget" data-url="https://calendly.com/liyijiang3000/30min?hide_gdpr_banner=1" style="min-width:300px;height:640px;"></div>
+                </div>
+                <p class="pv-calendly-fallback">If the calendar does not load, book directly at
+                    <a href="https://calendly.com/liyijiang3000/30min" target="_blank" rel="noopener">calendly.com/liyijiang3000/30min</a>.</p>
             </section>
 
             <footer class="pv-footer">
@@ -166,6 +187,25 @@
     <script src="terminal.js"></script>
     <script>document.getElementById('pv-year').textContent = new Date().getFullYear();</script>
     <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <script>
+        // Load Calendly only once the chat section is close to the viewport.
+        (function () {
+            var target = document.getElementById('pv-chat');
+            if (!target || !('IntersectionObserver' in window)) { loadCalendly(); return; }
+            var io = new IntersectionObserver(function (entries) {
+                if (entries.some(function (e) { return e.isIntersecting; })) { loadCalendly(); io.disconnect(); }
+            }, { rootMargin: '600px 0px' });
+            io.observe(target);
+            function loadCalendly() {
+                if (document.getElementById('calendly-js')) return;
+                var s = document.createElement('script');
+                s.id = 'calendly-js';
+                s.src = 'https://assets.calendly.com/assets/external/widget.js';
+                s.async = true;
+                document.body.appendChild(s);
+            }
+        })();
+    </script>
 </body>
 
 </html>
