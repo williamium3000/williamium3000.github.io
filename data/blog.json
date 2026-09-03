@@ -1,0 +1,11 @@
+{
+  "type": "directory",
+  "description": "My blog posts and writings",
+  "files": {
+    "post1.txt": {
+      "title": "My blog lives at williamium3000.github.io/myblog",
+      "date": "2026",
+      "content": "Longer-form writing lives on my blog: https://williamium3000.github.io/myblog/\n\nThis site is a terminal-style homepage built on Abe Hou's template (https://abehou.github.io/). Type 'help' to see what you can do here."
+    }
+  }
+}

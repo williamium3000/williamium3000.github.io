@@ -1,0 +1,78 @@
+{
+  "type": "directory",
+  "description": "My professional and academic experiences",
+  "files": {
+    "education1.txt": {
+      "title": "Ph.D. in Machine Learning and Data Science, ECE",
+      "organization": "University of California San Diego",
+      "duration": "2024 - Present",
+      "description": "Jacobs Fellowship. GPA 3.94 / 4.0."
+    },
+    "education2.txt": {
+      "title": "M.S.E. in Computer Science",
+      "organization": "Johns Hopkins University",
+      "duration": "2023 - 2024",
+      "description": "GPA 4.0 / 4.0. Research assistant with Prof. Alan Yuille in CCVL."
+    },
+    "education3.txt": {
+      "title": "B.E. in Computer Science",
+      "organization": "South China University of Technology",
+      "duration": "2018 - 2022",
+      "description": "GPA 3.73 / 4.0. Outstanding Thesis Award; 2018-19 Scholarship."
+    },
+    "position1.txt": {
+      "title": "Research Intern",
+      "organization": "Beijing Academy of Artificial Intelligence",
+      "duration": "Jun 2024 - Oct 2024",
+      "description": "Video large language models."
+    },
+    "position2.txt": {
+      "title": "Research Intern",
+      "organization": "SenseTime Research",
+      "duration": "Jul 2021 - Nov 2022",
+      "description": "Sample-efficient learning: semi- and weakly-supervised learning for segmentation and detection."
+    },
+    "position3.txt": {
+      "title": "Machine Learning Engineer",
+      "organization": "WeBank",
+      "duration": "Jun 2020 - Sep 2020",
+      "description": "Large-scale public sentiment analysis and risk control."
+    },
+    "teaching1.txt": {
+      "title": "Teaching Assistant, EN.553.436/636 Introduction to Data Science",
+      "organization": "Johns Hopkins University · Prof. Tamás Budavári",
+      "duration": "Fall 2023",
+      "description": "Teaching assistant for the graduate and undergraduate sections of Introduction to Data Science."
+    },
+    "teaching2.txt": {
+      "title": "Course Assistant, EN.601.482/682 Machine Learning: Deep Learning",
+      "organization": "Johns Hopkins University · Prof. Mathias Unberath",
+      "duration": "Fall 2023",
+      "description": "Course assistant for the deep learning course. https://deep.cs.jhu.edu/deeplearning.html"
+    },
+    "teaching3.txt": {
+      "title": "Teaching Assistant, EN.553.436/636 Introduction to Data Science",
+      "organization": "Johns Hopkins University · Prof. Tamás Budavári, Prof. Soledad Villar",
+      "duration": "Spring 2023",
+      "description": "Teaching assistant for Introduction to Data Science."
+    },
+    "service1.txt": {
+      "title": "Reviewer",
+      "organization": "ICML, CVPR, AISTATS, ICLR",
+      "duration": "2025",
+      "description": "Conference reviewing."
+    },
+    "service2.txt": {
+      "title": "Reviewer",
+      "organization": "NeurIPS",
+      "duration": "2024",
+      "description": "Conference reviewing."
+    },
+    "activity1.txt": {
+      "title": "Co-founder",
+      "organization": "GrowAI",
+      "duration": "2024 - Present",
+      "description": "A research organization and community promoting research on AI that can learn and grow like humans. https://growing-ai-like-a-child.github.io/"
+    }
+  }
+}
