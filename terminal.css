@@ -1052,7 +1052,7 @@ body.pv-active {
     display: flex;
     align-items: center;
     justify-content: flex-start;
-    gap: 44px;
+    gap: 110px;
 }
 
 .pv-masthead-text {
