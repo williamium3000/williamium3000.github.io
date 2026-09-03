@@ -1072,6 +1072,7 @@ body.pv-active {
     margin-top: 8px;
     font-family: var(--pv-mono);
     font-size: 12px;
+    line-height: 1.8;
 }
 
 .pv-masthead .pv-contact a {
@@ -1175,10 +1176,6 @@ body.pv-active {
 
 .pv-masthead .pv-contact {
     color: var(--pv-soft);
-}
-
-.pv-masthead .pv-contact-sep {
-    margin: 0 6px;
 }
 
 /* --- publication thumbnails (web view only) --- */
@@ -1296,12 +1293,4 @@ body.pv-active {
         aspect-ratio: 16 / 10;
     }
 
-    .pv-masthead .pv-contact-sep,
-    .pv-masthead .pv-contact-sep + span {
-        display: block;
-    }
-
-    .pv-masthead .pv-contact-sep {
-        display: none;
-    }
 }

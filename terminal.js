@@ -1,5 +1,5 @@
 // Terminal Emulator for Personal Website
-// Author: Abe Hou (template) — adapted for Yijiang (William) Li
+// Author: Abe Hou (template) — adapted for William Yijiang Li
 
 // Content Data Structure (loaded from JSON)
 let content = {};
@@ -656,7 +656,7 @@ async function init() {
 function displayWelcomeMessage() {
     const welcome = `
 ╔═══════════════════════════════════════════════════════════════╗
-║        Welcome to Yijiang (William) Li's Personal Website     ║
+║         Welcome to William Yijiang Li's Personal Website      ║
 ║                      Terminal Interface                       ║
 ╚═══════════════════════════════════════════════════════════════╝
 
