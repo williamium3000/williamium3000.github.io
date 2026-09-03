@@ -626,14 +626,20 @@ body.pv-active {
 }
 
 .pv-sigil::before {
-    content: '$ ';
+    content: '$';
     color: var(--pv-soft);
+    margin-right: 0.55em;
 }
 
 .pv-sigil .pv-host {
     color: var(--pv-soft);
     opacity: 0;
     transition: opacity 0.15s ease;
+}
+
+.pv-sigil .pv-host::before {
+    content: '@';
+    margin: 0 0.4em;
 }
 
 .pv-aside:hover .pv-sigil .pv-host {
