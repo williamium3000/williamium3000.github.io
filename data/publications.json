@@ -9,6 +9,13 @@
       "links": "[Paper] https://arxiv.org/pdf/2602.10388 | [Code] https://github.com/Zhongzhi660/FAC-Synthesis",
       "abstract": "Measures data diversity as Feature Activation Coverage in a sparse-autoencoder feature space, then synthesizes samples covering the features a seed set is missing — matching far larger synthetic corpora with 2K samples."
     },
+    "(Preprint) SkillsBench: Benchmarking How Well Agent Skills Work Across Diverse Tasks": {
+      "title": "SkillsBench: Benchmarking How Well Agent Skills Work Across Diverse Tasks",
+      "authors": "Xiangyi Li, Yimin Liu, Wenbo Chen, Bingran You, Zonglin Di, et al. (including Yijiang Li)",
+      "venue": "arXiv preprint, 2026",
+      "links": "[Paper] https://arxiv.org/pdf/2602.12670",
+      "abstract": "A benchmark of 86 tasks across 11 domains, each paired with curated skills and deterministic verifiers, measuring how much agent skills actually help — and where they hurt."
+    },
     "(ICML 2025) Core Knowledge Deficits in Multi-Modal Language Models": {
       "title": "Core Knowledge Deficits in Multi-Modal Language Models",
       "authors": "Yijiang Li, Qingying Gao, Tianwei Zhao, Bingyang Wang, Haoran Sun, Haiyun Lyu, Dezhi Luo, Hokin Deng",
