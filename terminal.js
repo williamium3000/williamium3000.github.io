@@ -581,7 +581,7 @@ function renderPlainCV() {
         ? `<div class="pv-cv-group-label">${label}</div>` + rows.map(renderRow).join('')
         : '';
 
-    let html = education.map(renderRow).join('');
+    let html = group('education', education);
     html += `<button class="pv-cv-toggle" id="pv-cv-toggle" aria-expanded="false">full ↓</button>`;
     html += `<div class="pv-cv-full" id="pv-cv-full" hidden>`
         + group('experience', byPrefix('position'))
