@@ -142,10 +142,11 @@
                 <h2>Chat?</h2>
                 <p>I am happy to discuss collaborations and chat about research. Pick a time slot below, or just
                     <a href="mailto:yijiangli@ucsd.edu">email me</a>.</p>
-                <div class="pv-calendly">
+                <div class="pv-calendly" id="pv-calendly">
+                    <div class="pv-calendly-status" id="pv-calendly-status">Loading the calendar…</div>
                     <div class="calendly-inline-widget" data-url="https://calendly.com/liyijiang3000/30-min-chat?hide_gdpr_banner=1" style="min-width:300px;height:640px;"></div>
                 </div>
-                <p class="pv-calendly-fallback">If the calendar does not load, book directly at
+                <p class="pv-calendly-fallback">Or book directly at
                     <a href="https://calendly.com/liyijiang3000/30-min-chat" target="_blank" rel="noopener">calendly.com/liyijiang3000/30-min-chat</a>.</p>
             </section>
 
@@ -181,21 +182,57 @@
     <script>document.getElementById('pv-year').textContent = new Date().getFullYear();</script>
     <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
     <script>
-        // Load Calendly only once the chat section is close to the viewport.
+        // Load Calendly once the chat section is near the viewport. If the widget
+        // never renders (blocked script, offline, tracker blocker), collapse the
+        // empty frame so only the plain booking link is left.
         (function () {
+            var box = document.getElementById('pv-calendly');
+            var status = document.getElementById('pv-calendly-status');
+            var slot = box && box.querySelector('.calendly-inline-widget');
             var target = document.getElementById('pv-chat');
-            if (!target || !('IntersectionObserver' in window)) { loadCalendly(); return; }
-            var io = new IntersectionObserver(function (entries) {
-                if (entries.some(function (e) { return e.isIntersecting; })) { loadCalendly(); io.disconnect(); }
-            }, { rootMargin: '600px 0px' });
-            io.observe(target);
-            function loadCalendly() {
+            if (!box || !slot) return;
+
+            if (!target || !('IntersectionObserver' in window)) {
+                load();
+            } else {
+                var io = new IntersectionObserver(function (entries) {
+                    if (entries.some(function (e) { return e.isIntersecting; })) {
+                        load();
+                        io.disconnect();
+                    }
+                }, { rootMargin: '600px 0px' });
+                io.observe(target);
+            }
+
+            function giveUp() {
+                box.hidden = true;
+            }
+
+            function watchForWidget() {
+                var waited = 0;
+                var timer = setInterval(function () {
+                    if (slot.querySelector('iframe')) {
+                        clearInterval(timer);
+                        if (status) status.remove();
+                        return;
+                    }
+                    waited += 500;
+                    if (waited >= 8000) {
+                        clearInterval(timer);
+                        giveUp();
+                    }
+                }, 500);
+            }
+
+            function load() {
                 if (document.getElementById('calendly-js')) return;
                 var s = document.createElement('script');
                 s.id = 'calendly-js';
                 s.src = 'https://assets.calendly.com/assets/external/widget.js';
                 s.async = true;
+                s.onerror = giveUp;
                 document.body.appendChild(s);
+                watchForWidget();
             }
         })();
     </script>
