@@ -569,12 +569,12 @@ body.light-mode .plain-view::-webkit-scrollbar-thumb:hover {
 }
 
 body.light-mode .plain-view {
-    --pv-bg: #f7f2e7;
-    --pv-rail-bg: #ede5d2;
+    --pv-bg: #ffffff;
+    --pv-rail-bg: #f6f5f2;
     --pv-ink: #1a1714;
     --pv-muted: #6e655a;
     --pv-soft: #9a8f7e;
-    --pv-rule: #d6cdb9;
+    --pv-rule: #e2dfd8;
     --pv-accent: #8a2a1f;
 }
 
@@ -1293,4 +1293,15 @@ body.pv-active {
         aspect-ratio: 16 / 10;
     }
 
+}
+
+/* --- justified running text --- */
+#pv-about-body p,
+#pv-about-body li,
+.pv-pub-text,
+.pv-life-text,
+#pv-chat p {
+    text-align: justify;
+    hyphens: auto;
+    -webkit-hyphens: auto;
 }
