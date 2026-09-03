@@ -732,9 +732,9 @@ body.pv-active {
 
 /* --- MAIN --- */
 .pv-main {
-    max-width: 980px;
+    max-width: 720px;
     margin: 0 auto;
-    padding: 64px 56px 120px;
+    padding: 64px 48px 120px;
 }
 
 .pv-masthead {
