@@ -1304,7 +1304,6 @@ body.pv-active {
 /* --- justified running text --- */
 #pv-about-body p,
 #pv-about-body li,
-.pv-pub-text,
 .pv-life-text,
 #pv-chat p {
     text-align: justify;
