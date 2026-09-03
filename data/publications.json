@@ -2,6 +2,18 @@
   "type": "directory",
   "description": "My research publications",
   "files": {
+    "(Preprint) Self-Supervised Visual On-Policy Distillation": {
+      "title": "Self-Supervised Visual On-Policy Distillation",
+      "authors": "Yijiang Li, Yijun Liang, Yunjie Tian, Bingyang Wang, Ke Zhang, Zhenfei Yin, Di Fu, Philip Torr, Nuno Vasconcelos",
+      "venue": "arXiv preprint, 2026",
+      "links": "[Paper] https://arxiv.org/pdf/2608.14144"
+    },
+    "(Preprint) Demystifying Agent Skills: Why They Work — Until They Don't": {
+      "title": "Demystifying Agent Skills: Why They Work — Until They Don't",
+      "authors": "Zhiyuan Jiang, Fangrui Huang, Hanwen Xing, Xander Wu, Yipeng Gao, Rui Cao, Mengdi Wang, Shilong Liu, Yijiang Li",
+      "venue": "arXiv preprint, 2026",
+      "links": "[Paper] https://arxiv.org/pdf/2608.14036"
+    },
     "(Preprint) On-Policy Self-Distillation without Any Supervision": {
       "title": "On-Policy Self-Distillation without Any Supervision",
       "authors": "Yijiang Li, Bingyang Wang, Yijun Liang, Yunjie Tian, Di Fu, Nuno Vasconcelos",
@@ -69,6 +81,12 @@
       "theme": "multimodal",
       "links": "[Paper] https://arxiv.org/pdf/2411.16156 | [Slides] https://docs.google.com/presentation/d/1Pcx-1gngTLzggKqh7GglGM4o6idEbRjR9Yc2N9BJgHE/edit?usp=sharing",
       "abstract": "A video large language model that tokenizes object-level dynamics so that the model can reason about what each object does over time."
+    },
+    "(ICCV 2025) Unified Multimodal Understanding via Byte-Pair Visual Encoding": {
+      "title": "Unified Multimodal Understanding via Byte-Pair Visual Encoding",
+      "authors": "Wanpeng Zhang, Yicheng Feng, Hao Luo, Yijiang Li, Zihao Yue, Sipeng Zheng, Zongqing Lu",
+      "venue": "ICCV 2025",
+      "links": "[Paper] https://arxiv.org/abs/2506.23639"
     },
     "(ICCV 2025) Dataset Distillation via the Wasserstein Metric": {
       "title": "Dataset Distillation via the Wasserstein Metric",
