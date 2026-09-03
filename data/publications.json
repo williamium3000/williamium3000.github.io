@@ -12,7 +12,7 @@
       "title": "Demystifying Agent Skills: Why They Work — Until They Don't",
       "authors": "Zhiyuan Jiang, Fangrui Huang, Hanwen Xing, Xander Wu, Yipeng Gao, Rui Cao, Mengdi Wang, Shilong Liu, Yijiang Li",
       "venue": "arXiv preprint, 2026",
-      "links": "[Paper] https://arxiv.org/pdf/2608.14036 | [Code] https://github.com/zhiyuanjiang04/demystify-agent-skills"
+      "links": "[Website] https://zhiyuanjiang04.github.io/demystify-agent-skills/ | [Paper] https://arxiv.org/pdf/2608.14036 | [Code] https://github.com/zhiyuanjiang04/demystify-agent-skills"
     },
     "(Preprint) On-Policy Self-Distillation without Any Supervision": {
       "title": "On-Policy Self-Distillation without Any Supervision",
