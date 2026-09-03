@@ -18,7 +18,7 @@
       "title": "On-Policy Self-Distillation without Any Supervision",
       "authors": "Yijiang Li, Bingyang Wang, Yijun Liang, Yunjie Tian, Di Fu, Nuno Vasconcelos",
       "venue": "arXiv preprint, 2026",
-      "links": "[Paper] https://arxiv.org/pdf/2608.06296 | [Code] https://github.com/williamium3000/u-opsd"
+      "links": "[Website] https://williamium3000.github.io/u-opsd/ | [Paper] https://arxiv.org/pdf/2608.06296"
     },
     "(Preprint) ThinkJEPA: Empowering Latent World Models with Large Vision-Language Reasoning Model": {
       "title": "ThinkJEPA: Empowering Latent World Models with Large Vision-Language Reasoning Model",
