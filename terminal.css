@@ -1355,3 +1355,16 @@ body.pv-active {
     color: var(--pv-soft);
     font-size: 14px;
 }
+
+/* Visitor globe, carried over from the previous site. */
+.pv-globe {
+    display: flex;
+    justify-content: center;
+    margin: 48px 0 8px;
+    min-height: 0;
+}
+
+.pv-globe canvas,
+.pv-globe img {
+    max-width: 100%;
+}
