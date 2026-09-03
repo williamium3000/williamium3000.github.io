@@ -281,34 +281,6 @@ Recent posts:
 }
 
 // --- Plain View Renderer ---
-// Publications are grouped by the `theme` field on each entry.
-const PV_THEMES = [
-    {
-        id: 'pubs-multimodal',
-        key: 'multimodal',
-        label: 'Understanding multi-modal models',
-        blurb: 'What do multi-modal LLMs actually know, and what do they give away?'
-    },
-    {
-        id: 'pubs-efficient',
-        key: 'efficient',
-        label: 'Efficient learning',
-        blurb: 'Learning more from fewer labels, fewer samples, or no real data at all.'
-    },
-    {
-        id: 'pubs-robust',
-        key: 'robust',
-        label: 'Robust learning',
-        blurb: 'Adversaries and backdoors in federated learning.'
-    },
-    {
-        id: 'pubs-earlier',
-        key: 'earlier',
-        label: 'Earlier — medical image segmentation',
-        blurb: '',
-        earlier: true
-    }
-];
 
 function pvEscape(s) {
     if (s == null) return '';
@@ -534,45 +506,21 @@ function renderPlainPubs() {
     const pubs = content.publications && content.publications.files;
     if (!pubs) return;
 
-    const grouped = {};
-    Object.values(pubs).forEach(pub => {
-        const theme = pub.theme || 'earlier';
-        if (!grouped[theme]) grouped[theme] = [];
-        grouped[theme].push(pub);
-    });
-
-    let html = '';
-    PV_THEMES.forEach(theme => {
-        const items = grouped[theme.key] || [];
-        if (items.length === 0 && !theme.alwaysShow) return;
-
-        const classes = ['pv-theme'];
-        if (theme.earlier) classes.push('earlier');
-
-        html += `<div class="${classes.join(' ')}" id="${theme.id}">`;
-        html += `<div class="pv-theme-label">${pvEscape(theme.label)}</div>`;
-        if (theme.blurb) {
-            html += `<div class="pv-theme-blurb">${pvEscape(theme.blurb)}</div>`;
-        }
-        items.forEach(pub => {
-            const links = pvParseLinks(pub.links);
-            const thumb = pub.image
-                ? `<img class="pv-pub-thumb" src="${pvEscapeAttr(pub.image)}" alt="" loading="lazy">`
-                : '';
-            html += `<div class="pv-pub${pub.image ? ' has-thumb' : ''}">`
-                + `<div class="pv-pub-text">`
-                + `<span class="pv-pub-title">${pvEscape(pub.title)}.</span> `
-                + `<span class="pv-pub-authors">${pvEscape(pub.authors)}.</span> `
-                + `<span class="pv-pub-venue">${pvEscape(pub.venue)}.</span> `
-                + `<span class="pv-pub-links">${links}</span>`
-                + `</div>`
-                + thumb
-                + `</div>`;
-        });
-        html += `</div>`;
-    });
-
-    host.innerHTML = html;
+    host.innerHTML = Object.values(pubs).map(pub => {
+        const links = pvParseLinks(pub.links);
+        const thumb = pub.image
+            ? `<img class="pv-pub-thumb" src="${pvEscapeAttr(pub.image)}" alt="" loading="lazy">`
+            : '';
+        return `<div class="pv-pub${pub.image ? ' has-thumb' : ''}">`
+            + `<div class="pv-pub-text">`
+            + `<span class="pv-pub-title">${pvEscape(pub.title)}.</span> `
+            + `<span class="pv-pub-authors">${pvEscape(pub.authors)}.</span> `
+            + `<span class="pv-pub-venue">${pvEscape(pub.venue)}.</span> `
+            + `<span class="pv-pub-links">${links}</span>`
+            + `</div>`
+            + thumb
+            + `</div>`;
+    }).join('');
 }
 
 function renderPlainCV() {
