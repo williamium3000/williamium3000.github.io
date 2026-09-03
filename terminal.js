@@ -446,14 +446,44 @@ function renderPlainNews() {
     }
 }
 
+// Everything from this paragraph on is the extended bio, collapsed by default.
+const PV_BIO_SPLIT = 'I earned my M.S.E.';
+
 function renderPlainAbout() {
     const host = document.getElementById('pv-about-body');
     if (!host || !content.me || !content.me.content) return;
 
     const paragraphs = pvExtractIntroParagraphs(content.me.content);
-    host.innerHTML = paragraphs
-        .map(pvRenderAboutBlock)
-        .join('');
+    const splitAt = paragraphs.findIndex(p => p.trim().startsWith(PV_BIO_SPLIT));
+    const head = splitAt === -1 ? paragraphs : paragraphs.slice(0, splitAt);
+    const rest = splitAt === -1 ? [] : paragraphs.slice(splitAt);
+
+    let html = head.map(pvRenderAboutBlock).join('');
+    if (rest.length) {
+        html += `<button class="pv-cv-toggle" id="pv-bio-toggle" aria-expanded="false" aria-controls="pv-bio-full">bio ↓</button>`;
+        html += `<div class="pv-bio-full" id="pv-bio-full" hidden>${rest.map(pvRenderAboutBlock).join('')}</div>`;
+    }
+    host.innerHTML = html;
+
+    const btn = document.getElementById('pv-bio-toggle');
+    if (btn) btn.addEventListener('click', () => togglePlainBio());
+}
+
+// Show or hide the extended bio. Returns the resulting state.
+function togglePlainBio(force) {
+    const btn = document.getElementById('pv-bio-toggle');
+    const full = document.getElementById('pv-bio-full');
+    if (!btn || !full) return false;
+
+    const expanded = btn.getAttribute('aria-expanded') === 'true';
+    const next = typeof force === 'boolean' ? force : !expanded;
+    btn.setAttribute('aria-expanded', String(next));
+    btn.textContent = next ? 'bio ↑' : 'bio ↓';
+    full.hidden = !next;
+
+    const link = document.getElementById('pv-bio-link');
+    if (link) link.classList.toggle('open', next);
+    return next;
 }
 
 // Highlight the sidebar nav entry whose section is currently in view.
@@ -642,6 +672,19 @@ async function init() {
     });
 
     initScrollSpy();
+
+    // Sidebar "bio" entry opens and closes the extended bio.
+    const bioLink = document.getElementById('pv-bio-link');
+    if (bioLink) {
+        bioLink.addEventListener('click', event => {
+            event.preventDefault();
+            const opened = togglePlainBio();
+            if (opened) {
+                const full = document.getElementById('pv-bio-full');
+                if (full) full.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }
+        });
+    }
     
     // Keep terminal input focused when in terminal view
     document.addEventListener('click', () => {

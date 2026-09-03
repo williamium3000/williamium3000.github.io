@@ -1305,3 +1305,24 @@ body.pv-active {
     hyphens: auto;
     -webkit-hyphens: auto;
 }
+
+/* --- extended bio (collapsed by default) --- */
+.pv-bio-full {
+    margin-top: 14px;
+}
+
+.pv-block a.pv-subnav {
+    padding-left: 14px;
+    color: var(--pv-muted);
+    font-size: 12px;
+}
+
+.pv-block a.pv-subnav::before {
+    content: "└ ";
+    color: var(--pv-soft);
+}
+
+.pv-block a.pv-subnav:hover,
+.pv-block a.pv-subnav.open {
+    color: var(--pv-accent);
+}
