@@ -54,25 +54,28 @@
     },
     "teaching1.txt": {
       "title": "Teaching Assistant",
-      "organization": "Johns Hopkins University · Prof. Tamás Budavári",
+      "organization": "Johns Hopkins University",
       "duration": "Fall 2023",
       "description": "Teaching assistant for the graduate and undergraduate sections of Introduction to Data Science.",
-      "department": "EN.553.436/636 Introduction to Data Science"
+      "department": "EN.553.436/636 Introduction to Data Science",
+      "note": "Prof. Tamás Budavári"
     },
     "teaching2.txt": {
       "title": "Course Assistant",
-      "organization": "Johns Hopkins University · Prof. Mathias Unberath",
+      "organization": "Johns Hopkins University",
       "duration": "Fall 2023",
       "description": "Course assistant for the deep learning course. https://deep.cs.jhu.edu/deeplearning.html",
-      "link": "https://deep.cs.jhu.edu/deeplearning.html",
-      "department": "EN.601.482/682 Machine Learning: Deep Learning"
+      "department": "EN.601.482/682 Machine Learning: Deep Learning",
+      "note": "Prof. Mathias Unberath",
+      "department_link": "https://deep.cs.jhu.edu/deeplearning.html"
     },
     "teaching3.txt": {
       "title": "Teaching Assistant",
-      "organization": "Johns Hopkins University · Prof. Tamás Budavári, Prof. Soledad Villar",
+      "organization": "Johns Hopkins University",
       "duration": "Spring 2023",
       "description": "Teaching assistant for Introduction to Data Science.",
-      "department": "EN.553.436/636 Introduction to Data Science"
+      "department": "EN.553.436/636 Introduction to Data Science",
+      "note": "Prof. Tamás Budavári, Prof. Soledad Villar"
     },
     "service1.txt": {
       "title": "Reviewer",

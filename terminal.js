@@ -564,10 +564,15 @@ function renderPlainCV() {
             + `<div class="pv-when">${pvEscape(exp.duration)}</div>`
             + `<div class="pv-what">`
             +   `<span class="pv-role">${pvEscape(exp.title)}</span><br>`
-            +   (exp.department ? `<span class="pv-role">${pvEscape(exp.department)}</span><br>` : '')
+            +   (exp.department
+                    ? (exp.department_link
+                        ? `<a class="pv-role" href="${pvEscapeAttr(exp.department_link)}" target="_blank" rel="noopener">${pvEscape(exp.department)}</a><br>`
+                        : `<span class="pv-role">${pvEscape(exp.department)}</span><br>`)
+                    : '')
             +   (exp.link
                     ? `<a class="pv-org" href="${pvEscapeAttr(exp.link)}" target="_blank" rel="noopener">${pvEscape(exp.organization)}</a>`
                     : `<span class="pv-org">${pvEscape(exp.organization)}</span>`)
+            +   (exp.note ? `<br><span class="pv-note">${pvEscape(exp.note)}</span>` : '')
             + `</div>`
             + `</div>`;
     };
@@ -943,13 +948,16 @@ function formatFileContent(filename, file) {
             content += `Venue: ${file.venue}\n`;
         }
         if (file.department) {
-            content += `Department: ${file.department}\n`;
+            content += `Course: ${file.department}\n`;
         }
         if (file.organization) {
             content += `Organization: ${file.organization}\n`;
         }
         if (file.duration) {
             content += `Duration: ${file.duration}\n`;
+        }
+        if (file.note) {
+            content += `With: ${file.note}\n`;
         }
         if (file.date) {
             content += `Date: ${file.date}\n`;
