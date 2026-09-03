@@ -844,7 +844,7 @@ body.pv-active {
     line-height: 1.5;
     padding-left: 22px;
     text-indent: -22px;
-    margin-bottom: 14px;
+    margin-bottom: 26px;
 }
 
 .pv-pub .pv-pub-title {
@@ -1187,8 +1187,8 @@ body.pv-active {
 /* --- publication thumbnails (web view only) --- */
 .pv-pub.has-thumb {
     display: grid;
-    grid-template-columns: 1fr 128px;
-    gap: 20px;
+    grid-template-columns: 1fr 240px;
+    gap: 26px;
     align-items: start;
     padding-left: 0;
     text-indent: 0;
@@ -1197,8 +1197,8 @@ body.pv-active {
 .pv-pub.has-thumb .pv-pub-thumb {
     grid-column: 2;
     grid-row: 1;
-    width: 128px;
-    height: 80px;
+    width: 240px;
+    height: 150px;
     object-fit: cover;
     border-radius: 3px;
     border: 1px solid var(--pv-rule);
