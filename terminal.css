@@ -1361,3 +1361,34 @@ body.pv-active {
 .pv-life-full[hidden] {
     display: none;
 }
+
+/* A section heading that doubles as an expand/collapse control. */
+.pv-main h2.pv-h2-collapsible {
+    padding-bottom: 0;
+    border-bottom: none;
+}
+
+.pv-main h2.pv-h2-collapsible button {
+    display: block;
+    width: 100%;
+    padding: 0 0 10px;
+    border: none;
+    border-bottom: 1px solid var(--pv-rule);
+    background: none;
+    cursor: pointer;
+    text-align: left;
+    font: inherit;
+    letter-spacing: inherit;
+    text-transform: inherit;
+    color: inherit;
+    transition: color 0.15s;
+}
+
+.pv-main h2.pv-h2-collapsible button:hover {
+    color: var(--pv-accent);
+}
+
+.pv-main h2.pv-h2-collapsible .pv-caret {
+    margin-left: 6px;
+    font-family: var(--pv-mono);
+}

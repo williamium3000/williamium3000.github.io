@@ -380,11 +380,7 @@ function renderPlainLife() {
             + `</div>`;
     }).join('');
 
-    host.innerHTML = `<button class="pv-cv-toggle" id="pv-life-toggle" aria-expanded="false" aria-controls="pv-life-full">photos ↓</button>`
-        + `<div class="pv-life-full" id="pv-life-full" hidden>${body}</div>`;
-
-    const btn = document.getElementById('pv-life-toggle');
-    if (btn) btn.addEventListener('click', () => togglePlainLife());
+    host.innerHTML = `<div class="pv-life-full" id="pv-life-full" hidden>${body}</div>`;
 }
 
 // Show or hide the Beyond research photos. Returns the resulting state.
@@ -396,7 +392,8 @@ function togglePlainLife(force) {
     const expanded = btn.getAttribute('aria-expanded') === 'true';
     const next = typeof force === 'boolean' ? force : !expanded;
     btn.setAttribute('aria-expanded', String(next));
-    btn.textContent = next ? 'hide ↑' : 'photos ↓';
+    const caret = btn.querySelector('.pv-caret');
+    if (caret) caret.textContent = next ? '↑' : '↓';
     full.hidden = !next;
     return next;
 }
@@ -640,6 +637,10 @@ async function init() {
     });
 
     initScrollSpy();
+
+    // The "Beyond research" heading itself expands and collapses the section.
+    const lifeToggle = document.getElementById('pv-life-toggle');
+    if (lifeToggle) lifeToggle.addEventListener('click', () => togglePlainLife());
 
     // The sidebar "life" entry opens the section on the way there.
     const lifeLink = document.querySelector('.pv-nav[href="#pv-life"]');
