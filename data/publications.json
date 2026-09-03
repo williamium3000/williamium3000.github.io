@@ -34,6 +34,13 @@
       "links": "[Website] https://liu-hy.github.io/WMDD/ | [Paper] https://arxiv.org/pdf/2311.18531 | [Code] https://github.com/Liu-Hy/WMDD",
       "abstract": "Dataset distillation that matches the Wasserstein distance between the distilled and real data distributions."
     },
+    "(ICLR 2025) From Pixels to Tokens: Byte-Pair Encoding on Quantized Visual Modalities": {
+      "title": "From Pixels to Tokens: Byte-Pair Encoding on Quantized Visual Modalities",
+      "authors": "Wanpeng Zhang, Zilong Xie, Yicheng Feng, Yijiang Li, Xingrun Xing, Sipeng Zheng, Zongqing Lu",
+      "venue": "ICLR 2025",
+      "links": "[Paper] https://arxiv.org/abs/2410.02155 | [Code] https://github.com/BeingBeyond/being-vl-0",
+      "abstract": "A BPE image tokenizer that folds structural priors into image tokens, mirroring the tokenization used in text-only LLMs, and improves multi-modal understanding even with limited training data."
+    },
     "(ICCV 2023) Diverse Co-training Makes Strong Semi-supervised Segmentor": {
       "title": "Diverse Co-training Makes Strong Semi-supervised Segmentor",
       "authors": "Yijiang Li, Xinjiang Wang, Lihe Yang, Litong Feng, Wayne Zhang, Ying Gao",
