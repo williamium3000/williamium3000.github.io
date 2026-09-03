@@ -2,6 +2,36 @@
   "type": "directory",
   "description": "My research publications",
   "files": {
+    "(Preprint) On-Policy Self-Distillation without Any Supervision": {
+      "title": "On-Policy Self-Distillation without Any Supervision",
+      "authors": "Yijiang Li, Bingyang Wang, Yijun Liang, Yunjie Tian, Di Fu, Nuno Vasconcelos",
+      "venue": "arXiv preprint, 2026",
+      "links": "[Paper] https://arxiv.org/pdf/2608.06296"
+    },
+    "(Preprint) ThinkJEPA: Empowering Latent World Models with Large Vision-Language Reasoning Model": {
+      "title": "ThinkJEPA: Empowering Latent World Models with Large Vision-Language Reasoning Model",
+      "authors": "Haichao Zhang, Yijiang Li, Shwai He, Tushar Nagarajan, Mingfei Chen, Jianglin Lu, Ang Li, Yun Fu",
+      "venue": "arXiv preprint, 2026",
+      "links": "[Paper] https://arxiv.org/pdf/2603.22281"
+    },
+    "(ICML 2026) Vision Language Models Cannot Reason About Physical Transformation": {
+      "title": "Vision Language Models Cannot Reason About Physical Transformation",
+      "authors": "Dezhi Luo, Yijiang Li, Maijunxian Wang, Tianwei Zhao, Bingyang Wang, Siheng Wang, Pinyuan Feng, Pooyan Rahmanzadehgervi, Ziqiao Ma, Hokin Deng",
+      "venue": "ICML 2026",
+      "links": "[Paper] https://arxiv.org/pdf/2603.07109"
+    },
+    "(ICML 2026) A Very Big Video Reasoning Suite": {
+      "title": "A Very Big Video Reasoning Suite",
+      "authors": "Maijunxian Wang, Ruisi Wang, Juyi Lin, …, Vikash Kumar, Yijiang Li, Lei Yang, Zhongang Cai, Hokin Deng",
+      "venue": "ICML 2026",
+      "links": "[Paper] https://arxiv.org/pdf/2602.20159"
+    },
+    "(COLM 2026) CocoaBench: Evaluating Unified Digital Agents in the Wild": {
+      "title": "CocoaBench: Evaluating Unified Digital Agents in the Wild",
+      "authors": "CocoaBench Team",
+      "venue": "COLM 2026",
+      "links": "[Paper] https://arxiv.org/pdf/2604.11201"
+    },
     "(ICML 2026) Less is Enough: Synthesizing Diverse Data in Feature Space of LLMs": {
       "title": "Less is Enough: Synthesizing Diverse Data in Feature Space of LLMs",
       "authors": "Zhongzhi Li, Xuansheng Wu, Yijiang Li, Lijie Hu, Ninghao Liu",
