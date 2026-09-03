@@ -12,37 +12,37 @@
       "title": "Demystifying Agent Skills: Why They Work — Until They Don't",
       "authors": "Zhiyuan Jiang, Fangrui Huang, Hanwen Xing, Xander Wu, Yipeng Gao, Rui Cao, Mengdi Wang, Shilong Liu, Yijiang Li",
       "venue": "arXiv preprint, 2026",
-      "links": "[Paper] https://arxiv.org/pdf/2608.14036"
+      "links": "[Paper] https://arxiv.org/pdf/2608.14036 | [Code] https://github.com/zhiyuanjiang04/demystify-agent-skills"
     },
     "(Preprint) On-Policy Self-Distillation without Any Supervision": {
       "title": "On-Policy Self-Distillation without Any Supervision",
       "authors": "Yijiang Li, Bingyang Wang, Yijun Liang, Yunjie Tian, Di Fu, Nuno Vasconcelos",
       "venue": "arXiv preprint, 2026",
-      "links": "[Paper] https://arxiv.org/pdf/2608.06296"
+      "links": "[Paper] https://arxiv.org/pdf/2608.06296 | [Code] https://github.com/williamium3000/u-opsd"
     },
     "(Preprint) ThinkJEPA: Empowering Latent World Models with Large Vision-Language Reasoning Model": {
       "title": "ThinkJEPA: Empowering Latent World Models with Large Vision-Language Reasoning Model",
       "authors": "Haichao Zhang, Yijiang Li, Shwai He, Tushar Nagarajan, Mingfei Chen, Jianglin Lu, Ang Li, Yun Fu",
       "venue": "arXiv preprint, 2026",
-      "links": "[Paper] https://arxiv.org/pdf/2603.22281"
+      "links": "[Paper] https://arxiv.org/pdf/2603.22281 | [Code] https://github.com/Hai-chao-Zhang/ThinkJEPA"
     },
     "(ICML 2026) Vision Language Models Cannot Reason About Physical Transformation": {
       "title": "Vision Language Models Cannot Reason About Physical Transformation",
       "authors": "Dezhi Luo*, Yijiang Li*, Maijunxian Wang, Tianwei Zhao, Bingyang Wang, Siheng Wang, Pinyuan Feng, Pooyan Rahmanzadehgervi, Ziqiao Ma, Hokin Deng",
       "venue": "ICML 2026",
-      "links": "[Paper] https://arxiv.org/pdf/2603.07109"
+      "links": "[Paper] https://arxiv.org/pdf/2603.07109 | [OpenReview] https://openreview.net/forum?id=iTK8BZ8i3J"
     },
     "(ICML 2026) A Very Big Video Reasoning Suite": {
       "title": "A Very Big Video Reasoning Suite",
       "authors": "Maijunxian Wang, Ruisi Wang, Juyi Lin, …, Vikash Kumar, Yijiang Li, Lei Yang, Zhongang Cai, Hokin Deng",
       "venue": "ICML 2026",
-      "links": "[Paper] https://arxiv.org/pdf/2602.20159"
+      "links": "[Website] https://video-reason.com | [Paper] https://arxiv.org/pdf/2602.20159 | [Code] https://github.com/Video-Reason/VBVR-EvalKit"
     },
     "(COLM 2026) CocoaBench: Evaluating Unified Digital Agents in the Wild": {
       "title": "CocoaBench: Evaluating Unified Digital Agents in the Wild",
       "authors": "CocoaBench Team",
       "venue": "COLM 2026",
-      "links": "[Paper] https://arxiv.org/pdf/2604.11201"
+      "links": "[Website] https://cocoabench.github.io/ | [Paper] https://arxiv.org/pdf/2604.11201"
     },
     "(ICML 2026) Less is Enough: Synthesizing Diverse Data in Feature Space of LLMs": {
       "title": "Less is Enough: Synthesizing Diverse Data in Feature Space of LLMs",
@@ -55,7 +55,7 @@
       "title": "SkillsBench: Benchmarking How Well Agent Skills Work Across Diverse Tasks",
       "authors": "Xiangyi Li, Yimin Liu, Wenbo Chen, Bingran You, Zonglin Di, et al. (including Yijiang Li)",
       "venue": "arXiv preprint, 2026",
-      "links": "[Paper] https://arxiv.org/pdf/2602.12670",
+      "links": "[Website] https://www.skillsbench.ai/ | [Paper] https://arxiv.org/pdf/2602.12670 | [Code] https://github.com/benchflow-ai/skillsbench",
       "abstract": "A benchmark of 86 tasks across 11 domains, each paired with curated skills and deterministic verifiers, measuring how much agent skills actually help — and where they hurt."
     },
     "(ICML 2025) Core Knowledge Deficits in Multi-Modal Language Models": {
@@ -86,7 +86,7 @@
       "title": "Unified Multimodal Understanding via Byte-Pair Visual Encoding",
       "authors": "Wanpeng Zhang, Yicheng Feng, Hao Luo, Yijiang Li, Zihao Yue, Sipeng Zheng, Zongqing Lu",
       "venue": "ICCV 2025, Highlight",
-      "links": "[Paper] https://arxiv.org/abs/2506.23639 | [Code] https://github.com/BeingBeyond/Being-VL-0.5",
+      "links": "[Website] https://research.beingbeyond.com/being-vl05 | [Paper] https://arxiv.org/abs/2506.23639 | [Code] https://github.com/BeingBeyond/Being-VL-0.5",
       "abstract": "Applies byte-pair encoding to visual tokens with a priority-guided scheme over frequency and spatial consistency, so one transformer reasons over text and images without modality-specific encoders."
     },
     "(ICCV 2025) Dataset Distillation via the Wasserstein Metric": {
@@ -108,7 +108,7 @@
       "title": "From Pixels to Tokens: Byte-Pair Encoding on Quantized Visual Modalities",
       "authors": "Wanpeng Zhang, Zilong Xie, Yicheng Feng, Yijiang Li, Xingrun Xing, Sipeng Zheng, Zongqing Lu",
       "venue": "ICLR 2025",
-      "links": "[Paper] https://arxiv.org/abs/2410.02155 | [Code] https://github.com/BeingBeyond/being-vl-0",
+      "links": "[Website] https://research.beingbeyond.com/being-vl05 | [Paper] https://arxiv.org/abs/2410.02155 | [Code] https://github.com/BeingBeyond/being-vl-0",
       "abstract": "A BPE image tokenizer that folds structural priors into image tokens, mirroring the tokenization used in text-only LLMs, and improves multi-modal understanding even with limited training data."
     },
     "(ICCV 2023) Diverse Co-training Makes Strong Semi-supervised Segmentor": {
