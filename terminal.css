@@ -1331,3 +1331,10 @@ body.pv-active {
 .pv-block a.pv-subnav.open {
     color: var(--pv-accent);
 }
+
+.pv-pubs-note {
+    font-family: var(--pv-mono);
+    font-size: 12px;
+    color: var(--pv-soft);
+    margin: -6px 0 18px;
+}
