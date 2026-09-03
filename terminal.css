@@ -1134,22 +1134,6 @@ body.pv-active {
     margin: 22px 0 4px;
 }
 
-.pv-cv-pdf {
-    margin-top: 14px;
-    font-family: var(--pv-mono);
-    font-size: 12.5px;
-}
-
-.pv-cv-pdf a {
-    color: var(--pv-muted);
-    border-bottom: 1px dotted var(--pv-muted);
-}
-
-.pv-cv-pdf a:hover {
-    color: var(--pv-accent);
-    border-bottom-color: var(--pv-accent);
-}
-
 /* busuanzi reveals this once the count has loaded */
 #busuanzi_container_site_pv {
     display: none;

@@ -557,7 +557,6 @@ function renderPlainCV() {
         + group('teaching', byPrefix('teaching'))
         + group('service', byPrefix('service'))
         + group('community', byPrefix('activity'))
-        + `<div class="pv-cv-pdf"><a href="static/files/resume.pdf" target="_blank" rel="noopener">pdf cv ↗</a></div>`
         + `</div>`;
 
     host.innerHTML = html;
