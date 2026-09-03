@@ -242,15 +242,28 @@
                 }
             }
 
+            // ClustrMaps went dark; MapMyVisitors serves the same widget from the
+            // same map id. Try each in turn and hide the frame if none answers.
+            var GLOBE_ID = 'pi_aBfz8hTCBS3WHemYOzgxUrTI0ZhA9NxrqTe8uKw4';
+            var GLOBE_HOSTS = ['https://mapmyvisitors.com', 'https://clustrmaps.com'];
+
             function loadGlobe() {
                 var host = document.getElementById('pv-globe');
                 if (!host || document.getElementById('clstr_globe')) return;
-                var s = document.createElement('script');
-                s.id = 'clstr_globe';
-                s.type = 'text/javascript';
-                s.src = 'https://clustrmaps.com/globe.js?d=pi_aBfz8hTCBS3WHemYOzgxUrTI0ZhA9NxrqTe8uKw4';
-                s.onerror = function () { host.hidden = true; };
-                host.appendChild(s);
+                tryHost(0);
+
+                function tryHost(i) {
+                    if (i >= GLOBE_HOSTS.length) { host.hidden = true; return; }
+                    var s = document.createElement('script');
+                    s.id = 'clstr_globe';
+                    s.type = 'text/javascript';
+                    s.src = GLOBE_HOSTS[i] + '/globe.js?d=' + GLOBE_ID;
+                    s.onerror = function () {
+                        s.remove();
+                        tryHost(i + 1);
+                    };
+                    host.appendChild(s);
+                }
             }
         })();
     </script>
