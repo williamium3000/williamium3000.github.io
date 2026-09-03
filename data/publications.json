@@ -85,7 +85,7 @@
     "(ICCV 2025) Unified Multimodal Understanding via Byte-Pair Visual Encoding": {
       "title": "Unified Multimodal Understanding via Byte-Pair Visual Encoding",
       "authors": "Wanpeng Zhang, Yicheng Feng, Hao Luo, Yijiang Li, Zihao Yue, Sipeng Zheng, Zongqing Lu",
-      "venue": "ICCV 2025, Highlight",
+      "venue": "ICCV 2025, Highlight (top 9.7%)",
       "links": "[Website] https://research.beingbeyond.com/being-vl05 | [Paper] https://arxiv.org/abs/2506.23639 | [Code] https://github.com/BeingBeyond/Being-VL-0.5",
       "abstract": "Applies byte-pair encoding to visual tokens with a priority-guided scheme over frequency and spatial consistency, so one transformer reasons over text and images without modality-specific encoders."
     },
