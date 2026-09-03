@@ -1168,49 +1168,6 @@ body.pv-active {
     color: var(--pv-soft);
 }
 
-/* --- publication thumbnails (web view only) --- */
-.pv-pub.has-thumb {
-    display: grid;
-    grid-template-columns: 1fr 240px;
-    gap: 26px;
-    align-items: start;
-    padding-left: 0;
-    text-indent: 0;
-}
-
-.pv-pub.has-thumb .pv-pub-thumb {
-    grid-column: 2;
-    grid-row: 1;
-    width: 240px;
-    height: 150px;
-    object-fit: cover;
-    border-radius: 3px;
-    border: 1px solid var(--pv-rule);
-    background: var(--pv-rail-bg);
-    margin-top: 3px;
-    opacity: 0.92;
-    transition: opacity 0.15s;
-}
-
-.pv-pub.has-thumb:hover .pv-pub-thumb {
-    opacity: 1;
-}
-
-/* hanging indent lives on the text wrapper so the thumbnail can sit beside it */
-.pv-pub {
-    padding-left: 0;
-    text-indent: 0;
-}
-
-.pv-pub-text {
-    padding-left: 0;
-    text-indent: 0;
-}
-
-.pv-pub.has-thumb .pv-pub-text {
-    grid-column: 1;
-}
-
 /* --- beyond research --- */
 .pv-life {
     margin-bottom: 30px;
@@ -1295,18 +1252,6 @@ body.pv-active {
 }
 
 @media (max-width: 820px) {
-    .pv-pub.has-thumb {
-        grid-template-columns: 1fr;
-    }
-
-    .pv-pub.has-thumb .pv-pub-thumb {
-        grid-column: 1;
-        grid-row: auto;
-        width: 100%;
-        max-width: 280px;
-        height: auto;
-        aspect-ratio: 16 / 10;
-    }
 
 }
 

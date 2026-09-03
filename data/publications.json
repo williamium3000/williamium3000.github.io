@@ -8,8 +8,7 @@
       "venue": "ICML 2025",
       "theme": "multimodal",
       "links": "[Website] https://grow-ai-like-a-child.github.io/core-knowledge/ | [Paper] https://arxiv.org/pdf/2410.10855 | [Code] https://github.com/williamium3000/core-knowledge | [Dataset] https://huggingface.co/datasets/williamium/CoreCognition | [Slides] https://docs.google.com/presentation/d/1MNFMHPz2D6ih1PTWxgNwrKbSe-boHYyfFeCR5WJuDuE/edit?usp=sharing",
-      "abstract": "We evaluate multi-modal large language models on the core knowledge abilities that humans develop in infancy, and find systematic deficits that scale does not close.",
-      "image": "images/core-knowledge.png"
+      "abstract": "We evaluate multi-modal large language models on the core knowledge abilities that humans develop in infancy, and find systematic deficits that scale does not close."
     },
     "(ICML 2025) EgoPrivacy: What Your First-Person Camera Says About You": {
       "title": "EgoPrivacy: What Your First-Person Camera Says About You",
@@ -17,8 +16,7 @@
       "venue": "ICML 2025",
       "theme": "multimodal",
       "links": "[Website] https://williamium3000.github.io/ego-privacy/ | [Paper] https://arxiv.org/abs/2506.12258 | [Code] https://github.com/williamium3000/ego-privacy",
-      "abstract": "A benchmark and study of how much private information about the camera wearer can be inferred from first-person video.",
-      "image": "images/egoprivacy.jpg"
+      "abstract": "A benchmark and study of how much private information about the camera wearer can be inferred from first-person video."
     },
     "(ICCV 2025) VideoOrion: Tokenizing Object Dynamics in Videos": {
       "title": "VideoOrion: Tokenizing Object Dynamics in Videos",
@@ -26,8 +24,7 @@
       "venue": "ICCV 2025",
       "theme": "multimodal",
       "links": "[Paper] https://arxiv.org/pdf/2411.16156 | [Slides] https://docs.google.com/presentation/d/1Pcx-1gngTLzggKqh7GglGM4o6idEbRjR9Yc2N9BJgHE/edit?usp=sharing",
-      "abstract": "A video large language model that tokenizes object-level dynamics so that the model can reason about what each object does over time.",
-      "image": "images/videorion.png"
+      "abstract": "A video large language model that tokenizes object-level dynamics so that the model can reason about what each object does over time."
     },
     "(ICCV 2025) Dataset Distillation via the Wasserstein Metric": {
       "title": "Dataset Distillation via the Wasserstein Metric",
@@ -35,8 +32,7 @@
       "venue": "ICCV 2025",
       "theme": "efficient",
       "links": "[Website] https://liu-hy.github.io/WMDD/ | [Paper] https://arxiv.org/pdf/2311.18531 | [Code] https://github.com/Liu-Hy/WMDD",
-      "abstract": "Dataset distillation that matches the Wasserstein distance between the distilled and real data distributions.",
-      "image": "images/dd_ot.png"
+      "abstract": "Dataset distillation that matches the Wasserstein distance between the distilled and real data distributions."
     },
     "(ICCV 2023) Diverse Co-training Makes Strong Semi-supervised Segmentor": {
       "title": "Diverse Co-training Makes Strong Semi-supervised Segmentor",
@@ -44,8 +40,7 @@
       "venue": "ICCV 2023",
       "theme": "efficient",
       "links": "[Website] https://williamium3000.github.io/diverse-cotraining/ | [Paper] https://arxiv.org/pdf/2308.09281 | [Code] https://github.com/williamium3000/diverse-cotraining | [Poster] static/files/_ICCV2023_Diverse_cotraining.pdf",
-      "abstract": "Revisits co-training for semi-supervised semantic segmentation and shows that diversity between the co-trained models, not architectural tricks, is what makes it work.",
-      "image": "images/diverse_cotraining.png"
+      "abstract": "Revisits co-training for semi-supervised semantic segmentation and shows that diversity between the co-trained models, not architectural tricks, is what makes it work."
     },
     "(CVPR 2023, Highlight) Consistent-Teacher: Towards Reducing Inconsistent Pseudo-targets in Semi-supervised Object Detection": {
       "title": "Consistent-Teacher: Towards Reducing Inconsistent Pseudo-targets in Semi-supervised Object Detection",
@@ -53,8 +48,7 @@
       "venue": "CVPR 2023, Highlight (top 2.5%)",
       "theme": "efficient",
       "links": "[Website] https://adamdad.github.io/consistentteacher | [Paper] https://openaccess.thecvf.com/content/CVPR2023/papers/Wang_Consistent-Teacher_Towards_Reducing_Inconsistent_Pseudo-Targets_in_Semi-Supervised_Object_Detection_CVPR_2023_paper.pdf | [Code] https://github.com/Adamdad/ConsistentTeacher",
-      "abstract": "Identifies inconsistent pseudo-targets as the core problem in semi-supervised object detection and fixes it with adaptive anchor assignment, a feature alignment module and a Gaussian mixture threshold.",
-      "image": "images/consistent_teacher.png"
+      "abstract": "Identifies inconsistent pseudo-targets as the core problem in semi-supervised object detection and fixes it with adaptive anchor assignment, a feature alignment module and a Gaussian mixture threshold."
     },
     "(ICCV 2023) Multi-metrics Adaptively Identifies Backdoors in Federated Learning": {
       "title": "Multi-metrics Adaptively Identifies Backdoors in Federated Learning",
@@ -62,8 +56,7 @@
       "venue": "ICCV 2023",
       "theme": "robust",
       "links": "[Website] https://siquanhuang.github.io/Multi-metrics/ | [Paper] https://arxiv.org/pdf/2303.06601 | [Code] https://github.com/siquanhuang/Multi-metrics | [Poster] static/files/_ICCV2023_Multi_metrics.pdf",
-      "abstract": "A defense that adaptively combines multiple distance metrics to detect backdoored client updates in federated learning.",
-      "image": "images/multi_metrics.png"
+      "abstract": "A defense that adaptively combines multiple distance metrics to detect backdoored client updates in federated learning."
     },
     "(BIBM 2022) More than Encoder: Introducing Transformer Decoder to Upsample": {
       "title": "More than Encoder: Introducing Transformer Decoder to Upsample",
@@ -71,8 +64,7 @@
       "venue": "IEEE BIBM 2022",
       "theme": "earlier",
       "links": "[Paper] https://arxiv.org/pdf/2106.10637",
-      "abstract": "Brings the transformer decoder into the upsampling path of medical image segmentation networks.",
-      "image": "images/more_than_decoder.png"
+      "abstract": "Brings the transformer decoder into the upsampling path of medical image segmentation networks."
     }
   }
 }

@@ -517,9 +517,6 @@ function initScrollSpy() {
     sections.forEach(s => observer.observe(s));
 }
 
-// Flip to true to show the figure alongside each publication.
-const PV_PUB_THUMBNAILS = false;
-
 function renderPlainPubs() {
     const host = document.getElementById('pv-pubs-body');
     if (!host) return;
@@ -528,17 +525,11 @@ function renderPlainPubs() {
 
     host.innerHTML = Object.values(pubs).map(pub => {
         const links = pvParseLinks(pub.links);
-        const thumb = PV_PUB_THUMBNAILS && pub.image
-            ? `<img class="pv-pub-thumb" src="${pvEscapeAttr(pub.image)}" alt="" loading="lazy">`
-            : '';
-        return `<div class="pv-pub${thumb ? ' has-thumb' : ''}">`
-            + `<div class="pv-pub-text">`
+        return `<div class="pv-pub">`
             + `<span class="pv-pub-title">${pvEscape(pub.title)}.</span> `
             + `<span class="pv-pub-authors">${pvEscape(pub.authors)}.</span> `
             + `<span class="pv-pub-venue">${pvEscape(pub.venue)}.</span> `
             + `<span class="pv-pub-links">${links}</span>`
-            + `</div>`
-            + thumb
             + `</div>`;
     }).join('');
 }
