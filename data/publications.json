@@ -99,7 +99,7 @@
     },
     "(CVPR 2025) Robust-MVTON: Learning Cross-Pose Feature Alignment and Fusion for Robust Multi-View Virtual Try-On": {
       "title": "Robust-MVTON: Learning Cross-Pose Feature Alignment and Fusion for Robust Multi-View Virtual Try-On",
-      "authors": "Nannan Zhang, Yijiang Li, Dong Du, Zheng Chong, Zhengwentai Sun, Jianhao Zeng, Yusheng Dai, Zhengyu Xie, Hairui Zhu, Xiaoguang Han",
+      "authors": "Nannan Zhang*, Yijiang Li*, Dong Du, Zheng Chong, Zhengwentai Sun, Jianhao Zeng, Yusheng Dai, Zhengyu Xie, Hairui Zhu, Xiaoguang Han",
       "venue": "CVPR 2025",
       "links": "[Paper] https://openaccess.thecvf.com/content/CVPR2025/papers/Zhang_Robust-MVTON_Learning_Cross-Pose_Feature_Alignment_and_Fusion_for_Robust_Multi-View_CVPR_2025_paper.pdf",
       "abstract": "An end-to-end method for multi-view virtual try-on: a cross-pose feature alignment module fuses front- and back-view clothing features, which a coarse-to-fine latent diffusion model turns into try-on results for any target view."
