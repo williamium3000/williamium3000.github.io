@@ -1353,3 +1353,11 @@ body.pv-active {
     display: block;
     margin-top: 3px;
 }
+
+.pv-life-full {
+    margin-top: 16px;
+}
+
+.pv-life-full[hidden] {
+    display: none;
+}

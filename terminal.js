@@ -367,7 +367,7 @@ function renderPlainLife() {
     const items = content.life && content.life.files;
     if (!items) return;
 
-    host.innerHTML = Object.values(items).map(item => {
+    const body = Object.values(items).map(item => {
         const photos = (item.images || []).map((src, i) => {
             const cap = (item.captions || [])[i] || item.title;
             return `<figure class="pv-life-photo"><img src="${pvEscapeAttr(src)}" alt="${pvEscapeAttr(cap)}" loading="lazy">`
@@ -379,6 +379,26 @@ function renderPlainLife() {
             + (photos ? `<div class="pv-life-photos">${photos}</div>` : '')
             + `</div>`;
     }).join('');
+
+    host.innerHTML = `<button class="pv-cv-toggle" id="pv-life-toggle" aria-expanded="false" aria-controls="pv-life-full">photos ↓</button>`
+        + `<div class="pv-life-full" id="pv-life-full" hidden>${body}</div>`;
+
+    const btn = document.getElementById('pv-life-toggle');
+    if (btn) btn.addEventListener('click', () => togglePlainLife());
+}
+
+// Show or hide the Beyond research photos. Returns the resulting state.
+function togglePlainLife(force) {
+    const btn = document.getElementById('pv-life-toggle');
+    const full = document.getElementById('pv-life-full');
+    if (!btn || !full) return false;
+
+    const expanded = btn.getAttribute('aria-expanded') === 'true';
+    const next = typeof force === 'boolean' ? force : !expanded;
+    btn.setAttribute('aria-expanded', String(next));
+    btn.textContent = next ? 'hide ↑' : 'photos ↓';
+    full.hidden = !next;
+    return next;
 }
 
 const PV_NEWS_VISIBLE = 6;
@@ -620,6 +640,10 @@ async function init() {
     });
 
     initScrollSpy();
+
+    // The sidebar "life" entry opens the section on the way there.
+    const lifeLink = document.querySelector('.pv-nav[href="#pv-life"]');
+    if (lifeLink) lifeLink.addEventListener('click', () => togglePlainLife(true));
 
     // Sidebar "bio" entry opens and closes the extended bio.
     const bioLink = document.getElementById('pv-bio-link');
