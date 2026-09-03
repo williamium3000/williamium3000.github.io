@@ -38,15 +38,6 @@
       "abstract": "Dataset distillation that matches the Wasserstein distance between the distilled and real data distributions.",
       "image": "images/dd_ot.png"
     },
-    "(AAAI 2025) Towards Adversarially Robust Dataset Distillation by Curvature Regularization": {
-      "title": "Towards Adversarially Robust Dataset Distillation by Curvature Regularization",
-      "authors": "Eric Xue, Yijiang Li, Haoyang Liu, Peiran Wang, Yifan Shen, Haohan Wang",
-      "venue": "AAAI 2025",
-      "theme": "efficient",
-      "image": "images/robust_dd.png",
-      "links": "[Paper] https://arxiv.org/pdf/2403.10045 | [Code] https://github.com/yumozi/GUARD",
-      "abstract": "Regularizes the curvature of the loss landscape during dataset distillation so that models trained on the distilled data inherit adversarial robustness."
-    },
     "(ICCV 2023) Diverse Co-training Makes Strong Semi-supervised Segmentor": {
       "title": "Diverse Co-training Makes Strong Semi-supervised Segmentor",
       "authors": "Yijiang Li, Xinjiang Wang, Lihe Yang, Litong Feng, Wayne Zhang, Ying Gao",
