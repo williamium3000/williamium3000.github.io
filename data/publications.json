@@ -65,15 +65,6 @@
       "abstract": "Identifies inconsistent pseudo-targets as the core problem in semi-supervised object detection and fixes it with adaptive anchor assignment, a feature alignment module and a Gaussian mixture threshold.",
       "image": "images/consistent_teacher.png"
     },
-    "(TMLR) Towards Understanding Adversarial Transferability in Federated Learning": {
-      "title": "Towards Understanding Adversarial Transferability in Federated Learning",
-      "authors": "Yijiang Li, Ying Gao, Haohan Wang",
-      "venue": "Transactions on Machine Learning Research",
-      "theme": "robust",
-      "links": "[Paper] https://openreview.net/pdf?id=hafnY2PiTn | [OpenReview] https://openreview.net/forum?id=hafnY2PiTn",
-      "abstract": "Studies a realistic threat model where a malicious client leaves the federation and crafts transferable adversarial examples against the final global model.",
-      "image": "images/adv_fed.png"
-    },
     "(ICCV 2023) Multi-metrics Adaptively Identifies Backdoors in Federated Learning": {
       "title": "Multi-metrics Adaptively Identifies Backdoors in Federated Learning",
       "authors": "Siquan Huang, Yijiang Li, Chong Chen, Leyu Shi, Ying Gao",
