@@ -52,6 +52,29 @@
       "duration": "Jun 2020 - Sep 2020",
       "description": "Large-scale public sentiment analysis and risk control."
     },
+    "teaching0a.txt": {
+      "title": "Teaching Assistant",
+      "department": "ECE 171A Linear Control System Theory",
+      "department_link": "https://natanaso.github.io/ece171a/",
+      "organization": "University of California San Diego",
+      "note": "[Prof. Nikolay Atanasov](https://natanaso.github.io/)",
+      "duration": "Spring 2026"
+    },
+    "teaching0b.txt": {
+      "title": "Teaching Assistant",
+      "department": "ECE 271A Statistical Learning I",
+      "department_link": "https://www.svcl.ucsd.edu/courses/ece271A/ece271A.htm",
+      "organization": "University of California San Diego",
+      "note": "Prof. Nuno Vasconcelos",
+      "duration": "Fall 2025"
+    },
+    "teaching0c.txt": {
+      "title": "Teaching Assistant",
+      "department": "ECE 271B Statistical Learning II",
+      "organization": "University of California San Diego",
+      "note": "Prof. Manuela Vasconcelos",
+      "duration": "Spring 2025"
+    },
     "teaching1.txt": {
       "title": "Teaching Assistant",
       "organization": "Johns Hopkins University",
