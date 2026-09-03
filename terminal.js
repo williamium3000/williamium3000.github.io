@@ -571,7 +571,7 @@ function renderPlainCV() {
         : '';
 
     let html = education.map(renderRow).join('');
-    html += `<button class="pv-cv-toggle" id="pv-cv-toggle" aria-expanded="false">full cv ↓</button>`;
+    html += `<button class="pv-cv-toggle" id="pv-cv-toggle" aria-expanded="false">full ↓</button>`;
     html += `<div class="pv-cv-full" id="pv-cv-full" hidden>`
         + group('experience', byPrefix('position'))
         + group('teaching', byPrefix('teaching'))
@@ -586,7 +586,7 @@ function renderPlainCV() {
         const full = document.getElementById('pv-cv-full');
         const expanded = btn.getAttribute('aria-expanded') === 'true';
         btn.setAttribute('aria-expanded', String(!expanded));
-        btn.textContent = expanded ? 'full cv ↓' : 'hide ↑';
+        btn.textContent = expanded ? 'full ↓' : 'hide ↑';
         full.hidden = expanded;
     });
 }
