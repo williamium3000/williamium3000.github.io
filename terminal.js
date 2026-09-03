@@ -1,0 +1,1263 @@
+// Terminal Emulator for Personal Website
+// Author: Abe Hou (template) — adapted for William Yijiang Li
+
+// Content Data Structure (loaded from JSON)
+let content = {};
+let dataLoaded = false;
+
+// Terminal State
+let currentDirectory = '~';
+let commandHistory = [];
+let historyIndex = -1;
+
+// Interactive list state
+let interactiveMode = false;
+let interactiveList = [];
+let selectedIndex = 0;
+let interactiveType = ''; // 'publications', 'experiences', 'blog'
+
+// View State
+let currentView = 'plain'; // 'terminal' or 'plain'
+let currentTheme = 'light'; // 'dark' or 'light'
+
+// DOM Elements
+const terminalOutput = document.getElementById('terminal-output');
+const terminalInput = document.getElementById('terminal-input');
+const vimViewer = document.getElementById('vim-viewer');
+const vimContent = document.getElementById('vim-content');
+const terminalView = document.getElementById('terminal-view');
+const plainView = document.getElementById('plain-view');
+
+// Detect mobile device
+function isMobile() {
+    return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || window.innerWidth <= 768;
+}
+
+// Initialize view based on device and localStorage
+function initializeView() {
+    // Load preferences from localStorage
+    const savedView = localStorage.getItem('preferredView');
+    const savedTheme = localStorage.getItem('preferredTheme');
+    
+    // Set theme - default is light
+    if (savedTheme) {
+        currentTheme = savedTheme;
+    }
+    if (currentTheme === 'light') {
+        document.body.classList.add('light-mode');
+        const themeBtn = document.getElementById('theme-toggle');
+        themeBtn.querySelector('.icon').textContent = '🌙';
+        themeBtn.querySelector('.label').textContent = 'Dark';
+        const themeBtnTerminal = document.getElementById('theme-toggle-terminal');
+        themeBtnTerminal.querySelector('.icon').textContent = '🌙';
+        themeBtnTerminal.querySelector('.label').textContent = 'Dark';
+    }
+    
+    // Set view - default to plain (web) view unless user has saved preference for terminal
+    if (savedView) {
+        currentView = savedView;
+    }
+    
+    // Apply view
+    if (currentView === 'plain') {
+        switchToPlainView();
+    } else {
+        switchToTerminalView();
+    }
+    
+    // Update toggle icon
+    updateViewToggleIcon();
+}
+
+// Toggle theme
+function toggleTheme() {
+    currentTheme = currentTheme === 'dark' ? 'light' : 'dark';
+    document.body.classList.toggle('light-mode');
+    
+    // Update plain view button
+    const themeBtn = document.getElementById('theme-toggle');
+    const themeIcon = themeBtn.querySelector('.icon');
+    const themeLabel = themeBtn.querySelector('.label');
+    
+    // Update terminal view button
+    const themeBtnTerminal = document.getElementById('theme-toggle-terminal');
+    const themeIconTerminal = themeBtnTerminal.querySelector('.icon');
+    const themeLabelTerminal = themeBtnTerminal.querySelector('.label');
+    
+    if (currentTheme === 'dark') {
+        themeIcon.textContent = '☀️';
+        themeLabel.textContent = 'Light';
+        themeIconTerminal.textContent = '☀️';
+        themeLabelTerminal.textContent = 'Light';
+    } else {
+        themeIcon.textContent = '🌙';
+        themeLabel.textContent = 'Dark';
+        themeIconTerminal.textContent = '🌙';
+        themeLabelTerminal.textContent = 'Dark';
+    }
+    
+    localStorage.setItem('preferredTheme', currentTheme);
+}
+
+// Toggle view
+function toggleView() {
+    currentView = currentView === 'terminal' ? 'plain' : 'terminal';
+    
+    if (currentView === 'plain') {
+        switchToPlainView();
+    } else {
+        switchToTerminalView();
+    }
+    
+    localStorage.setItem('preferredView', currentView);
+    updateViewToggleIcon();
+}
+
+function updateViewToggleIcon() {
+    // Update plain view button
+    const viewBtn = document.getElementById('view-toggle');
+    const viewIcon = viewBtn.querySelector('.icon');
+    const viewLabel = viewBtn.querySelector('.label');
+    
+    // Update terminal view button
+    const viewBtnTerminal = document.getElementById('view-toggle-terminal');
+    const viewIconTerminal = viewBtnTerminal.querySelector('.icon');
+    const viewLabelTerminal = viewBtnTerminal.querySelector('.label');
+    
+    if (currentView === 'terminal') {
+        viewIcon.textContent = '📄';
+        viewLabel.textContent = 'Web';
+        viewIconTerminal.textContent = '📄';
+        viewLabelTerminal.textContent = 'Web';
+    } else {
+        viewIcon.textContent = '💻';
+        viewLabel.textContent = 'Terminal';
+        viewIconTerminal.textContent = '💻';
+        viewLabelTerminal.textContent = 'Terminal';
+    }
+}
+
+function switchToPlainView() {
+    terminalView.classList.add('hidden');
+    plainView.classList.add('active');
+    document.body.classList.add('pv-active');
+    if (vimViewer) {
+        vimViewer.classList.add('hidden');
+    }
+    renderPlainView();
+}
+
+function switchToTerminalView() {
+    terminalView.classList.remove('hidden');
+    plainView.classList.remove('active');
+    document.body.classList.remove('pv-active');
+    if (terminalInput) {
+        terminalInput.focus();
+    }
+}
+
+// Load JSON data
+async function loadData() {
+    try {
+        const dataFiles = ['me', 'publications', 'experiences', 'news', 'life', 'blog'];
+        const promises = dataFiles.map(file => 
+            fetch(`data/${file}.json`, { cache: 'no-cache' })
+                .then(response => response.json())
+                .then(data => ({ name: file, data }))
+        );
+        
+        const results = await Promise.all(promises);
+        results.forEach(({ name, data }) => {
+            content[name] = data;
+        });
+        
+        // Generate dynamic summaries for directories
+        generateSummaries();
+        
+        dataLoaded = true;
+        return true;
+    } catch (error) {
+        console.error('Error loading data:', error);
+        addOutput('Error loading content data. Please check console.', 'error');
+        return false;
+    }
+}
+
+// Generate dynamic summaries for directory views
+function generateSummaries() {
+    // Generate publications summary
+    if (content.publications && content.publications.files) {
+        let summary = `
+╔═══════════════════════════════════════════════════════════════╗
+║                        PUBLICATIONS                           ║
+╚═══════════════════════════════════════════════════════════════╝
+
+Available papers:
+`;
+        Object.entries(content.publications.files).forEach(([filename, fileData]) => {
+            summary += `  • ${filename}\n\n ${fileData.authors}\n`;
+        });
+        summary += `\nUse 'view <filename>' to read a paper in detail.\nFor example: view ${Object.keys(content.publications.files)[0]}\n`;
+        content.publications.summary = summary;
+    }
+
+    // Generate experiences summary
+    if (content.experiences && content.experiences.files) {
+        let summary = `
+╔═══════════════════════════════════════════════════════════════╗
+║                         EXPERIENCES                           ║
+╚═══════════════════════════════════════════════════════════════╝
+
+`;
+        const files = Object.entries(content.experiences.files);
+        const positions = files.filter(([name]) => name.startsWith('position'));
+        const education = files.filter(([name]) => name.startsWith('education'));
+        
+        if (positions.length > 0) {
+            summary += `WORK EXPERIENCE:\n`;
+            positions.forEach(([filename, fileData]) => {
+                summary += `  • ${filename} - ${fileData.title}\n`;
+            });
+            summary += '\n';
+        }
+        
+        if (education.length > 0) {
+            summary += `EDUCATION:\n`;
+            education.forEach(([filename, fileData]) => {
+                const shortOrg = fileData.organization.split(' ').slice(0, 2).join(' ');
+                summary += `  • ${filename} - ${fileData.title} (${shortOrg})\n`;
+            });
+        }
+        
+        summary += `\nUse 'view <filename>' to read more details.\nFor example: view ${Object.keys(content.experiences.files)[0]}\n`;
+        content.experiences.summary = summary;
+    }
+
+    // Generate news summary
+    if (content.news && content.news.files) {
+        let summary = `
+╔═══════════════════════════════════════════════════════════════╗
+║                            NEWS                               ║
+╚═══════════════════════════════════════════════════════════════╝
+
+`;
+        Object.entries(content.news.files).forEach(([filename, fileData]) => {
+            summary += `  ${fileData.date}  ${fileData.title}\n`;
+        });
+        summary += `\nUse 'view <filename>' to read an item.\nFor example: view ${Object.keys(content.news.files)[0]}\n`;
+        content.news.summary = summary;
+    }
+
+    // Generate life summary
+    if (content.life && content.life.files) {
+        let summary = `
+╔═══════════════════════════════════════════════════════════════╗
+║                        BEYOND RESEARCH                        ║
+╚═══════════════════════════════════════════════════════════════╝
+
+`;
+        Object.entries(content.life.files).forEach(([filename, fileData]) => {
+            summary += `  • ${filename} - ${fileData.title}\n`;
+        });
+        summary += `\nUse 'view <filename>' to read more.\n`;
+        content.life.summary = summary;
+    }
+
+    // Generate blog summary
+    if (content.blog && content.blog.files) {
+        let summary = `
+╔═══════════════════════════════════════════════════════════════╗
+║                            BLOG                               ║
+╚═══════════════════════════════════════════════════════════════╝
+
+Recent posts:
+`;
+        Object.entries(content.blog.files).forEach(([filename, fileData]) => {
+            summary += `  • ${filename} - ${fileData.title} (${fileData.date})\n`;
+        });
+        summary += `\nUse 'view <filename>' to read a post.\nFor example: view ${Object.keys(content.blog.files)[0]}\n`;
+        content.blog.summary = summary;
+    }
+}
+
+// --- Plain View Renderer ---
+
+function pvEscape(s) {
+    if (s == null) return '';
+    return String(s)
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;');
+}
+
+function pvEscapeAttr(s) {
+    return pvEscape(s).replace(/"/g, '&quot;');
+}
+
+function pvParseLinks(linksStr) {
+    if (!linksStr) return '';
+    return linksStr
+        .split('|')
+        .map(link => {
+            const m = link.trim().match(/\[(.*?)\]\s*(.*)/);
+            if (!m) return '';
+            const [, label, url] = m;
+            const trimmed = url.trim();
+            if (!trimmed || trimmed === '#') return '';
+            return `<a href="${pvEscapeAttr(trimmed)}" target="_blank">${pvEscape(label.toLowerCase())}</a>`;
+        })
+        .filter(Boolean)
+        .join('');
+}
+
+function pvRenderInlineMarkdown(s) {
+    return pvEscape(s)
+        .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
+        .replace(/\[([^\]]+)\]\((https?:[^)\s]+)\)/g, '<a href="$2" target="_blank" rel="noopener">$1</a>');
+}
+
+function pvExtractIntroParagraphs(raw) {
+    if (!raw) return [];
+    const beforeContact = raw.split('CONTACT & SOCIAL')[0] || raw;
+    return beforeContact
+        .split(/\n\s*\n/)
+        .map(paragraph => paragraph.trim())
+        .filter(paragraph => paragraph)
+        .filter(paragraph => !/[═─]/.test(paragraph));
+}
+
+function pvRenderAboutBlock(block) {
+    const lines = block
+        .split('\n')
+        .map(line => line.trim())
+        .filter(Boolean);
+    const firstListIndex = lines.findIndex(line => /^\d+\.\s+/.test(line));
+
+    if (firstListIndex === -1) {
+        const paragraph = lines.join(' ');
+        const className = paragraph.includes('**') ? ' class="pv-lede"' : '';
+        return `<p${className}>${pvRenderInlineMarkdown(paragraph)}</p>`;
+    }
+
+    const beforeList = lines.slice(0, firstListIndex).join(' ');
+    const items = lines
+        .slice(firstListIndex)
+        .map(line => line.match(/^\d+\.\s+(.+)$/))
+        .filter(Boolean)
+        .map(([, item]) => `<li>${pvRenderInlineMarkdown(item)}</li>`)
+        .join('');
+
+    const intro = beforeList
+        ? `<p class="pv-lede">${pvRenderInlineMarkdown(beforeList)}</p>`
+        : '';
+    return `${intro}<ol class="pv-about-list">${items}</ol>`;
+}
+
+function renderPlainView() {
+    renderPlainAbout();
+    renderPlainNews();
+    renderPlainPubs();
+    renderPlainCV();
+    renderPlainLife();
+}
+
+function renderPlainLife() {
+    const host = document.getElementById('pv-life-body');
+    if (!host) return;
+    const items = content.life && content.life.files;
+    if (!items) return;
+
+    const body = Object.values(items).map(item => {
+        const photos = (item.images || []).map((src, i) => {
+            const cap = (item.captions || [])[i] || item.title;
+            return `<figure class="pv-life-photo"><img src="${pvEscapeAttr(src)}" alt="${pvEscapeAttr(cap)}" loading="lazy">`
+                 + `<figcaption>${pvEscape(cap)}</figcaption></figure>`;
+        }).join('');
+        return `<div class="pv-life">`
+            + `<div class="pv-life-title">${pvEscape(item.title)}</div>`
+            + `<p class="pv-life-text">${pvRenderInlineMarkdown(item.content)}</p>`
+            + (photos ? `<div class="pv-life-photos">${photos}</div>` : '')
+            + `</div>`;
+    }).join('');
+
+    host.innerHTML = `<div class="pv-life-full" id="pv-life-full" hidden>${body}</div>`;
+}
+
+// Show or hide the Beyond research photos. Returns the resulting state.
+function togglePlainLife(force) {
+    const btn = document.getElementById('pv-life-toggle');
+    const full = document.getElementById('pv-life-full');
+    if (!btn || !full) return false;
+
+    const expanded = btn.getAttribute('aria-expanded') === 'true';
+    const next = typeof force === 'boolean' ? force : !expanded;
+    btn.setAttribute('aria-expanded', String(next));
+    const caret = btn.querySelector('.pv-caret');
+    if (caret) caret.textContent = next ? '↑' : '↓';
+    full.hidden = !next;
+    return next;
+}
+
+const PV_NEWS_VISIBLE = 6;
+
+function pvLinkifyBare(s) {
+    // turn bare URLs in plain text into links
+    return pvEscape(s).replace(/(https?:\/\/[^\s)]+)/g, '<a href="$1" target="_blank" rel="noopener">$1</a>');
+}
+
+function renderPlainNews() {
+    const host = document.getElementById('pv-news-body');
+    if (!host) return;
+    const items = content.news && content.news.files;
+    if (!items) return;
+
+    const entries = Object.values(items);
+    const row = (n, hidden) =>
+        `<div class="pv-news-row"${hidden ? ' hidden data-extra' : ''}>`
+        + `<div class="pv-when">${pvEscape(n.date)}</div>`
+        + `<div class="pv-what">${pvRenderInlineMarkdown(n.title)}</div>`
+        + `</div>`;
+
+    let html = entries.map((n, i) => row(n, i >= PV_NEWS_VISIBLE)).join('');
+    if (entries.length > PV_NEWS_VISIBLE) {
+        html += `<button class="pv-cv-toggle" id="pv-news-toggle" aria-expanded="false">all news ↓</button>`;
+    }
+    host.innerHTML = html;
+
+    const btn = document.getElementById('pv-news-toggle');
+    if (btn) {
+        btn.addEventListener('click', () => {
+            const expanded = btn.getAttribute('aria-expanded') === 'true';
+            btn.setAttribute('aria-expanded', String(!expanded));
+            btn.textContent = expanded ? 'all news ↓' : 'fewer ↑';
+            host.querySelectorAll('[data-extra]').forEach(el => { el.hidden = expanded; });
+        });
+    }
+}
+
+// Everything from this paragraph on is the extended bio, collapsed by default.
+const PV_BIO_SPLIT = 'I earned my M.S.E.';
+
+function renderPlainAbout() {
+    const host = document.getElementById('pv-about-body');
+    if (!host || !content.me || !content.me.content) return;
+
+    const paragraphs = pvExtractIntroParagraphs(content.me.content);
+    const splitAt = paragraphs.findIndex(p => p.trim().startsWith(PV_BIO_SPLIT));
+    const head = splitAt === -1 ? paragraphs : paragraphs.slice(0, splitAt);
+    const rest = splitAt === -1 ? [] : paragraphs.slice(splitAt);
+
+    let html = head.map(pvRenderAboutBlock).join('');
+    if (rest.length) {
+        html += `<button class="pv-cv-toggle" id="pv-bio-toggle" aria-expanded="false" aria-controls="pv-bio-full">bio ↓</button>`;
+        html += `<div class="pv-bio-full" id="pv-bio-full" hidden>${rest.map(pvRenderAboutBlock).join('')}</div>`;
+    }
+    host.innerHTML = html;
+
+    const btn = document.getElementById('pv-bio-toggle');
+    if (btn) btn.addEventListener('click', () => togglePlainBio());
+}
+
+// Show or hide the extended bio. Returns the resulting state.
+function togglePlainBio(force) {
+    const btn = document.getElementById('pv-bio-toggle');
+    const full = document.getElementById('pv-bio-full');
+    if (!btn || !full) return false;
+
+    const expanded = btn.getAttribute('aria-expanded') === 'true';
+    const next = typeof force === 'boolean' ? force : !expanded;
+    btn.setAttribute('aria-expanded', String(next));
+    btn.textContent = next ? 'bio ↑' : 'bio ↓';
+    full.hidden = !next;
+
+    const link = document.getElementById('pv-bio-link');
+    if (link) link.classList.toggle('open', next);
+    return next;
+}
+
+// Highlight the sidebar nav entry whose section is currently in view.
+function initScrollSpy() {
+    const sections = Array.from(document.querySelectorAll('.pv-main section[id]'));
+    if (sections.length === 0) return;
+
+    const navById = {};
+    document.querySelectorAll('.pv-nav').forEach(link => {
+        const id = link.getAttribute('href') || '';
+        if (id.startsWith('#')) navById[id.slice(1)] = link;
+    });
+
+    const setCurrent = id => {
+        Object.entries(navById).forEach(([navId, link]) => {
+            link.classList.toggle('current', navId === id);
+        });
+    };
+
+    const visible = new Map();
+    const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                visible.set(entry.target.id, entry.intersectionRatio);
+            } else {
+                visible.delete(entry.target.id);
+            }
+        });
+        if (visible.size === 0) return;
+        let bestId = null;
+        let bestRatio = -1;
+        visible.forEach((ratio, id) => {
+            if (ratio > bestRatio) { bestRatio = ratio; bestId = id; }
+        });
+        if (bestId) setCurrent(bestId);
+    }, {
+        root: null,
+        rootMargin: '-30% 0px -55% 0px',
+        threshold: [0, 0.25, 0.5, 0.75, 1]
+    });
+
+    sections.forEach(s => observer.observe(s));
+}
+
+// Underline my own name wherever it appears in an author list.
+const PV_SELF = 'Yijiang Li';
+
+// Bold an award note appended to a venue, e.g. "CVPR 2023, Highlight (top 2.5%)".
+function pvHighlightAward(venue) {
+    return pvEscape(venue).replace(
+        /(Highlight|Oral|Spotlight|Best Paper[^,]*)([^,]*)$/,
+        '<span class="pv-award">$1$2</span>'
+    );
+}
+
+function pvHighlightSelf(authors) {
+    return pvEscape(authors).split(PV_SELF).join(`<span class="pv-self">${PV_SELF}</span>`);
+}
+
+function renderPlainPubs() {
+    const host = document.getElementById('pv-pubs-body');
+    if (!host) return;
+    const pubs = content.publications && content.publications.files;
+    if (!pubs) return;
+
+    host.innerHTML = Object.values(pubs).map(pub => {
+        const links = pvParseLinks(pub.links);
+        return `<div class="pv-pub">`
+            + `<span class="pv-pub-title">${pvEscape(pub.title)}.</span> `
+            + `<span class="pv-pub-authors">${pvHighlightSelf(pub.authors)}.</span> `
+            + `<span class="pv-pub-venue">${pvHighlightAward(pub.venue)}.</span> `
+            + `<span class="pv-pub-links">${links}</span>`
+            + `</div>`;
+    }).join('');
+}
+
+function renderPlainCV() {
+    const host = document.getElementById('pv-cv-body');
+    if (!host) return;
+    const exps = content.experiences && content.experiences.files;
+    if (!exps) return;
+
+    const entries = Object.entries(exps);
+    const byPrefix = prefix => entries.filter(([key]) => key.startsWith(prefix));
+    const education = byPrefix('education');
+
+    const renderRow = ([, exp]) => {
+        return `<div class="pv-exp-row">`
+            + `<div class="pv-when">${pvEscape(exp.duration)}</div>`
+            + `<div class="pv-what">`
+            +   `<span class="pv-role">${pvEscape(exp.title)}</span><br>`
+            +   (exp.department
+                    ? (exp.department_link
+                        ? `<a class="pv-role" href="${pvEscapeAttr(exp.department_link)}" target="_blank" rel="noopener">${pvEscape(exp.department)}</a><br>`
+                        : `<span class="pv-role">${pvEscape(exp.department)}</span><br>`)
+                    : '')
+            +   (exp.link
+                    ? `<a class="pv-org" href="${pvEscapeAttr(exp.link)}" target="_blank" rel="noopener">${pvEscape(exp.organization)}</a>`
+                    : `<span class="pv-org">${pvEscape(exp.organization)}</span>`)
+            +   (exp.note ? `<br><span class="pv-note">${pvRenderInlineMarkdown(exp.note)}</span>` : '')
+            + `</div>`
+            + `</div>`;
+    };
+
+    const group = (label, rows) => rows.length
+        ? `<div class="pv-cv-group-label">${label}</div>` + rows.map(renderRow).join('')
+        : '';
+
+    let html = group('education', education);
+    html += `<button class="pv-cv-toggle" id="pv-cv-toggle" aria-expanded="false">full ↓</button>`;
+    html += `<div class="pv-cv-full" id="pv-cv-full" hidden>`
+        + group('experience', byPrefix('position'))
+        + group('teaching', byPrefix('teaching'))
+        + group('service', byPrefix('service'))
+        + group('community', byPrefix('activity'))
+        + `</div>`;
+
+    host.innerHTML = html;
+
+    document.getElementById('pv-cv-toggle').addEventListener('click', () => {
+        const btn = document.getElementById('pv-cv-toggle');
+        const full = document.getElementById('pv-cv-full');
+        const expanded = btn.getAttribute('aria-expanded') === 'true';
+        btn.setAttribute('aria-expanded', String(!expanded));
+        btn.textContent = expanded ? 'full ↓' : 'hide ↑';
+        full.hidden = expanded;
+    });
+}
+
+// Initialize Terminal
+async function init() {
+    // Load data first
+    if (terminalOutput) {
+        addOutput('Loading content...', 'info');
+    }
+    const loaded = await loadData();
+    
+    if (!loaded) {
+        if (terminalOutput) {
+            addOutput('Failed to load content. Please refresh the page.', 'error');
+        }
+        return;
+    }
+    
+    // Initialize view (must be after data is loaded)
+    initializeView();
+    
+    // Terminal-specific initialization
+    if (terminalOutput) {
+        clearTerminal();
+        displayWelcomeMessage();
+        if (currentView === 'terminal') {
+            terminalInput.focus();
+        }
+    }
+    
+    // Event listeners for toggles (both terminal and plain view buttons)
+    document.getElementById('theme-toggle').addEventListener('click', toggleTheme);
+    document.getElementById('view-toggle').addEventListener('click', toggleView);
+    document.getElementById('theme-toggle-terminal').addEventListener('click', toggleTheme);
+    document.getElementById('view-toggle-terminal').addEventListener('click', toggleView);
+    
+    // Terminal event listeners
+    if (terminalInput) {
+        terminalInput.addEventListener('keydown', handleInput);
+    }
+    document.addEventListener('keydown', handleVimKeypress);
+    
+    // Plain view sidebar nav — update current highlight on click
+    // (anchor href handles the actual scroll to section)
+    document.querySelectorAll('.pv-nav').forEach(link => {
+        link.addEventListener('click', () => {
+            document.querySelectorAll('.pv-nav').forEach(l => l.classList.remove('current'));
+            link.classList.add('current');
+        });
+    });
+
+    initScrollSpy();
+
+    // The "Beyond research" heading itself expands and collapses the section.
+    const lifeToggle = document.getElementById('pv-life-toggle');
+    if (lifeToggle) lifeToggle.addEventListener('click', () => togglePlainLife());
+
+    // The sidebar "life" entry opens the section on the way there.
+    const lifeLink = document.querySelector('.pv-nav[href="#pv-life"]');
+    if (lifeLink) lifeLink.addEventListener('click', () => togglePlainLife(true));
+
+    // Sidebar "bio" entry opens and closes the extended bio.
+    const bioLink = document.getElementById('pv-bio-link');
+    if (bioLink) {
+        bioLink.addEventListener('click', event => {
+            event.preventDefault();
+            const opened = togglePlainBio();
+            if (opened) {
+                const full = document.getElementById('pv-bio-full');
+                if (full) full.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }
+        });
+    }
+    
+    // Keep terminal input focused when in terminal view
+    document.addEventListener('click', () => {
+        if (currentView !== 'terminal') return;
+        if (!vimViewer.classList.contains('hidden')) return;
+        if (terminalInput) {
+            terminalInput.focus();
+        }
+    });
+}
+
+function displayWelcomeMessage() {
+    const welcome = `
+╔═══════════════════════════════════════════════════════════════╗
+║         Welcome to William Yijiang Li's Personal Website      ║
+║                      Terminal Interface                       ║
+╚═══════════════════════════════════════════════════════════════╝
+
+Type 'help' for available commands, or 'ls' to list files.
+
+`;
+    addOutput(welcome, 'info');
+
+    executeCommand('ls');
+}
+
+function handleInput(e) {
+    if (e.key === 'Enter') {
+        e.preventDefault(); // Prevent the Enter key from bubbling up
+        e.stopPropagation(); // Stop event propagation
+        
+        const command = terminalInput.value.trim();
+        if (command) {
+            addOutput(`william@ucsd:${currentDirectory}$ ${command}`, 'command');
+            commandHistory.push(command);
+            historyIndex = commandHistory.length;
+            executeCommand(command);
+        } else {
+            addOutput(`william@ucsd:${currentDirectory}$ `, 'command');
+        }
+        terminalInput.value = '';
+    } else if (e.key === 'ArrowUp') {
+        e.preventDefault();
+        if (historyIndex > 0) {
+            historyIndex--;
+            terminalInput.value = commandHistory[historyIndex];
+        }
+    } else if (e.key === 'ArrowDown') {
+        e.preventDefault();
+        if (historyIndex < commandHistory.length - 1) {
+            historyIndex++;
+            terminalInput.value = commandHistory[historyIndex];
+        } else {
+            historyIndex = commandHistory.length;
+            terminalInput.value = '';
+        }
+    } else if (e.key === 'Tab') {
+        e.preventDefault();
+        autocomplete();
+    }
+}
+
+function executeCommand(input) {
+    const parts = input.trim().split(/\s+/);
+    const command = parts[0].toLowerCase();
+    const args = parts.slice(1);
+
+    switch (command) {
+        case 'help':
+            showHelp();
+            break;
+        case 'ls':
+            listFiles(args[0]);
+            break;
+        case 'cd':
+            changeDirectory(args[0]);
+            break;
+        case 'view':
+            viewFile(args.join(' '));
+            break;
+        case 'clear':
+            clearTerminal();
+            break;
+        case 'pwd':
+            addOutput(currentDirectory, 'info');
+            break;
+        case 'cat':
+            viewFile(args.join(' '));
+            break;
+        case 'whoami':
+            addOutput('william', 'info');
+            break;
+        case 'date':
+            addOutput(new Date().toString(), 'info');
+            break;
+        default:
+            addOutput(`Command not found: ${command}. Type 'help' for available commands.`, 'error');
+    }
+    
+    scrollToBottom();
+}
+
+function showHelp() {
+    const help = `
+Available commands:
+───────────────────────────────────────────────────────────────
+  ls [directory]       List files and directories
+  cd <directory>       Change directory (news, publications, experiences, life, blog)
+  view <file>          Open file in vim-style viewer
+  cat <file>           Alias for 'view'
+  pwd                  Print current directory
+  clear                Clear terminal screen
+  whoami               Display current user
+  date                 Show current date and time
+  help                 Show this help message
+───────────────────────────────────────────────────────────────
+
+Examples:
+  ls                   # List all available files
+  cd publications      # Navigate to publications directory
+  view me              # View main page
+  view publications    # Browse publications interactively
+  view news            # Browse news interactively
+  view experiences     # Browse experiences interactively
+  view blog            # Browse blog posts interactively
+
+Interactive Navigation:
+  When viewing publications/experiences/blog, use:
+    ↑/↓ or j/k         Navigate between items
+    Enter              View selected item
+    b                  Go back to list (from item view)
+    q                  Quit viewer
+───────────────────────────────────────────────────────────────
+`;
+    addOutput(help, 'info');
+}
+
+function listFiles(dir) {
+    if (!dir) {
+        // List root directory
+        const output = `
+Available files and directories:
+  <span class="file">me</span>               About me and introduction
+  <span class="directory">news/</span>            Recent news and updates
+  <span class="directory">publications/</span>    My research publications
+  <span class="directory">experiences/</span>     Education, positions, teaching and service
+  <span class="directory">life/</span>            Football, travel and other things
+  <span class="directory">blog/</span>            Blog posts and writings
+
+Type 'view &lt;filename&gt;' to open a file, or 'cd &lt;directory&gt;' to navigate.
+
+Examples: 'view me' shows my introduction and contact information; 'view publications' shows my research publications.
+`;
+        addOutput(output, 'info');
+    } else {
+        const dirName = dir.replace('/', '');
+        if (content[dirName] && content[dirName].type === 'directory') {
+            const files = Object.keys(content[dirName].files);
+            let output = `\nContents of ${dirName}/:\n`;
+            files.forEach(file => {
+                output += `  <span class="file">${file}</span>\n`;
+            });
+            output += `\nType 'view ${dirName}' to see summary, or 'view &lt;filename&gt;' for details.\n`;
+            addOutput(output, 'info');
+        } else {
+            addOutput(`Directory not found: ${dir}`, 'error');
+        }
+    }
+}
+
+function changeDirectory(dir) {
+    if (!dir || dir === '~' || dir === '/') {
+        currentDirectory = '~';
+        updatePrompt();
+        addOutput('Changed to home directory', 'success');
+    } else if (dir === '..') {
+        if (currentDirectory !== '~') {
+            currentDirectory = '~';
+            updatePrompt();
+            addOutput('Changed to home directory', 'success');
+        }
+    } else {
+        const dirName = dir.replace('/', '');
+        if (content[dirName]) {
+            if (content[dirName].type === 'directory') {
+                currentDirectory = `~/${dirName}`;
+                updatePrompt();
+                addOutput(`Changed directory to ${dirName}`, 'success');
+                listFiles(dirName);
+            } else {
+                addOutput(`${dirName} is not a directory. Use 'view ${dirName}' to open it.`, 'error');
+            }
+        } else {
+            addOutput(`Directory not found: ${dir}`, 'error');
+        }
+    }
+}
+
+function viewFile(filename) {
+    if (!filename) {
+        addOutput('Usage: view <filename>', 'error');
+        return;
+    }
+
+    // Remove any trailing slashes
+    filename = filename.replace(/\/$/, '');
+
+    // Check if it's a me file
+    if (filename === 'me' || filename === 'me.txt') {
+        openVimViewer('me', terminalFormatMarkdown(content.me.content));
+        return;
+    }
+
+    // Check if it's a directory summary - open interactive list
+    if (content[filename] && content[filename].type === 'directory') {
+        openInteractiveList(filename);
+        return;
+    }
+
+    // Check in current directory if we're in one
+    if (currentDirectory !== '~') {
+        const dirName = currentDirectory.split('/')[1];
+        const dir = content[dirName];
+        if (dir && dir.files && dir.files[filename]) {
+            const file = dir.files[filename];
+            const formattedContent = formatFileContent(filename, file);
+            openVimViewer(filename, formattedContent);
+            return;
+        }
+    }
+
+    // Search in all directories
+    for (const [dirName, dirData] of Object.entries(content)) {
+        if (dirData.type === 'directory' && dirData.files && dirData.files[filename]) {
+            const file = dirData.files[filename];
+            const formattedContent = formatFileContent(filename, file);
+            openVimViewer(filename, formattedContent);
+            return;
+        }
+    }
+
+    addOutput(`File not found: ${filename}`, 'error');
+}
+
+// Terminal rendering of the light markdown used in data/me.json:
+// **bold** -> BOLD-ish (kept as-is), [text](url) -> text[n] with a numbered
+// reference list appended, so the vim viewer stays readable.
+function terminalFormatMarkdown(raw) {
+    if (!raw) return '';
+    const refs = [];
+    let text = raw.replace(/\[([^\]]+)\]\((https?:[^)\s]+)\)/g, (m, label, url) => {
+        refs.push(url);
+        return `${label}[${refs.length}]`;
+    });
+    text = text.replace(/\*\*(.+?)\*\*/g, '$1');
+    if (refs.length) {
+        text += `\n───────────────────────────────────────────────────────────────\nREFERENCES\n───────────────────────────────────────────────────────────────\n`;
+        refs.forEach((url, i) => { text += `[${i + 1}] ${url}\n`; });
+    }
+    return text;
+}
+
+function formatFileContent(filename, file) {
+    if (file.title) {
+        // Publication or Experience format
+        let content = `═══════════════════════════════════════════════════════════════\n`;
+        content += `${file.title}\n`;
+        content += `═══════════════════════════════════════════════════════════════\n\n`;
+        
+        if (file.authors) {
+            content += `Authors: ${file.authors.replace(/<strong>/g, '').replace(/<\/strong>/g, '')}\n`;
+        }
+        if (file.venue) {
+            content += `Venue: ${file.venue}\n`;
+        }
+        if (file.department) {
+            content += `Course: ${file.department}\n`;
+        }
+        if (file.organization) {
+            content += `Organization: ${file.organization}\n`;
+        }
+        if (file.duration) {
+            content += `Duration: ${file.duration}\n`;
+        }
+        if (file.note) {
+            content += `With: ${file.note.replace(/\[([^\]]+)\]\((https?:[^)\s]+)\)/g, '$1 ($2)')}\n`;
+        }
+        if (file.date) {
+            content += `Date: ${file.date}\n`;
+        }
+        
+        content += `\n───────────────────────────────────────────────────────────────\n\n`;
+        
+        if (file.abstract) {
+            content += `ABSTRACT\n\n${file.abstract}\n\n`;
+        }
+        if (file.description) {
+            content += `DESCRIPTION\n\n${file.description}\n\n`;
+        }
+        if (file.content) {
+            content += `${file.content}\n\n`;
+        }
+        if (file.links) {
+            content += `───────────────────────────────────────────────────────────────\n`;
+            content += `LINKS\n\n${file.links}\n`;
+        }
+        if (file.images && file.images.length) {
+            content += `───────────────────────────────────────────────────────────────\n`;
+            content += `PHOTOS\n\n`;
+            file.images.forEach((src, i) => {
+                const cap = (file.captions || [])[i] || '';
+                content += `  ${cap ? cap + ': ' : ''}${location.origin}${location.pathname.replace(/[^/]*$/, '')}${src}\n`;
+            });
+        }
+        
+        return content;
+    }
+    
+    return JSON.stringify(file, null, 2);
+}
+
+function openInteractiveList(dirName) {
+    interactiveMode = true;
+    interactiveType = dirName;
+    selectedIndex = 0;
+    
+    // Build list of items
+    interactiveList = Object.entries(content[dirName].files);
+    
+    // Update help text
+    document.querySelector('.vim-help').textContent = 'Use ↑↓ or j/k to navigate, Enter to select, q to quit';
+    
+    // Remove focus from terminal input so vim viewer can receive keypresses
+    terminalInput.blur();
+    
+    // Display the interactive list
+    displayInteractiveList();
+}
+
+function displayInteractiveList() {
+    let displayContent = '';
+    
+    if (interactiveType === 'publications') {
+        displayContent = `═══════════════════════════════════════════════════════════════\n`;
+        displayContent += `                        PUBLICATIONS                           \n`;
+        displayContent += `═══════════════════════════════════════════════════════════════\n\n`;
+        displayContent += `Use ↑/↓ or j/k to navigate, Enter to view, q to quit\n\n`;
+        displayContent += `───────────────────────────────────────────────────────────────\n\n`;
+        
+        interactiveList.forEach(([filename, fileData], index) => {
+            const pointer = index === selectedIndex ? '→ ' : '  ';
+            const highlight = index === selectedIndex ? '█ ' : '  ';
+            displayContent += `${pointer}${highlight}${filename}\n\n`;
+            displayContent += `   ${fileData.authors}\n\n`;
+            displayContent += `───────────────────────────────────────────────────────────────\n\n`;
+        });
+    } else if (interactiveType === 'experiences') {
+        displayContent = `═══════════════════════════════════════════════════════════════\n`;
+        displayContent += `                         EXPERIENCES                           \n`;
+        displayContent += `═══════════════════════════════════════════════════════════════\n\n`;
+        displayContent += `Use ↑/↓ or j/k to navigate, Enter to view, q to quit\n\n`;
+        displayContent += `───────────────────────────────────────────────────────────────\n\n`;
+        
+        interactiveList.forEach(([filename, fileData], index) => {
+            const pointer = index === selectedIndex ? '→ ' : '  ';
+            displayContent += `${pointer}${fileData.title}\n`;
+            displayContent += `   ${fileData.organization} | ${fileData.duration}\n\n`;
+        });
+    } else if (interactiveType === 'news') {
+        displayContent = `═══════════════════════════════════════════════════════════════\n`;
+        displayContent += `                            NEWS                               \n`;
+        displayContent += `═══════════════════════════════════════════════════════════════\n\n`;
+        displayContent += `Use ↑/↓ or j/k to navigate, Enter to view, q to quit\n\n`;
+        displayContent += `───────────────────────────────────────────────────────────────\n\n`;
+
+        interactiveList.forEach(([filename, fileData], index) => {
+            const pointer = index === selectedIndex ? '→ ' : '  ';
+            displayContent += `${pointer}${fileData.date}  ${fileData.title}\n\n`;
+        });
+    } else if (interactiveType === 'blog') {
+        displayContent = `═══════════════════════════════════════════════════════════════\n`;
+        displayContent += `                            BLOG                               \n`;
+        displayContent += `═══════════════════════════════════════════════════════════════\n\n`;
+        displayContent += `Use ↑/↓ or j/k to navigate, Enter to view, q to quit\n\n`;
+        displayContent += `───────────────────────────────────────────────────────────────\n\n`;
+        
+        interactiveList.forEach(([filename, fileData], index) => {
+            const pointer = index === selectedIndex ? '→ ' : '  ';
+            displayContent += `${pointer}${fileData.title}\n`;
+            displayContent += `   ${fileData.date}\n\n`;
+        });
+    }
+    
+    if (!displayContent) {
+        displayContent = `═══════════════════════════════════════════════════════════════\n`;
+        displayContent += `  ${interactiveType.toUpperCase()}\n`;
+        displayContent += `═══════════════════════════════════════════════════════════════\n\n`;
+        displayContent += `Use ↑/↓ or j/k to navigate, Enter to view, q to quit\n\n`;
+        displayContent += `───────────────────────────────────────────────────────────────\n\n`;
+        interactiveList.forEach(([filename, fileData], index) => {
+            const pointer = index === selectedIndex ? '→ ' : '  ';
+            displayContent += `${pointer}${fileData.title || filename}\n\n`;
+        });
+    }
+
+    vimViewer.classList.remove('hidden');
+    vimViewer.dataset.fromList = 'false'; // Reset the flag
+    document.querySelector('.vim-filename').textContent = interactiveType;
+    vimContent.textContent = displayContent;
+    
+    // Scroll to selected item
+    scrollToSelectedItem();
+    updateVimStatus();
+}
+
+function scrollToSelectedItem() {
+    // Rough estimate: each item is about 4-5 lines, adjust as needed
+    const itemHeight = interactiveType === 'publications' ? 150 : 80;
+    const targetScroll = selectedIndex * itemHeight;
+    vimContent.scrollTop = targetScroll;
+}
+
+function openVimViewer(filename, content) {
+    const wasInteractive = interactiveMode;
+    const preservedType = interactiveType;
+    const preservedList = [...interactiveList];
+    const preservedIndex = selectedIndex;
+    
+    interactiveMode = false;
+    
+    // Remove focus from terminal input so vim viewer can receive keypresses
+    terminalInput.blur();
+    
+    vimViewer.classList.remove('hidden');
+    document.querySelector('.vim-filename').textContent = filename;
+    vimContent.textContent = content; // Use textContent for proper wrapping
+    vimContent.scrollTop = 0;
+    
+    // Update help text - add back option if came from list
+    if (wasInteractive && preservedList.length > 0) {
+        document.querySelector('.vim-help').textContent = 'Press b to go back, q to quit, ↑↓ or j/k to scroll';
+        // Store the list info so we can go back
+        vimViewer.dataset.fromList = 'true';
+        vimViewer.dataset.listType = preservedType;
+        vimViewer.dataset.listIndex = preservedIndex;
+    } else {
+        document.querySelector('.vim-help').textContent = 'Press q to quit, ↑↓ or j/k to scroll';
+        vimViewer.dataset.fromList = 'false';
+    }
+    
+    updateVimStatus();
+}
+
+function closeVimViewer() {
+    vimViewer.classList.add('hidden');
+    interactiveMode = false;
+    interactiveList = [];
+    selectedIndex = 0;
+    terminalInput.focus();
+}
+
+function handleVimKeypress(e) {
+    if (vimViewer.classList.contains('hidden')) return;
+
+    if (e.key === 'q' || e.key === 'Escape') {
+        e.preventDefault();
+        closeVimViewer();
+    } else if (e.key === 'b' && vimViewer.dataset.fromList === 'true') {
+        // Go back to the interactive list
+        e.preventDefault();
+        const listType = vimViewer.dataset.listType;
+        const listIndex = parseInt(vimViewer.dataset.listIndex) || 0;
+        
+        interactiveMode = true;
+        interactiveType = listType;
+        selectedIndex = listIndex;
+        interactiveList = Object.entries(content[listType].files);
+        
+        document.querySelector('.vim-help').textContent = 'Use ↑↓ or j/k to navigate, Enter to select, q to quit';
+        displayInteractiveList();
+    } else if (interactiveMode) {
+        // Interactive list navigation
+        if (e.key === 'j' || e.key === 'ArrowDown') {
+            e.preventDefault();
+            if (selectedIndex < interactiveList.length - 1) {
+                selectedIndex++;
+                displayInteractiveList();
+            }
+        } else if (e.key === 'k' || e.key === 'ArrowUp') {
+            e.preventDefault();
+            if (selectedIndex > 0) {
+                selectedIndex--;
+                displayInteractiveList();
+            }
+        } else if (e.key === 'Enter') {
+            e.preventDefault();
+            // Open the selected item
+            const [filename, fileData] = interactiveList[selectedIndex];
+            const formattedContent = formatFileContent(filename, fileData);
+            openVimViewer(filename, formattedContent);
+        } else if (e.key === 'g') {
+            e.preventDefault();
+            selectedIndex = 0;
+            displayInteractiveList();
+        } else if (e.key === 'G') {
+            e.preventDefault();
+            selectedIndex = interactiveList.length - 1;
+            displayInteractiveList();
+        }
+    } else {
+        // Regular vim-style scrolling
+        if (e.key === 'j' || e.key === 'ArrowDown') {
+            e.preventDefault();
+            vimContent.scrollTop += 40;
+            updateVimStatus();
+        } else if (e.key === 'k' || e.key === 'ArrowUp') {
+            e.preventDefault();
+            vimContent.scrollTop -= 40;
+            updateVimStatus();
+        } else if (e.key === 'g') {
+            e.preventDefault();
+            vimContent.scrollTop = 0;
+            updateVimStatus();
+        } else if (e.key === 'G') {
+            e.preventDefault();
+            vimContent.scrollTop = vimContent.scrollHeight;
+            updateVimStatus();
+        } else if (e.key === 'd') {
+            e.preventDefault();
+            vimContent.scrollTop += vimContent.clientHeight / 2;
+            updateVimStatus();
+        } else if (e.key === 'u') {
+            e.preventDefault();
+            vimContent.scrollTop -= vimContent.clientHeight / 2;
+            updateVimStatus();
+        }
+    }
+}
+
+function updateVimStatus() {
+    const scrollPercent = Math.round((vimContent.scrollTop / (vimContent.scrollHeight - vimContent.clientHeight)) * 100) || 0;
+    document.getElementById('vim-status').textContent = `${scrollPercent}%`;
+}
+
+function addOutput(text, className = '') {
+    const line = document.createElement('div');
+    line.className = `output-line ${className}`;
+    line.innerHTML = text;
+    terminalOutput.appendChild(line);
+}
+
+function clearTerminal() {
+    terminalOutput.innerHTML = '';
+}
+
+function scrollToBottom() {
+    terminalOutput.parentElement.scrollTop = terminalOutput.parentElement.scrollHeight;
+}
+
+function updatePrompt() {
+    const prompts = document.querySelectorAll('.prompt');
+    prompts.forEach(prompt => {
+        prompt.textContent = `william@ucsd:${currentDirectory}$ `;
+    });
+}
+
+function autocomplete() {
+    const input = terminalInput.value.trim();
+    const parts = input.split(/\s+/);
+    
+    if (parts.length === 1) {
+        // Complete command
+        const commands = ['help', 'ls', 'cd', 'view', 'clear', 'pwd', 'cat', 'whoami', 'date'];
+        const matches = commands.filter(cmd => cmd.startsWith(parts[0]));
+        if (matches.length === 1) {
+            terminalInput.value = matches[0] + ' ';
+        }
+    } else if (parts.length === 2 && (parts[0] === 'cd' || parts[0] === 'view' || parts[0] === 'ls')) {
+        // Complete filename/directory
+        const dirs = ['me', 'news', 'publications', 'experiences', 'life', 'blog'];
+        const matches = dirs.filter(dir => dir.startsWith(parts[1]));
+        if (matches.length === 1) {
+            terminalInput.value = parts[0] + ' ' + matches[0];
+        }
+    }
+}
+
+// Initialize on load
+document.addEventListener('DOMContentLoaded', init);

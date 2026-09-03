@@ -1,0 +1,139 @@
+{
+  "type": "directory",
+  "description": "My research publications",
+  "files": {
+    "(Preprint) Self-Supervised Visual On-Policy Distillation": {
+      "title": "Self-Supervised Visual On-Policy Distillation",
+      "authors": "Yijiang Li, Yijun Liang, Yunjie Tian, Bingyang Wang, Ke Zhang, Zhenfei Yin, Di Fu, Philip Torr, Nuno Vasconcelos",
+      "venue": "arXiv preprint, 2026",
+      "links": "[Website] https://williamium3000.github.io/s2vopd/ | [Paper] https://arxiv.org/pdf/2608.14144"
+    },
+    "(Preprint) Demystifying Agent Skills: Why They Work — Until They Don't": {
+      "title": "Demystifying Agent Skills: Why They Work — Until They Don't",
+      "authors": "Zhiyuan Jiang, Fangrui Huang, Hanwen Xing, Xander Wu, Yipeng Gao, Rui Cao, Mengdi Wang, Shilong Liu, Yijiang Li",
+      "venue": "arXiv preprint, 2026",
+      "links": "[Website] https://zhiyuanjiang04.github.io/demystify-agent-skills/ | [Paper] https://arxiv.org/pdf/2608.14036 | [Code] https://github.com/zhiyuanjiang04/demystify-agent-skills"
+    },
+    "(Preprint) On-Policy Self-Distillation without Any Supervision": {
+      "title": "On-Policy Self-Distillation without Any Supervision",
+      "authors": "Yijiang Li, Bingyang Wang, Yijun Liang, Yunjie Tian, Di Fu, Nuno Vasconcelos",
+      "venue": "arXiv preprint, 2026",
+      "links": "[Website] https://williamium3000.github.io/u-opsd/ | [Paper] https://arxiv.org/pdf/2608.06296"
+    },
+    "(Preprint) ThinkJEPA: Empowering Latent World Models with Large Vision-Language Reasoning Model": {
+      "title": "ThinkJEPA: Empowering Latent World Models with Large Vision-Language Reasoning Model",
+      "authors": "Haichao Zhang, Yijiang Li, Shwai He, Tushar Nagarajan, Mingfei Chen, Jianglin Lu, Ang Li, Yun Fu",
+      "venue": "arXiv preprint, 2026",
+      "links": "[Website] https://www.zhanghaichao.xyz/ThinkJEPA/ | [Paper] https://arxiv.org/pdf/2603.22281 | [Code] https://github.com/Hai-chao-Zhang/ThinkJEPA"
+    },
+    "(ICML 2026) Vision Language Models Cannot Reason About Physical Transformation": {
+      "title": "Vision Language Models Cannot Reason About Physical Transformation",
+      "authors": "Dezhi Luo*, Yijiang Li*, Maijunxian Wang, Tianwei Zhao, Bingyang Wang, Siheng Wang, Pinyuan Feng, Pooyan Rahmanzadehgervi, Ziqiao Ma, Hokin Deng",
+      "venue": "ICML 2026",
+      "links": "[Paper] https://arxiv.org/pdf/2603.07109"
+    },
+    "(ICML 2026) A Very Big Video Reasoning Suite": {
+      "title": "A Very Big Video Reasoning Suite",
+      "authors": "Maijunxian Wang, Ruisi Wang, Juyi Lin, …, Vikash Kumar, Yijiang Li, Lei Yang, Zhongang Cai, Hokin Deng",
+      "venue": "ICML 2026",
+      "links": "[Website] https://video-reason.com | [Paper] https://arxiv.org/pdf/2602.20159 | [Code] https://github.com/Video-Reason/VBVR-EvalKit"
+    },
+    "(COLM 2026) CocoaBench: Evaluating Unified Digital Agents in the Wild": {
+      "title": "CocoaBench: Evaluating Unified Digital Agents in the Wild",
+      "authors": "CocoaBench Team",
+      "venue": "COLM 2026",
+      "links": "[Website] https://cocoabench.github.io/ | [Paper] https://arxiv.org/pdf/2604.11201"
+    },
+    "(ICML 2026) Less is Enough: Synthesizing Diverse Data in Feature Space of LLMs": {
+      "title": "Less is Enough: Synthesizing Diverse Data in Feature Space of LLMs",
+      "authors": "Zhongzhi Li*, Xuansheng Wu*, Yijiang Li*, Lijie Hu, Ninghao Liu",
+      "venue": "ICML 2026, Oral (top ~0.6%)",
+      "links": "[Website] https://website-sigma-three-35.vercel.app/ | [Paper] https://arxiv.org/pdf/2602.10388 | [Code] https://github.com/Zhongzhi660/FAC-Synthesis",
+      "abstract": "Measures data diversity as Feature Activation Coverage in a sparse-autoencoder feature space, then synthesizes samples covering the features a seed set is missing — matching far larger synthetic corpora with 2K samples."
+    },
+    "(Preprint) SkillsBench: Benchmarking How Well Agent Skills Work Across Diverse Tasks": {
+      "title": "SkillsBench: Benchmarking How Well Agent Skills Work Across Diverse Tasks",
+      "authors": "Xiangyi Li, Yimin Liu, Wenbo Chen, Bingran You, Zonglin Di, et al. (including Yijiang Li)",
+      "venue": "arXiv preprint, 2026",
+      "links": "[Website] https://www.skillsbench.ai/ | [Paper] https://arxiv.org/pdf/2602.12670 | [Code] https://github.com/benchflow-ai/skillsbench",
+      "abstract": "A benchmark of 86 tasks across 11 domains, each paired with curated skills and deterministic verifiers, measuring how much agent skills actually help — and where they hurt."
+    },
+    "(ICML 2025) Core Knowledge Deficits in Multi-Modal Language Models": {
+      "title": "Core Knowledge Deficits in Multi-Modal Language Models",
+      "authors": "Yijiang Li, Qingying Gao, Tianwei Zhao, Bingyang Wang, Haoran Sun, Haiyun Lyu, Dezhi Luo, Hokin Deng",
+      "venue": "ICML 2025",
+      "theme": "multimodal",
+      "links": "[Website] https://grow-ai-like-a-child.github.io/core-knowledge/ | [Paper] https://arxiv.org/pdf/2410.10855 | [Code] https://github.com/williamium3000/core-knowledge | [Dataset] https://huggingface.co/datasets/williamium/CoreCognition | [Slides] https://docs.google.com/presentation/d/1MNFMHPz2D6ih1PTWxgNwrKbSe-boHYyfFeCR5WJuDuE/edit?usp=sharing",
+      "abstract": "We evaluate multi-modal large language models on the core knowledge abilities that humans develop in infancy, and find systematic deficits that scale does not close."
+    },
+    "(ICML 2025) EgoPrivacy: What Your First-Person Camera Says About You": {
+      "title": "EgoPrivacy: What Your First-Person Camera Says About You",
+      "authors": "Yijiang Li, Jiacheng Cheng, Yi Li, Genpei Zhang, Xiaojun Shan, Dashan Gao, Jiancheng Lyu, Yuan Li, Ning Bi, Nuno Vasconcelos",
+      "venue": "ICML 2025",
+      "theme": "multimodal",
+      "links": "[Website] https://williamium3000.github.io/ego-privacy/ | [Paper] https://arxiv.org/abs/2506.12258 | [Code] https://github.com/williamium3000/ego-privacy",
+      "abstract": "A benchmark and study of how much private information about the camera wearer can be inferred from first-person video."
+    },
+    "(ICCV 2025) VideoOrion: Tokenizing Object Dynamics in Videos": {
+      "title": "VideoOrion: Tokenizing Object Dynamics in Videos",
+      "authors": "Yicheng Feng*, Yijiang Li*, Wanpeng Zhang, Hao Luo, Zihao Yue, Sipeng Zheng, Zongqing Lu",
+      "venue": "ICCV 2025",
+      "theme": "multimodal",
+      "links": "[Paper] https://arxiv.org/pdf/2411.16156 | [Slides] https://docs.google.com/presentation/d/1Pcx-1gngTLzggKqh7GglGM4o6idEbRjR9Yc2N9BJgHE/edit?usp=sharing",
+      "abstract": "A video large language model that tokenizes object-level dynamics so that the model can reason about what each object does over time."
+    },
+    "(ICCV 2025) Unified Multimodal Understanding via Byte-Pair Visual Encoding": {
+      "title": "Unified Multimodal Understanding via Byte-Pair Visual Encoding",
+      "authors": "Wanpeng Zhang, Yicheng Feng, Hao Luo, Yijiang Li, Zihao Yue, Sipeng Zheng, Zongqing Lu",
+      "venue": "ICCV 2025, Highlight (top 9.7%)",
+      "links": "[Website] https://research.beingbeyond.com/being-vl05 | [Paper] https://arxiv.org/abs/2506.23639 | [Code] https://github.com/BeingBeyond/Being-VL-0.5",
+      "abstract": "Applies byte-pair encoding to visual tokens with a priority-guided scheme over frequency and spatial consistency, so one transformer reasons over text and images without modality-specific encoders."
+    },
+    "(ICCV 2025) Dataset Distillation via the Wasserstein Metric": {
+      "title": "Dataset Distillation via the Wasserstein Metric",
+      "authors": "Haoyang Liu, Yijiang Li, Tiancheng Xing, Vibhu Dalal, Luwei Li, Jingrui He, Haohan Wang",
+      "venue": "ICCV 2025",
+      "theme": "efficient",
+      "links": "[Website] https://liu-hy.github.io/WMDD/ | [Paper] https://arxiv.org/pdf/2311.18531 | [Code] https://github.com/Liu-Hy/WMDD",
+      "abstract": "Dataset distillation that matches the Wasserstein distance between the distilled and real data distributions."
+    },
+    "(CVPR 2025) Robust-MVTON: Learning Cross-Pose Feature Alignment and Fusion for Robust Multi-View Virtual Try-On": {
+      "title": "Robust-MVTON: Learning Cross-Pose Feature Alignment and Fusion for Robust Multi-View Virtual Try-On",
+      "authors": "Nannan Zhang*, Yijiang Li*, Dong Du, Zheng Chong, Zhengwentai Sun, Jianhao Zeng, Yusheng Dai, Zhengyu Xie, Hairui Zhu, Xiaoguang Han",
+      "venue": "CVPR 2025",
+      "links": "[Paper] https://openaccess.thecvf.com/content/CVPR2025/papers/Zhang_Robust-MVTON_Learning_Cross-Pose_Feature_Alignment_and_Fusion_for_Robust_Multi-View_CVPR_2025_paper.pdf",
+      "abstract": "An end-to-end method for multi-view virtual try-on: a cross-pose feature alignment module fuses front- and back-view clothing features, which a coarse-to-fine latent diffusion model turns into try-on results for any target view."
+    },
+    "(ICLR 2025) From Pixels to Tokens: Byte-Pair Encoding on Quantized Visual Modalities": {
+      "title": "From Pixels to Tokens: Byte-Pair Encoding on Quantized Visual Modalities",
+      "authors": "Wanpeng Zhang, Zilong Xie, Yicheng Feng, Yijiang Li, Xingrun Xing, Sipeng Zheng, Zongqing Lu",
+      "venue": "ICLR 2025",
+      "links": "[Website] https://research.beingbeyond.com/being-vl05 | [Paper] https://arxiv.org/abs/2410.02155 | [Code] https://github.com/BeingBeyond/being-vl-0",
+      "abstract": "A BPE image tokenizer that folds structural priors into image tokens, mirroring the tokenization used in text-only LLMs, and improves multi-modal understanding even with limited training data."
+    },
+    "(ICCV 2023) Diverse Co-training Makes Strong Semi-supervised Segmentor": {
+      "title": "Diverse Co-training Makes Strong Semi-supervised Segmentor",
+      "authors": "Yijiang Li, Xinjiang Wang, Lihe Yang, Litong Feng, Wayne Zhang, Ying Gao",
+      "venue": "ICCV 2023",
+      "theme": "efficient",
+      "links": "[Website] https://williamium3000.github.io/diverse-cotraining/ | [Paper] https://arxiv.org/pdf/2308.09281 | [Code] https://github.com/williamium3000/diverse-cotraining | [Poster] static/files/_ICCV2023_Diverse_cotraining.pdf",
+      "abstract": "Revisits co-training for semi-supervised semantic segmentation and shows that diversity between the co-trained models, not architectural tricks, is what makes it work."
+    },
+    "(CVPR 2023, Highlight) Consistent-Teacher: Towards Reducing Inconsistent Pseudo-targets in Semi-supervised Object Detection": {
+      "title": "Consistent-Teacher: Towards Reducing Inconsistent Pseudo-targets in Semi-supervised Object Detection",
+      "authors": "Xinjiang Wang, Xingyi Yang, Shilong Zhang, Yijiang Li, Litong Feng, Shijie Fang, Chengqi Lyu, Kai Chen, Wayne Zhang",
+      "venue": "CVPR 2023, Highlight (top 2.5%)",
+      "theme": "efficient",
+      "links": "[Website] https://adamdad.github.io/consistentteacher | [Paper] https://openaccess.thecvf.com/content/CVPR2023/papers/Wang_Consistent-Teacher_Towards_Reducing_Inconsistent_Pseudo-Targets_in_Semi-Supervised_Object_Detection_CVPR_2023_paper.pdf | [Code] https://github.com/Adamdad/ConsistentTeacher",
+      "abstract": "Identifies inconsistent pseudo-targets as the core problem in semi-supervised object detection and fixes it with adaptive anchor assignment, a feature alignment module and a Gaussian mixture threshold."
+    },
+    "(ICCV 2023) Multi-metrics Adaptively Identifies Backdoors in Federated Learning": {
+      "title": "Multi-metrics Adaptively Identifies Backdoors in Federated Learning",
+      "authors": "Siquan Huang, Yijiang Li, Chong Chen, Leyu Shi, Ying Gao",
+      "venue": "ICCV 2023",
+      "theme": "robust",
+      "links": "[Website] https://siquanhuang.github.io/Multi-metrics/ | [Paper] https://arxiv.org/pdf/2303.06601 | [Code] https://github.com/siquanhuang/Multi-metrics | [Poster] static/files/_ICCV2023_Multi_metrics.pdf",
+      "abstract": "A defense that adaptively combines multiple distance metrics to detect backdoored client updates in federated learning."
+    }
+  }
+}

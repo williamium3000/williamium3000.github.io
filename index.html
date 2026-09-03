@@ -1,700 +1,214 @@
-<!DOCTYPE HTML>
-<html>
-  <head>
-    <!-- Google analytics tag (gtag.js) -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>William Yijiang Li</title>
+    <meta name="description" content="William Yijiang Li — PhD student in Machine Learning and Data Science at UC San Diego. Efficient and robust learning; multi-modal, interactive and 3D embodied agents.">
+    <link rel="canonical" href="https://williamium3000.github.io/">
+    <meta property="og:type" content="profile">
+    <meta property="og:title" content="William Yijiang Li">
+    <meta property="og:description" content="PhD student in Machine Learning and Data Science at UC San Diego.">
+    <meta property="og:url" content="https://williamium3000.github.io/">
+    <meta property="og:image" content="https://williamium3000.github.io/images/profile.png">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:creator" content="@Williamiumli">
+    <link rel="icon" href="favicon.ico" sizes="any">
+    <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
+    <link rel="manifest" href="images/site.webmanifest">
+    <link rel="stylesheet" href="terminal.css">
+
+    <!-- Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-STGLQW4BJX"></script>
     <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-STGLQW4BJX');
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-STGLQW4BJX');
     </script>
+</head>
 
-    <!-- Title -->
-    <title>William Li - UC San Diego</title>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=1000">
-
-    <!-- Isotope JS -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.13.2/jquery-ui.min.js"></script>
-    <script src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.min.js"></script>
-
-    <!-- Custom Style -->
-    <link rel="stylesheet" href="style.css">
-    <!-- use times new roman instead -->
-    <!-- Google Font -->
-    <!-- <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> -->
-    <!-- <link href="https://fonts.googleapis.com/css2?family=Asap:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet"> -->
-    <!-- <style>
-      @import url('https://fonts.googleapis.com/css2?family=Asap:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap');
-    </style> -->
-  </head>
-
-  <body id="body">
-
-    <div id="main">
-      <div id="intro">
-        <div id="intro-text">
-          <h1>Yijiang (William) Li</h1>
-          <div id="more-contact" style="display: None">
-            <p class="grey_box"><a href="mailto:yijiangli@ucsd.edu">Email</a>: yijiangli [at] ucsd [dot] edu</p> 
-            <p class="grey_box">Jacobs Hall </p> 
-            <p class="grey_box">9500 Gilman Dr, La Jolla, CA 92093</p> 
-            <br>
-          </div>
-          <p>
-            I’m Yijiang <sup id="fnref1"><a href="#fn1" class="footnote-ref"><u>1</u></a></sup> (William) Li, a first-year PhD student in Machine Learning and Data Science, Electrical and Computer Engineering at <a href="https://ucsd.edu/">UC San Diego</a>. 
-            <br>
-            <br>
-            <div id="more-bio" style="display: None">
-              <p>
-                I earned my M.S.E. in Computer Science at <a href="https://www.jhu.edu/">Johns Hopkins University (JHU)</a> and B.S. in Computer Science in Computer Science at South China University of Technology.
-                <br><br>
-                I have had the privilege of working with Prof. <a href="https://www.cs.jhu.edu/~ayuille/">Alan Yuille</a> 
-                as an research assistant in <a href="https://ccvl.jhu.edu/">CCVL</a>, and with 
-                Prof. <a href="https://haohanwang.github.io/">Haohan Wang</a> at <a href="https://dreamlabuiuc.github.io/">DREAM Lab</a>, UIUC. 
-                I have spent time working as research intern at <a href="https://www.baai.ac.cn/en/">Beijing Academy of 
-                Artificial Intelligence</a> and <a href="https://www.sensetime.com/en">SenseTime Research</a>.
-                <br>
-                I have co-founded the <a href="https://growing-ai-like-a-child.github.io/">GrowAI</a>, a research organization and community aiming to promote the research of AI that can learn and grow like humans.
-                <br>
-                <br>
-              </p>
+<body>
+    <!-- Terminal View -->
+    <div class="terminal-container" id="terminal-view">
+        <div class="terminal-header">
+            <div class="terminal-buttons">
+                <span class="btn close"></span>
+                <span class="btn minimize"></span>
+                <span class="btn maximize"></span>
             </div>
-            My research focuses on the learning aspects of AI - to enable efficient (e.g. label efficiency 
-            <a href="https://openaccess.thecvf.com/content/ICCV2023/papers/Li_Diverse_Cotraining_Makes_Strong_Semi-Supervised_Segmentor_ICCV_2023_paper.pdf">ICCV23</a>, 
-            <a href="https://openaccess.thecvf.com/content/CVPR2023/papers/Wang_Consistent-Teacher_Towards_Reducing_Inconsistent_Pseudo-Targets_in_Semi-Supervised_Object_Detection_CVPR_2023_paper.pdf">CVPR23</a>, 
-            sample effiency <a href="https://ojs.aaai.org/index.php/AAAI/article/view/32978">AAAI25</a>,
-            <a href="https://arxiv.org/abs/2311.18531">ICCV25</a>, and <a href="https://arxiv.org/abs/2403.05523">synthetic data</a>) and robust learning 
-            (<a href="https://openaccess.thecvf.com/content/ICCV2023/papers/Huang_Multi-Metrics_Adaptively_Identifies_Backdoors_in_Federated_Learning_ICCV_2023_paper.pdf">ICCV23</a>, <a href="https://openreview.net/forum?id=hafnY2PiTn">TMLR</a>) 
-            in multi-modal (<a href="https://arxiv.org/abs/2410.02155">ICLR25</a>, <a href="https://arxiv.org/abs/2411.16156">ICCV25</a>), interactive and 3D embodied environments.
-            Particularly, I am interested in 
-            </p>
-            <br>
-            <ul>
-              <li>Understanding and evaluating Multi-modal Large Language models (MLLMs), e.g. <a href="https://arxiv.org/abs/2410.10855">core-knowledge</a>; </li>
-              <li>Can language (in nature semantic, abstracted and compositional) be used to scaffold vision learning (e.g. as anchor representation)? </li>
-              <li>Intrinsic 3D world: 3D-aware architecture for MLLMs, 3D representation emergence from 2D supervision, etc.</li>
-              <li>Embodiment theory, learning with indirect feedback (usually in social scenarios) and interactive learning (learn and inference simultaneously).</li>
-            </ul>
-            <br>
-            I am also broadly interested in the various applications of AI, e.g. LLM Agents (<a href="https://arxiv.org/abs/2504.07461">MAS</a>), AI4Sci and AI4Health.
-            <br>
-            
-
-            <br>
-            <a href="javascript:toggle_bio()">Bio</a>&nbsp;&nbsp;&nbsp;&nbsp;
-            <a href="javascript:toggle_contact()">Contact</a>&nbsp;&nbsp;&nbsp;&nbsp;
-            <a href="https://github.com/williamium3000">Github</a>&nbsp;&nbsp;&nbsp;&nbsp;
-            <a href="https://scholar.google.com/citations?user=Dx3z0m8AAAAJ&hl=en">G. Scholar</a>&nbsp;&nbsp;&nbsp;&nbsp;
-            <a href="https://www.linkedin.com/in/yijiang-william-li-36795b271/">LinkedIn</a>&nbsp;&nbsp;&nbsp;&nbsp;
-            <a href="https://x.com/Williamiumli">Twitter</a>&nbsp;&nbsp;&nbsp;&nbsp;
-            <a href="https://growing-ai-like-a-child.github.io/">GrowAI</a>
-            <!-- <a href="https://williamium3000.github.io/myblog/">My Blog</a>&nbsp;&nbsp;&nbsp;&nbsp; -->
-            <br><br>
-          </p>
-        </div>
-        <div id="intro-image">
-          <img src="images/profile.png">
-          <div class="clustrmaps-container">
-            <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-            <script type="text/javascript" id="clstr_globe" src="//clustrmaps.com/globe.js?d=pi_aBfz8hTCBS3WHemYOzgxUrTI0ZhA9NxrqTe8uKw4"></script>
-            <span id="busuanzi_container_site_uv">
-              Hi there, visitor <span id="busuanzi_value_site_pv"></span>. Welcome to my virtual home!
-            </span>
-          </div>
-        </div>
-      </div>
-      <hr>
-      <div id="filters" class="button-group">
-        <!-- <button class="button" data-filter="*">Show All</button> -->
-        <button class="button is-checked" data-filter=".highlight">🔥News</button>
-        <button class="button" data-filter=".publication">💡Pubs</button>
-        <button class="button" data-filter=".intern">💻Internship</button>
-        <button class="button" data-filter=".edu">📖Edu</button>
-        <button class="button" data-filter=".service">📚Service</button>
-        <button class="button" data-filter=".misc">⚽️Misc</button>
-        <button class="button" data-filter=".cv">📃CV</button>
-        <button class="button" data-filter=".blog" onclick="window.location.href='https://williamium3000.github.io/myblog/'">📝Blog</button>
-      </div>
-
-      <div class="grid">
-        
-        <div class="list-item cv" data-category="cv">
-          <iframe src="static/files/resume.pdf" style="width:100%; height:1000px;" frameborder="0">
-              This browser fails to spport inline PDF reader. Please download the PDF file.
-          </iframe>
-      </div>
-
-      <div class="list-item highlight description" data-category="highlight">
-        <p class="date">2025.06</p> <div class="description">🎉 Three papers accepted by ICCV 2025.</div>
-      </div>
-      <div class="list-item highlight description" data-category="highlight">
-        <p class="date">2025.06</p> <div class="description">🎉 One paper accepted by TPAMI.</div>
-      </div>
-      <div class="list-item highlight description" data-category="highlight">
-        <p class="date">2025.05</p> <div class="description">🎉 Two first-author papers accepted by ICML 2025.</div>
-      </div>
-
-      <div class="list-item highlight description" data-category="highlight">
-        <p class="date">2025.04</p> <div class="description">Invited talk at @ploutosai on "<a href="https://x.com/ceciletamura/status/1908465840632234375">Growing AI Like a Child</a>"</div>
-      </div>
-
-      <div class="list-item highlight description" data-category="highlight">
-        <p class="date">2025.04</p> <div class="description">Invited talk at TCN, JHU on "<a href="https://docs.google.com/presentation/d/1uedNdGa93GhwctQjOxc7rG0VCCb8flHfdQydlQ5-jSU/edit?usp=sharing">What is in the data, from the perspective of Dataset Distillation?</a>"</div>
-      </div>
-      
-      <div class="list-item highlight description" data-category="highlight">
-        <p class="date">2025.02</p> <div class="description">🎉 One paper accepted by CVPR 2025.</div>
-      </div>
-
-      <div class="list-item highlight description" data-category="highlight">
-        <p class="date">2025.01</p> <div class="description">🎉 One paper accepted by ICLR 2025.</div>
-      </div>
-
-      <div class="list-item highlight description" data-category="highlight">
-        <p class="date">2024.12</p> <div class="description">🎉 One paper accepted by AAAI 2025.</div>
-      </div>
-
-      <div class="list-item highlight description" data-category="highlight">
-        <p class="date">2024.10</p> <div class="description">🎉 One paper accepted by TMLR. Check out <a href="https://openreview.net/forum?id=hafnY2PiTn">here</a>!</div>
-      </div>
-      <div class="list-item highlight description" data-category="highlight">
-        <p class="date">2024.09</p> <div class="description">I received the Jacobs Fellowshop at UC San Diego!</div>
-      </div>
-      <div class="list-item highlight description" data-category="highlight">
-        <p class="date">2024.09</p> <div class="description">I started my PhD in Machine Learning and Data Science at UC San Diego!</div>
-      </div>
-      <div class="list-item highlight description" data-category="highlight">
-        <p class="date">2023.10</p> <div class="description"> Code for our ICCV 20203 paper "Diverse Co-training" is now available <a href="https://github.com/williamium3000/diverse-cotraining">here</a> on GitHub.</div>
-      </div>
-
-      <div class="list-item highlight description" data-category="highlight">
-        <p class="date">2023.10</p> <div class="description">🎉 Two papers accepted by ICCV 2023, including one first-author paper.</div>
-      </div>
-
-      <div class="list-item highlight description" data-category="highlight">
-        <p class="date">2023.06</p> <div class="description">🎉 Consistent-Teacher is presented at CVPR 2023 as Highlight (top 2.5%).</div>
-        </div>
-
-      <div class="list-item highlight description" data-category="highlight">
-        <p class="date">2023.02</p> <div class="description">I started my M.S.E. in Computer Science at Johns Hopkins University!</div>
-        </div>
-
-      <div class="list-item highlight description" data-category="highlight">
-        <p class="date">2022.06</p> <div class="description">🎉 My first first-author paper ”More than encoder" is presented at BIBM 2022!</div>
-      </div>
-      
-      <div class="list-item highlight description" data-category="highlight">
-        <p class="date">2022.06</p> <div class="description">🎉 Awarded the outstanding thesis award.</div>
-      </div>
-      <div class="list-item highlight description" data-category="highlight">
-        <p class="date">2022.05</p> <div class="description">I graduated from the South China University of Technology.</div>
-      </div>
-
-
-        <!-- Publications -->
-        <div class="list-item publication" data-category="publication">
-          <a href="https://arxiv.org/pdf/2411.16156" class="thumbnail">
-            <img src="images/videorion.png" alt="https://arxiv.org/pdf/2411.16156" />
-            <!-- <video playsinline="" muted="" autoplay="" loop="" width="180px">
-              <source src="images/daynight.mp4" type="video/mp4">
-            </video> -->
-          </a>
-          <div class="project-description">
-            <h3><a href="https://arxiv.org/pdf/2411.16156">VideoOrion: Tokenizing Object Dynamics in Videos</a></h3>
-            <p>
-              Yicheng Feng† <u>Yijiang Li†</u>, Wanpeng Zhang, Hao Luo, Zihao Yue, Sipeng Zheng, Zongqing Lu <br>
-              <i>†: equal contribution</i><br>
-               <i>International Conference on Computer Vision, ICCV 2025</i><br>
-                <!-- <i>Conference on Robot Learning (CoRL) 2023</i><br> -->
-                <!-- <a href="https://robot-teaching.github.io/">Webpage</a>&nbsp;&nbsp;&bull;&nbsp;&nbsp; -->
-                <a href="https://arxiv.org/pdf/2411.16156">Paper</a> &nbsp;&nbsp;&bull;&nbsp;&nbsp;
-                <a href="https://docs.google.com/presentation/d/1Pcx-1gngTLzggKqh7GglGM4o6idEbRjR9Yc2N9BJgHE/edit?usp=sharing">Slides</a>
-                <!-- <a href="https://colab.research.google.com/drive/1YcRN_kklw3cVVJNvgK_IEV6nDce9EJWK?usp=sharing">Code</a> -->
-                <br> <!-- TODO: extra spaces until I figure out the margin bug. -->
-            </p>
-          </div>
-        </div>
-
-        <div class="list-item publication" data-category="publication">
-          <a href="https://arxiv.org/pdf/2410.10855" class="thumbnail">
-            <img src="images/core-knowledge.png" alt="https://arxiv.org/pdf/2410.10855" />
-            <!-- <video playsinline="" muted="" autoplay="" loop="" width="180px">
-              <source src="images/daynight.mp4" type="video/mp4">
-            </video> -->
-          </a>
-          <div class="project-description">
-            <h3><a href="https://arxiv.org/pdf/2410.10855">Core Knowledge Deficits in Multi-Modal Language Models</a></h3>
-            <p>
-              <u>Yijiang Li</u>, Qingying Gao, Tianwei Zhao, Bingyang Wang, Haoran Sun, Haiyun Lyu, Dezhi Luo, Hokin Deng<br>
-              <i>International Conference on Machine
-                Learning (ICML) 2025</i><br>
-                <a href="https://grow-ai-like-a-child.github.io/core-knowledge/">Website</a>&nbsp;&nbsp;&bull;&nbsp;&nbsp;
-                <a href="https://arxiv.org/pdf/2410.10855">Paper</a> &nbsp;&nbsp;&bull;&nbsp;&nbsp;
-                <a href="https://github.com/williamium3000/core-knowledge">Code</a> &nbsp;&nbsp;&bull;&nbsp;&nbsp;
-                <a href="https://huggingface.co/datasets/williamium/CoreCognition">DataSet</a> &nbsp;&nbsp;&bull;&nbsp;&nbsp;
-                <a href="https://docs.google.com/presentation/d/1MNFMHPz2D6ih1PTWxgNwrKbSe-boHYyfFeCR5WJuDuE/edit?usp=sharing">Slides</a>
-                <br> <!-- TODO: extra spaces until I figure out the margin bug. -->
-            </p>
-          </div>
-        </div>
-
-        <div class="list-item publication" data-category="publication">
-          <a href="" class="thumbnail">
-            <img src="images\egoprivacy.jpg" alt="" />
-            <!-- <video playsinline="" muted="" autoplay="" loop="" width="180px">
-              <source src="images/daynight.mp4" type="video/mp4">
-            </video> -->
-          </a>
-          <div class="project-description">
-            <h3><a href="">EgoPrivacy: What Your First-Person Camera Says About You?</a></h3>
-            <p>
-              <u>Yijiang Li</u>, Jiacheng Cheng, Yi Li, Genpei Zhang, Xiaojun Shan, Dashan Gao, Jiancheng Lyu, Yuan Li, Ning Bi, Nuno Vasconcelos<br>
-              <!-- <i>Accepted by ICML 2025.</i><br> -->
-                <i>International Conference on Machine
-                  Learning (ICML) 2025</i><br>
-              <!-- <a href="https://robot-teaching.github.io/">Webpage</a>&nbsp;&nbsp;&bull;&nbsp;&nbsp; -->
-              <a href="https://williamium3000.github.io/ego-privacy/">Website</a>&nbsp;&nbsp;&bull;&nbsp;&nbsp;
-                <a href="https://arxiv.org/abs/2506.12258">Paper</a> &nbsp;&nbsp;&bull;&nbsp;&nbsp;
-                <!-- <a href="https://docs.google.com/presentation/d/1MNFMHPz2D6ih1PTWxgNwrKbSe-boHYyfFeCR5WJuDuE/edit?usp=sharing">Slides</a> -->
-                <a href="https://github.com/williamium3000/ego-privacy.">Code</a>
-                <br> <!-- TODO: extra spaces until I figure out the margin bug. -->
-            </p>
-          </div>
-        </div>
-
-
-        <div class="list-item publication" data-category="publication">
-          <a href="https://arxiv.org/abs/2310.00616" class="thumbnail">
-            <img src="images/adv_fed.png" alt="https://arxiv.org/abs/2310.00616" />
-            <!-- <video playsinline="" muted="" autoplay="" loop="" width="180px">
-              <source src="images/daynight.mp4" type="video/mp4">
-            </video> -->
-          </a>
-          <div class="project-description">
-            <h3><a href="https://arxiv.org/abs/2310.00616">Towards Understanding Adversarial Transferability in Federated Learning</a></h3>
-            <p>
-              <u>Yijiang Li</u>, Ying Gao, Haohan Wang<br>
-              <i>Transactions on Machine Learning Research</i><br>
-                <!-- <i>Conference on Robot Learning (CoRL) 2023</i><br> -->
-                <!-- <a href="https://robot-teaching.github.io/">Webpage</a>&nbsp;&nbsp;&bull;&nbsp;&nbsp; -->
-                <a href="https://openreview.net/pdf?id=hafnY2PiTn">Paper</a> 
-                <!-- &nbsp;&nbsp;&bull;&nbsp;&nbsp; -->
-                <!-- <a href="https://colab.research.google.com/drive/1YcRN_kklw3cVVJNvgK_IEV6nDce9EJWK?usp=sharing">Code</a> -->
-                <br> <!-- TODO: extra spaces until I figure out the margin bug. -->
-            </p>
-          </div>
-        </div>
-
-        <div class="list-item publication" data-category="publication">
-          <a href="https://arxiv.org/abs/2403.05523" class="thumbnail">
-            <img src="images/llm_dg.png" alt="https://arxiv.org/abs/2403.05523" />
-          </a>
-          <div class="project-description">
-            <h3><a href="https://arxiv.org/abs/2403.05523">Beyond Finite Data: Towards Data-free Out-of-distribution Generalization via Extrapolation. </a></h3>
-            <p>
-              <u>Yijiang Li</u>, Sucheng Ren, Weipeng Deng, Yuzhi Xu, Ying Gao, Haohan Wang<br>
-              <i>Preprint. Paper under review</i><br>
-                <!-- <i>Conference on Robot Learning (CoRL) 2023</i><br> -->
-                <!-- <a href="https://video-language-planning.github.io/">Webpage</a>&nbsp;&nbsp;&bull;&nbsp;&nbsp; -->
-                <a href="https://arxiv.org/pdf/2403.05523">Paper</a>
-                <br> <!-- TODO: extra spaces until I figure out the margin bug. -->
-            </p>
-          </div>
-        </div>
-
-        <!-- <div class="list-item publication" data-category="publication">
-          <a href="https://arxiv.org/pdf/2403.10045" class="thumbnail">
-            <img src="images/robust_dd.png" alt="https://arxiv.org/pdf/2403.10045" /> 
-          </a>
-          <div class="project-description">
-            <h3><a href="https://ojs.aaai.org/index.php/AAAI/article/view/32978">Towards Adversarially Robust Dataset Distillation by Curvature Regularization</a></h3>
-            <p>
-              Eric Xue, <u>Yijiang Li</u>, Haoyang Liu, Peiran Wang, Yifan Shen, Haohan Wang<br>
-                <i>AAAI Conference on Artificial Intelligence 2025</i><br>
-                <a href="https://arxiv.org/pdf/2403.10045">Paper</a>&nbsp;&nbsp;&bull;&nbsp;&nbsp;
-                <a href="https://github.com/yumozi/GUARD">Code</a>
-                <br> 
-            </p>
-          </div>
-        </div> -->
-
-        <div class="list-item publication" data-category="publication">
-          <a href="https://arxiv.org/abs/2311.18531" class="thumbnail"><img src="images/dd_ot.png" alt="" /></a>
-          <div class="project-description">
-            <h3><a href="https://arxiv.org/abs/2311.18531">Dataset distillation via the wasserstein metric</a></h3>
-            <p>
-              Haoyang Liu, <u>Yijiang Li</u>, Tiancheng Xing, Vibhu Dalal, Luwei Li, Jingrui He, Haohan Wang<br>
-              <i>International Conference on Computer Vision, ICCV 2025</i><br>
-              <!-- <font color="49bf9"><i>&#9733; 3rd Place, Amazon Robotics Challenge 2016 &#9733;</i></font><br> -->
-                <a href="https://liu-hy.github.io/WMDD/">Website</a>&nbsp;&nbsp;&bull;&nbsp;&nbsp;
-                <a href="https://arxiv.org/pdf/2311.18531">Paper</a>&nbsp;&nbsp;&bull;&nbsp;&nbsp;
-                <a href="https://github.com/Liu-Hy/WMDD">Code</a>
-            </p>
-          </div>
-        </div>
-
-        <div class="list-item publication" data-category="publication">
-          <a href="https://williamium3000.github.io/diverse-cotraining/" class="thumbnail"><img src="images/diverse_cotraining.png" alt="" /></a>
-          <div class="project-description">
-            <h3><a href="https://williamium3000.github.io/diverse-cotraining/">Diverse co-training makes strong semi-supervised segmentor</a></h3>
-            <p>
-              <u>Yijiang Li</u>, Xinjiang Wang, Lihe Yang, Litong Feng, Wayne Zhang, Ying Gao<br>
-              <i>International Conference on Computer Vision (ICCV) 2023</i><br>
-              <!-- <font color="49bf9"><i>&#9733; 3rd Place, Amazon Robotics Challenge 2016 &#9733;</i></font><br> -->
-              <a href="https://williamium3000.github.io/diverse-cotraining/">Website</a>&nbsp;&nbsp;&bull;&nbsp;&nbsp;
-                <a href="https://arxiv.org/pdf/2308.09281">Paper</a>&nbsp;&nbsp;&bull;&nbsp;&nbsp;
-                <a href="https://github.com/williamium3000/diverse-cotraining">Code</a>&nbsp;&nbsp;&bull;&nbsp;&nbsp;
-                <a href="static/files/_ICCV2023_Diverse_cotraining.pdf">Poster</a>
-            </p>
-          </div>
-        </div>
-
-        <div class="list-item publication" data-category="publication">
-          <a href="https://arxiv.org/abs/2303.06601" class="thumbnail"><img src="images/multi_metrics.png" alt="" /></a>
-          <div class="project-description">
-            <h3><a href="https://arxiv.org/abs/2303.06601">Multi-metrics adaptively identifies backdoors in federated learning</a></h3>
-            <p>
-              Siquan Huang, <u>Yijiang Li</u>, Chong Chen, Leyu Shi, Ying Gao<br>
-              <i>International Conference on Computer Vision (ICCV) 2023</i><br>
-              <!-- <font color="49bf9"><i>&#9733; 3rd Place, Amazon Robotics Challenge 2016 &#9733;</i></font><br> -->
-                <!-- <a href="http://apc.cs.princeton.edu/">Webpage</a>&nbsp;&nbsp;&bull;&nbsp;&nbsp; -->
-                <a href="https://siquanhuang.github.io/Multi-metrics/">Website</a>&nbsp;&nbsp;&bull;&nbsp;&nbsp;
-                <a href="https://arxiv.org/pdf/2303.06601">Paper</a>&nbsp;&nbsp;&bull;&nbsp;&nbsp;
-                <a href="https://github.com/siquanhuang/Multi-metrics">Code</a>&nbsp;&nbsp;&bull;&nbsp;&nbsp;
-                <a href="static/files/_ICCV2023_Multi-metrics.pdf">Poster</a>
-                <!-- <a href="http://apc.cs.princeton.edu/#shelf-and-tote-benchmark-dataset">Shelf &amp; Tote Dataset</a>&nbsp;&nbsp;&bull;&nbsp;&nbsp;
-                <a href="https://github.com/andyzeng/apc-vision-toolbox">Code</a> -->
-            </p>
-          </div>
-        </div>
-        
-
-        <div class="list-item publication" data-category="publication">
-          <a href="https://adamdad.github.io/consistentteacher" class="thumbnail"><img src="images/consistent_teacher.png" alt="" /></a>
-          <div class="project-description">
-            <h3><a href="https://adamdad.github.io/consistentteacher">Consistent-teacher: Towards reducing inconsistent pseudo-targets in semi-supervised object detection</a></h3>
-            <p>
-              Xinjiang Wang, Xingyi Yang, Shilong Zhang, <u>Yijiang Li</u>, Litong Feng, Shijie Fang, Chengqi Lyu, Kai Chen, Wayne Zhang<br>
-              <i>Computer Vision and Pattern Recognition (CVPR) 2023</i> <font color="49bf9"><i>&#9733; Highlight (Top 2.5%) &#9733;</i></font><br>
-              <!-- <font color="49bf9"><i>&#9733; 3rd Place, Amazon Robotics Challenge 2016 &#9733;</i></font><br> -->
-                <!-- <a href="http://apc.cs.princeton.edu/">Webpage</a>&nbsp;&nbsp;&bull;&nbsp;&nbsp; -->
-                <a href="https://adamdad.github.io/consistentteacher">Website</a>&nbsp;&nbsp;&bull;&nbsp;&nbsp;
-                <a href="https://openaccess.thecvf.com/content/CVPR2023/papers/Wang_Consistent-Teacher_Towards_Reducing_Inconsistent_Pseudo-Targets_in_Semi-Supervised_Object_Detection_CVPR_2023_paper.pdf">Paper</a>&nbsp;&nbsp;&bull;&nbsp;&nbsp;
-                <a href="https://github.com/Adamdad/ConsistentTeacher">Code</a>
-            </p>
-          </div>
-        </div>
-
-        <div class="list-item publication" data-category="publication">
-          <a href="https://arxiv.org/abs/2106.10637" class="thumbnail"><img src="images/more_than_decoder.png" alt="" /></a>
-          <div class="project-description">
-            <h3><a href="https://arxiv.org/abs/2106.10637">More than encoder: Introducing transformer decoder to upsample</a></h3>
-            <p>
-              <u>Yijiang Li</u>, Wentian Cai, Ying Gao, Chengming Li, Xiping Hu<br>
-              <i>IEEE International Conference on Bioinformatics and Biomedicine (BIBM) 2022</i><br>
-              <!-- <font color="49bf9"><i>&#9733; 3rd Place, Amazon Robotics Challenge 2016 &#9733;</i></font><br> -->
-                <!-- <a href="http://apc.cs.princeton.edu/">Webpage</a>&nbsp;&nbsp;&bull;&nbsp;&nbsp; -->
-                <!-- <a href="https://adamdad.github.io/consistentteacher">Webpage</a>&nbsp;&nbsp;&bull;&nbsp;&nbsp; -->
-                <a href="https://arxiv.org/pdf/2106.10637">Paper</a>
-                <!-- <a href="https://github.com/Adamdad/ConsistentTeacher">Code</a> -->
-                <!-- <a href="http://apc.cs.princeton.edu/#shelf-and-tote-benchmark-dataset">Shelf &amp; Tote Dataset</a>&nbsp;&nbsp;&bull;&nbsp;&nbsp;
-                <a href="https://github.com/andyzeng/apc-vision-toolbox">Code</a> -->
-            </p>
-          </div>
-        </div>
-
-
-        <!-- Talks -->
-        <!-- <div class="list-item talk description" data-category="talk">
-          Some of my slides can be found <a href="https://slides.com/andyzeng">here</a>
-        </div> -->
-
-        
-
-        <div class="list-item intern" data-category="intern">
-          <a href="" class="thumbnail"><img src="images/baai_logo.png" alt="" /></a>
-          <div class="project-description">
-            <h3><a href="">Beijing Academy of Artificial Intelligence</a></h3>
-            <p>
-              Intern Researcher | June. 2024 – Oct. 2024<br>
-              Video Large Language Model<br>
-            </p>
-          </div>
-        </div>
-
-        <div class="list-item intern" data-category="intern">
-          <a href="" class="thumbnail"><img src="images/sensetime_logo.png" alt="" /></a>
-          <div class="project-description">
-            <h3><a href="">Sensetime Research</a></h3>
-            <p>
-              Intern Researcher | Jul. 2021 – Nov. 2022<br>
-              Sample efficient learning (semi- and weakly-supervised learning)<br>
-            </p>
-          </div>
-        </div>
-
-        <div class="list-item intern" data-category="intern">
-          <a href="" class="thumbnail"><img src="images/webank_logo.png" alt="" /></a>
-          <div class="project-description">
-            <h3><a href="">WeBank</a></h3>
-            <p>
-              Machine Learning Engineer | Jun. 2020 - Sep. 2020<br>
-              Large-scale Public Sentiment and Risk Control<br>
-            </p>
-          </div>
-        </div>
-        
-        <div class="list-item edu" data-category="edu">
-          <a href="" class="thumbnail"><img src="images/ucsd_logo.png" alt="" /></a>
-          <div class="project-description">
-            <h3><a href="">University of California San Diego</a></h3>
-            <p>
-              Ph.D. in Machine Learning and Data Science, Electrical and Computer Engineering<br>
-              Oct. 2024 - Present<br>
-              Jacobs Fellowshop<br>
-              GPA: 3.94 / 4.0<br>
-            </p>
-          </div>
-        </div>
-
-        <div class="list-item edu" data-category="edu">
-          <a href="" class="thumbnail"><img src="images/johns_hopkins_university_logo.png" alt="" /></a>
-          <div class="project-description">
-            <h3><a href="">Johns Hopkins University</a></h3>
-            <p>
-              M.S.E. in Computer Science | Jan. 2023 - June. 2024<br>
-              GPA: 4.0 / 4.0<br>
-            </p>
-          </div>
-        </div>
-
-        <div class="list-item edu" data-category="edu">
-          <a href="" class="thumbnail"><img src="images/south_china_university_of_technology_logo.png" alt="" /></a>
-          <div class="project-description">
-            <h3><a href="">South China University of Technology</a></h3>
-            <p>
-              B.E. in Computer Science | Sep. 2018 – Jul. 2022<br>
-              GPA: 3.73 / 4.0<br>
-              2018-19 Scholarship<br>
-              Outstanding Thesis Awards<br>
-            </p>
-          </div>
-        </div>
-
-        <div class="list-item edu" data-category="edu">
-          <a href="" class="thumbnail"><img src="images/affiliated_hs_of_south_china_normal_university_logo.png" alt="" /></a>
-          <div class="project-description">
-            <h3><a href="">The Affiliated High School of South China Normal University</a></h3>
-            <p>
-              High School Diploma | Sep. 2015 – Jul. 2018<br>
-            </p>
-          </div>
-        </div>
-
-
-        <!-- Services -->
-        <div class="list-item service" data-category="service">
-          <h2>Reviewer</h2>
-        </div>
-        
-        <div class="list-item service" data-category="service">
-          <div class="date">2025</div> <div class="description">Reviewer, ICML 2025, CVPR 2025, AISTATS 2025, ICLR 2025</div>
-        </div>
-
-
-        <div class="list-item service" data-category="service">
-          <div class="date">2024</div> <div class="description">Reviewer, NeurIPS 2024</div>
-        </div>
-
-
-        <div class="list-item service" data-category="service">
-          <h2>Teaching Assistant</h2>
-        </div>
-
-
-          <div class="list-item service" data-category="service">
-            <a href="" class="thumbnail"><img src="images/jhu_wse_logo.jpg" alt="" /></a>
-            <div class="project-description">
-              <h3><a href="">EN.553.436/636 Introduction to Data Science (Fall 2023)</a></h3>
-              <p>
-                Teaching Assistant | Instructor: Prof. <a href="https://engineering.jhu.edu/ams/faculty/tamas-budavari/">Tamás Budavári</a>
-              </p>
-              <br>
-              <h3><a href="https://deep.cs.jhu.edu/deeplearning.html">EN 601.482/682 Machine Learning: Deep Learning (Fall 2023)</a></h3>
-              <p>
-                Course Assistant | Instructor: Prof. <a href="https://mathiasunberath.github.io/">Mathias Unberath</a>
-              </p>
-              <br>
-              <h3><a href=""></a>EN.553.436/636 Introduction to Data Science (Spring 2023)</a></h3>
-              <p>
-                Teaching Assistant | Instructor: Prof. <a href="https://engineering.jhu.edu/ams/faculty/tamas-budavari/">Tamás Budavári</a>, Prof. <a href="https://www.ams.jhu.edu/villar/">Soledad Villar</a>
-              </p>
+            <div class="terminal-title">william@ucsd: ~/personal_web</div>
+            <!-- View Toggle Controls for Terminal -->
+            <div class="view-controls terminal-controls">
+                <button id="theme-toggle-terminal" class="control-btn" title="Toggle Light/Dark Mode">
+                    <span class="icon">☀️</span>
+                    <span class="label">Light</span>
+                </button>
+                <button id="view-toggle-terminal" class="control-btn" title="Toggle Terminal/Plain View">
+                    <span class="icon">📄</span>
+                    <span class="label">Web</span>
+                </button>
             </div>
-          </div>
-
-          <!-- Misc -->
-
-          <div class="list-item misc" data-category="misc">
-            <div class="project-description football-block">
-              <h2>Chat?</h2>
-                <p>I am happy to discuss collaborations and chat about research. Please select a time slot and drop me a note below.</p>
-              <br><br>
-              <!-- Calendly inline widget begin -->
-              <div class="calendly-inline-widget" data-url="https://calendly.com/liyijiang3000/30min" style="min-width:320px;height:700px;"></div>
-              <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
-              <!-- Calendly inline widget end -->
+        </div>
+        <div class="terminal-body">
+            <div id="terminal-output"></div>
+            <div class="input-line">
+                <span class="prompt">william@ucsd:~/personal_web$ </span>
+                <input type="text" id="terminal-input" autocomplete="off" spellcheck="false" autofocus>
             </div>
-          </div>
-
-          <div class="list-item misc" data-category="misc">
-            <div class="project-description football-block">
-              <h2>Football</h2>
-              <p>I love playing football and enjoy being part of the Football Varsity Team of School of Computer Science and Engineering. 
-                Check out the trophies we won (left) and our team (right)!</p>
-              <br><br>
-              <div class="misc-images" style="display: flex; gap: 2%;">
-                <img 
-                  src="images/football2.jpg" 
-                  alt="team photo on the pitch"
-                  style="flex: 1 1 0; max-width: 49%; height: auto; display: block; object-fit: cover;"
-                >
-                <img 
-                  src="images/football1.jpg" 
-                  alt="trophies we won"
-                  style="flex: 1 1 0; max-width: 49%; height: auto; display: block; object-fit: cover;"
-                >
-              </div>
-            </div>
-          </div>
-
-          <div class="list-item misc" data-category="misc">
-            <div class="project-description football-block">
-              <h2>Travel</h2>
-            <p>Check out some pics from my travel! Here are Meili Snow Mountains(left) and Humble Administrator’s Garden(right).</p>
-              <br><br>
-              <div class="misc-images" style="display: flex; gap: 2%;">
-                <img 
-                  src="images/meili.jpg" 
-                  alt="Meili Snow Mountains"
-                  style="flex: 1 1 0; max-width: 49%; height: auto; display: block; object-fit: cover;"
-                >
-                <img 
-                  src="images/suzhou2.jpg" 
-                  alt="Humble Administrator’s Garden"
-                  style="flex: 1 1 0; max-width: 49%; height: auto; display: block; object-fit: cover;"
-                >
-              </div>
-            </div>
-          </div>
-      </div>
-
-      <!-- <div id="footer">Template from <a href="https://github.com/andyzeng/andyzeng.github.io">here</a>.</div> -->
-      <div id="footer">
-        <hr>
-        <ol>
-          <li id="fn1">
-            Written in Chinese as 黎羿江 and pronunced as Yee Jee-ahng Lee <a href="#fnref1" class="footnote-backref">↩︎</a>
-          </li>
-          <!-- add more <li>…</li> for each footnote -->
-        </ol>
-        Template from <a href="https://github.com/andyzeng/andyzeng.github.io">here</a>.
-      </div>
+        </div>
     </div>
 
+    <!-- Plain View -->
+    <div class="plain-view" id="plain-view">
+        <aside class="pv-aside">
+            <div class="pv-sigil">william<span class="pv-host">ucsd</span></div>
+
+            <div class="pv-block">
+                <div class="pv-block-label">sections</div>
+                <a href="#pv-about" class="pv-nav current">about</a>
+                <a href="#pv-about" class="pv-subnav" id="pv-bio-link">bio</a>
+                <a href="#pv-news" class="pv-nav">news</a>
+                <a href="#pv-publications" class="pv-nav">publications</a>
+                <a href="#pv-cv" class="pv-nav">cv</a>
+                <a href="#pv-life" class="pv-nav">life</a>
+                <a href="#pv-chat" class="pv-nav">chat</a>
+            </div>
+
+            <div class="pv-block extra">
+                <div class="pv-block-label">elsewhere</div>
+                <a href="https://scholar.google.com/citations?user=Dx3z0m8AAAAJ&hl=en" target="_blank" rel="noopener">scholar</a>
+                <a href="https://github.com/williamium3000" target="_blank" rel="noopener">github</a>
+                <a href="https://x.com/Williamiumli" target="_blank" rel="noopener">twitter</a>
+                <a href="https://www.linkedin.com/in/yijiang-william-li-36795b271/" target="_blank" rel="noopener">linkedin</a>
+                <a href="https://williamium3000.github.io/myblog/" target="_blank" rel="noopener">blog</a>
+            </div>
+
+            <div class="pv-block">
+                <div class="pv-block-label">view</div>
+                <button id="view-toggle" class="control-btn pv-ctl" title="Toggle Terminal/Plain View">
+                    <span class="icon">💻</span>
+                    <span class="label">Terminal</span>
+                </button>
+                <button id="theme-toggle" class="control-btn pv-ctl" title="Toggle Light/Dark Mode">
+                    <span class="icon">🌙</span>
+                    <span class="label">Dark</span>
+                </button>
+            </div>
+        </aside>
+
+        <main class="pv-main">
+            <header class="pv-masthead">
+                <div class="pv-masthead-text">
+                    <h1>William Yijiang Li</h1>
+                    <div class="pv-sub">UC San Diego · Jacobs Fellow · PhD · 2024—</div>
+                    <div class="pv-contact">
+                        <div><a href="mailto:yijiangli@ucsd.edu">yijiangli [at] ucsd [dot] edu</a></div>
+                        <div>Jacobs Hall, 9500 Gilman Dr, La Jolla, CA 92093</div>
+                    </div>
+                </div>
+                <img class="pv-photo" src="images/profile.png" alt="William Yijiang Li" width="112" height="112">
+            </header>
+
+            <section id="pv-about">
+                <div id="pv-about-body"><!-- rendered by terminal.js --></div>
+            </section>
+
+            <section id="pv-news">
+                <h2>News</h2>
+                <div id="pv-news-body"><!-- rendered by terminal.js --></div>
+            </section>
+
+            <section id="pv-publications">
+                <h2>Selected Publications</h2>
+                <p class="pv-pubs-note">* denotes equal contribution.</p>
+                <div id="pv-pubs-body"><!-- rendered by terminal.js --></div>
+            </section>
+
+            <section id="pv-cv">
+                <h2>CV</h2>
+                <div id="pv-cv-body"><!-- rendered by terminal.js --></div>
+            </section>
+
+            <section id="pv-life">
+                <h2 class="pv-h2-collapsible">
+                    <button type="button" id="pv-life-toggle" aria-expanded="false" aria-controls="pv-life-full">
+                        Beyond research <span class="pv-caret" aria-hidden="true">↓</span>
+                    </button>
+                </h2>
+                <div id="pv-life-body"><!-- rendered by terminal.js --></div>
+            </section>
+
+            <section id="pv-chat">
+                <h2>Chat?</h2>
+                <p>I am happy to discuss collaborations and chat about research. Pick a time slot below, or just
+                    <a href="mailto:yijiangli@ucsd.edu">email me</a>.</p>
+                <div class="pv-calendly" id="pv-calendly">
+                    <div class="pv-calendly-status" id="pv-calendly-status">Loading the calendar…</div>
+                    <iframe id="pv-calendly-frame"
+                        src="https://calendly.com/liyijiang3000/30-min-chat?embed_domain=williamium3000.github.io&amp;embed_type=Inline&amp;hide_gdpr_banner=1"
+                        title="Book a chat with William Yijiang Li"
+                        loading="lazy"></iframe>
+                </div>
+                <p class="pv-calendly-fallback">Or book directly at
+                    <a href="https://calendly.com/liyijiang3000/30-min-chat" target="_blank" rel="noopener">calendly.com/liyijiang3000/30-min-chat</a>.</p>
+            </section>
+
+            <div class="pv-globe">
+                <script type="text/javascript" id="clstr_globe"
+                    src="//clustrmaps.com/globe.js?d=pi_aBfz8hTCBS3WHemYOzgxUrTI0ZhA9NxrqTe8uKw4"></script>
+            </div>
+
+            <footer class="pv-footer">
+                <div>
+                    © <span id="pv-year">2026</span> William Yijiang Li ·
+                    template by <a href="https://abehou.github.io/" target="_blank" rel="noopener">Abe Hou</a>
+                    <span class="pv-visitors" id="busuanzi_container_site_pv"> · visitor #<span id="busuanzi_value_site_pv"></span></span>
+                </div>
+            </footer>
+        </main>
+    </div>
+
+    <!-- Vim-style viewer (hidden by default) -->
+    <div id="vim-viewer" class="vim-viewer hidden">
+        <div class="vim-header">
+            <div class="vim-filename"></div>
+            <div class="vim-help">Press 'q' to quit, ↑↓ or j/k to scroll</div>
+        </div>
+        <div class="vim-content" id="vim-content"></div>
+        <div class="vim-footer">
+            <span id="vim-status"></span>
+        </div>
+    </div>
+
+    <script src="terminal.js"></script>
+    <script>document.getElementById('pv-year').textContent = new Date().getFullYear();</script>
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
     <script>
+        // The Calendly iframe is embedded directly. A successfully rendered widget
+        // posts messages back to the parent, which is the only reliable success
+        // signal for a cross-origin frame (its load event fires for error pages
+        // too). Without one, collapse the frame and leave just the booking link.
+        (function () {
+            var box = document.getElementById('pv-calendly');
+            var status = document.getElementById('pv-calendly-status');
+            if (!box) return;
 
-      // Isotope grid.
-      var $grid = $('.grid').isotope({
-        itemSelector: '.list-item',
-        layoutMode: 'fitRows',
-        transitionDuration: 0,
-        stagger: 10,
-        initLayout: false,
-        getSortData: {
-          name: '.name',
-          symbol: '.symbol',
-          number: '.number parseInt',
-          category: '[data-category]',
-          weight: function( itemElem ) {
-            var weight = $( itemElem ).find('.weight').text();
-            return parseFloat( weight.replace( /[\(\)]/g, '') );
-          }
-        }
-      });
+            var settled = false;
 
-      // Bind filter button click.
-      $('#filters').on( 'click', 'button', function() {
-        var filterValue = $( this ).attr('data-filter');
-        localStorage.setItem('filterValue', filterValue);
-        $grid.isotope({ filter: filterValue });
-      });
+            window.addEventListener('message', function (event) {
+                if (settled) return;
+                if (!/(^|\.)calendly\.com$/.test(new URL(event.origin).hostname)) return;
+                settled = true;
+                if (status) status.remove();
+            });
 
-      // Change is-checked class on buttons.
-      $('.button-group').each( function( i, buttonGroup ) {
-        var $buttonGroup = $( buttonGroup );
-        $buttonGroup.on( 'click', 'button', function() {
-          $buttonGroup.find('.is-checked').removeClass('is-checked');
-          $( this ).addClass('is-checked');
-        });
-      });
-
-      function update_isotope() {
-        // Retrieve cached button click.
-        var defaultFilterValue = localStorage.getItem('filterValue');
-        if (defaultFilterValue == null) {
-          defaultFilterValue = ".highlight"
-        }
-        $grid.isotope({ filter: defaultFilterValue });
-        var buttons = document.getElementsByClassName("button");
-        for (var currButton of buttons) {
-          if (currButton.getAttribute('data-filter') == defaultFilterValue) {
-            currButton.classList.add('is-checked');
-          } else {
-            currButton.classList.remove('is-checked');
-          }
-        }
-      }
-
-      function toggle_bio() {
-        var x = document.getElementById("more-bio");
-        if (x.style.display === "none") {
-          x.style.display = "block";
-        } else {
-          x.style.display = "none";
-        }
-      }
-      function toggle_contact() {
-        var x = document.getElementById("more-contact");
-        if (x.style.display === "none") {
-          x.style.display = "block";
-        } else {
-          x.style.display = "none";
-        }
-      }
-
-      function toggle_highlights() {
-        var x = document.getElementById("main-highlights");
-        var y = document.getElementById("more-highlights");
-        var b = document.getElementById("toggle_highlights_button")
-        if (y.style.display === "none") {
-          x.style.display = "none";
-          y.style.display = "block";
-          b.innerHTML = "Show less"
-          update_isotope();
-        } else {
-          x.style.display = "block";
-          y.style.display = "none";
-          b.innerHTML = "Show more"
-          update_isotope();
-        }
-      }
-
-      update_isotope();
-
+            setTimeout(function () {
+                if (!settled) box.hidden = true;
+            }, 10000);
+        })();
     </script>
-  </body>
+</body>
+
 </html>

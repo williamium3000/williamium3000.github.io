@@ -1,0 +1,30 @@
+{
+  "type": "directory",
+  "description": "Beyond research",
+  "files": {
+    "football.txt": {
+      "title": "Football",
+      "content": "I love playing football and enjoy being part of the Football Varsity Team of the School of Computer Science and Engineering. Check out the trophies we won and our team!",
+      "images": [
+        "images/football2.jpg",
+        "images/football1.jpg"
+      ],
+      "captions": [
+        "Trophies we won",
+        "Our team"
+      ]
+    },
+    "travel.txt": {
+      "title": "Travel",
+      "content": "Some pictures from my travels: the Meili Snow Mountains and the Humble Administrator's Garden in Suzhou.",
+      "images": [
+        "images/meili.jpg",
+        "images/suzhou2.jpg"
+      ],
+      "captions": [
+        "Meili Snow Mountains",
+        "Humble Administrator's Garden"
+      ]
+    }
+  }
+}

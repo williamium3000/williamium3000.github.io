@@ -1,0 +1,96 @@
+{
+  "type": "directory",
+  "description": "News and updates",
+  "files": {
+    "2025-06-iccv.txt": {
+      "title": "Three papers accepted at ICCV 2025",
+      "date": "2025.06",
+      "content": "VideoOrion, Dataset Distillation via the Wasserstein Metric, and one more paper were accepted at ICCV 2025."
+    },
+    "2025-06-tpami.txt": {
+      "title": "One paper accepted at TPAMI",
+      "date": "2025.06",
+      "content": "One paper accepted at IEEE Transactions on Pattern Analysis and Machine Intelligence."
+    },
+    "2025-05-icml.txt": {
+      "title": "Two first-author papers accepted at ICML 2025",
+      "date": "2025.05",
+      "content": "Core Knowledge Deficits in Multi-Modal Language Models and EgoPrivacy were both accepted at ICML 2025."
+    },
+    "2025-04-ploutos.txt": {
+      "title": "Invited talk at @ploutosai: Growing AI Like a Child",
+      "date": "2025.04",
+      "content": "Invited talk on Growing AI Like a Child. https://x.com/ceciletamura/status/1908465840632234375"
+    },
+    "2025-04-tcn.txt": {
+      "title": "Invited talk at TCN, JHU: What is in the data, from the perspective of dataset distillation?",
+      "date": "2025.04",
+      "content": "Slides: https://docs.google.com/presentation/d/1uedNdGa93GhwctQjOxc7rG0VCCb8flHfdQydlQ5-jSU/edit?usp=sharing"
+    },
+    "2025-02-cvpr.txt": {
+      "title": "One paper accepted at CVPR 2025",
+      "date": "2025.02",
+      "content": "One paper accepted at CVPR 2025."
+    },
+    "2025-01-iclr.txt": {
+      "title": "One paper accepted at ICLR 2025",
+      "date": "2025.01",
+      "content": "One paper accepted at ICLR 2025."
+    },
+    "2024-12-aaai.txt": {
+      "title": "One paper accepted at AAAI 2025",
+      "date": "2024.12",
+      "content": "One paper accepted at AAAI 2025."
+    },
+    "2024-10-tmlr.txt": {
+      "title": "One paper accepted at TMLR",
+      "date": "2024.10",
+      "content": "Towards Understanding Adversarial Transferability in Federated Learning was accepted at TMLR. https://openreview.net/forum?id=hafnY2PiTn"
+    },
+    "2024-09-jacobs.txt": {
+      "title": "Received the Jacobs Fellowship at UC San Diego",
+      "date": "2024.09",
+      "content": "I received the Jacobs Fellowship at UC San Diego."
+    },
+    "2024-09-phd.txt": {
+      "title": "Started my PhD at UC San Diego",
+      "date": "2024.09",
+      "content": "I started my PhD in Machine Learning and Data Science at UC San Diego."
+    },
+    "2023-10-code.txt": {
+      "title": "Code for Diverse Co-training released",
+      "date": "2023.10",
+      "content": "Code for our ICCV 2023 paper Diverse Co-training is now on GitHub. https://github.com/williamium3000/diverse-cotraining"
+    },
+    "2023-10-iccv.txt": {
+      "title": "Two papers accepted at ICCV 2023",
+      "date": "2023.10",
+      "content": "Two papers accepted at ICCV 2023, including one first-author paper."
+    },
+    "2023-06-cvpr.txt": {
+      "title": "Consistent-Teacher presented at CVPR 2023 as a Highlight (top 2.5%)",
+      "date": "2023.06",
+      "content": "Consistent-Teacher was presented at CVPR 2023 as a Highlight paper."
+    },
+    "2023-02-jhu.txt": {
+      "title": "Started my M.S.E. at Johns Hopkins University",
+      "date": "2023.02",
+      "content": "I started my M.S.E. in Computer Science at Johns Hopkins University."
+    },
+    "2022-06-bibm.txt": {
+      "title": "First first-author paper presented at BIBM 2022",
+      "date": "2022.06",
+      "content": "My first first-author paper, More than Encoder, was presented at BIBM 2022."
+    },
+    "2022-06-thesis.txt": {
+      "title": "Awarded the Outstanding Thesis Award",
+      "date": "2022.06",
+      "content": "Awarded the Outstanding Thesis Award at South China University of Technology."
+    },
+    "2022-05-scut.txt": {
+      "title": "Graduated from South China University of Technology",
+      "date": "2022.05",
+      "content": "I graduated from South China University of Technology."
+    }
+  }
+}
