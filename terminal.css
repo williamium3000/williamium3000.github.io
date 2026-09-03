@@ -1338,3 +1338,9 @@ body.pv-active {
     color: var(--pv-soft);
     margin: -6px 0 18px;
 }
+
+/* Links always start their own line under the citation. */
+.pv-pub .pv-pub-links {
+    display: block;
+    margin-top: 3px;
+}
