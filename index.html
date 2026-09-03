@@ -146,19 +146,15 @@
                     <a href="mailto:yijiangli@ucsd.edu">email me</a>.</p>
                 <div class="pv-calendly" id="pv-calendly">
                     <div class="pv-calendly-status" id="pv-calendly-status">Loading the calendar…</div>
-                    <iframe id="pv-calendly-frame"
-                        src="https://calendly.com/liyijiang3000/30-min-chat?embed_domain=williamium3000.github.io&amp;embed_type=Inline&amp;hide_gdpr_banner=1"
-                        title="Book a chat with William Yijiang Li"
-                        loading="lazy"></iframe>
+                    <div class="calendly-inline-widget" id="pv-calendly-widget"
+                        data-url="https://calendly.com/liyijiang3000/30-min-chat?hide_gdpr_banner=1"
+                        style="min-width:300px;height:700px;"></div>
                 </div>
                 <p class="pv-calendly-fallback">Or book directly at
                     <a href="https://calendly.com/liyijiang3000/30-min-chat" target="_blank" rel="noopener">calendly.com/liyijiang3000/30-min-chat</a>.</p>
             </section>
 
-            <div class="pv-globe">
-                <script type="text/javascript" id="clstr_globe"
-                    src="//clustrmaps.com/globe.js?d=pi_aBfz8hTCBS3WHemYOzgxUrTI0ZhA9NxrqTe8uKw4"></script>
-            </div>
+            <div class="pv-globe" id="pv-globe"></div>
 
             <footer class="pv-footer">
                 <div>
@@ -186,27 +182,67 @@
     <script>document.getElementById('pv-year').textContent = new Date().getFullYear();</script>
     <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
     <script>
-        // The Calendly iframe is embedded directly. A successfully rendered widget
-        // posts messages back to the parent, which is the only reliable success
-        // signal for a cross-origin frame (its load event fires for error pages
-        // too). Without one, collapse the frame and leave just the booking link.
+        // Both the Calendly widget and the ClustrMaps globe size themselves to
+        // their container, so they must not load while the web view is still
+        // display:none. Inject each one only once it is actually on screen.
         (function () {
-            var box = document.getElementById('pv-calendly');
-            var status = document.getElementById('pv-calendly-status');
-            if (!box) return;
+            whenVisible(document.getElementById('pv-chat'), loadCalendly);
+            whenVisible(document.getElementById('pv-globe'), loadGlobe);
 
-            var settled = false;
+            function whenVisible(target, load) {
+                if (!target) return;
+                if (!('IntersectionObserver' in window)) { load(); return; }
+                var io = new IntersectionObserver(function (entries) {
+                    if (entries.some(function (e) { return e.isIntersecting; })) {
+                        io.disconnect();
+                        load();
+                    }
+                }, { rootMargin: '400px 0px' });
+                io.observe(target);
+            }
 
-            window.addEventListener('message', function (event) {
-                if (settled) return;
-                if (!/(^|\.)calendly\.com$/.test(new URL(event.origin).hostname)) return;
-                settled = true;
-                if (status) status.remove();
-            });
+            function loadCalendly() {
+                var box = document.getElementById('pv-calendly');
+                var slot = document.getElementById('pv-calendly-widget');
+                var status = document.getElementById('pv-calendly-status');
+                if (!box || !slot || document.getElementById('calendly-js')) return;
 
-            setTimeout(function () {
-                if (!settled) box.hidden = true;
-            }, 10000);
+                var s = document.createElement('script');
+                s.id = 'calendly-js';
+                s.src = 'https://assets.calendly.com/assets/external/widget.js';
+                s.async = true;
+                s.onerror = giveUp;
+                document.body.appendChild(s);
+
+                // The widget renders into an iframe; poll for it rather than trust
+                // a load event, which fires for error pages too.
+                var waited = 0;
+                var timer = setInterval(function () {
+                    if (slot.querySelector('iframe')) {
+                        clearInterval(timer);
+                        if (status) status.remove();
+                    } else if ((waited += 500) >= 20000) {
+                        clearInterval(timer);
+                        giveUp();
+                    }
+                }, 500);
+
+                function giveUp() {
+                    clearInterval(timer);
+                    box.hidden = true;
+                }
+            }
+
+            function loadGlobe() {
+                var host = document.getElementById('pv-globe');
+                if (!host || document.getElementById('clstr_globe')) return;
+                var s = document.createElement('script');
+                s.id = 'clstr_globe';
+                s.type = 'text/javascript';
+                s.src = 'https://clustrmaps.com/globe.js?d=pi_aBfz8hTCBS3WHemYOzgxUrTI0ZhA9NxrqTe8uKw4';
+                s.onerror = function () { host.hidden = true; };
+                host.appendChild(s);
+            }
         })();
     </script>
 </body>
