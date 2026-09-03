@@ -1219,8 +1219,8 @@ body.pv-active {
 }
 
 .pv-pub-text {
-    padding-left: 22px;
-    text-indent: -22px;
+    padding-left: 0;
+    text-indent: 0;
 }
 
 .pv-pub.has-thumb .pv-pub-text {
