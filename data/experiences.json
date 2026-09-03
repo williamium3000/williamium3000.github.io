@@ -120,10 +120,38 @@
       "organization": "NeurIPS",
       "duration": "2024"
     },
+    "activity0a.txt": {
+      "title": "Lead Organizer",
+      "department": "2nd Workshop on Efficient Reasoning (ER)",
+      "department_link": "https://wdlctc.github.io/efficient-reasoning-2026/",
+      "organization": "COLM 2026",
+      "duration": "Oct 2026"
+    },
+    "activity0b.txt": {
+      "title": "Lead Organizer",
+      "department": "2nd Workshop on Multi-Modal Reasoning for Agentic Intelligence (MMRAgI)",
+      "department_link": "https://mmragi.github.io/mmragi/",
+      "organization": "CVPR 2026",
+      "duration": "Jun 2026"
+    },
+    "activity0c.txt": {
+      "title": "Co-organizer",
+      "department": "Workshop on Computer Vision for Children (CV4CHL)",
+      "department_link": "https://pediamedai.com/cv4chl/",
+      "organization": "CVPR 2026",
+      "duration": "Jun 2026"
+    },
+    "activity0d.txt": {
+      "title": "Lead Organizer",
+      "department": "1st Workshop on Efficient Spatial Reasoning (ES-Reasoning)",
+      "department_link": "https://sites.google.com/ucsd.edu/efficient-spatial-reasoning/home",
+      "organization": "ICLR 2026",
+      "duration": "Apr 2026"
+    },
     "activity1.txt": {
       "title": "Co-founder",
       "organization": "GrowAI",
-      "duration": "2024 - Present",
+      "duration": "2024",
       "description": "A research organization and community promoting research on AI that can learn and grow like humans. https://growing-ai-like-a-child.github.io/",
       "link": "https://growing-ai-like-a-child.github.io/"
     }
