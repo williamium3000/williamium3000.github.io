@@ -1337,3 +1337,9 @@ body.pv-active {
     margin-left: 6px;
     font-family: var(--pv-mono);
 }
+
+/* My own name in an author list. */
+.pv-pub .pv-self {
+    text-decoration: underline;
+    text-underline-offset: 2px;
+}

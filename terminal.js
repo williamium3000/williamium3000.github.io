@@ -517,6 +517,13 @@ function initScrollSpy() {
     sections.forEach(s => observer.observe(s));
 }
 
+// Underline my own name wherever it appears in an author list.
+const PV_SELF = 'Yijiang Li';
+
+function pvHighlightSelf(authors) {
+    return pvEscape(authors).split(PV_SELF).join(`<span class="pv-self">${PV_SELF}</span>`);
+}
+
 function renderPlainPubs() {
     const host = document.getElementById('pv-pubs-body');
     if (!host) return;
@@ -527,7 +534,7 @@ function renderPlainPubs() {
         const links = pvParseLinks(pub.links);
         return `<div class="pv-pub">`
             + `<span class="pv-pub-title">${pvEscape(pub.title)}.</span> `
-            + `<span class="pv-pub-authors">${pvEscape(pub.authors)}.</span> `
+            + `<span class="pv-pub-authors">${pvHighlightSelf(pub.authors)}.</span> `
             + `<span class="pv-pub-venue">${pvEscape(pub.venue)}.</span> `
             + `<span class="pv-pub-links">${links}</span>`
             + `</div>`;
