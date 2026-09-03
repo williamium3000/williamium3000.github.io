@@ -1050,9 +1050,9 @@ body.pv-active {
 
 .pv-masthead {
     display: flex;
-    align-items: flex-start;
-    justify-content: space-between;
-    gap: 28px;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 44px;
 }
 
 .pv-masthead-text {
@@ -1087,8 +1087,8 @@ body.pv-active {
 
 .pv-photo {
     flex: none;
-    width: 132px;
-    height: 132px;
+    width: 168px;
+    height: 168px;
     object-fit: cover;
     object-position: center 18%;
     border-radius: 6px;
