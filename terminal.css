@@ -1051,8 +1051,8 @@ body.pv-active {
 .pv-masthead {
     display: flex;
     align-items: center;
-    justify-content: flex-start;
-    gap: 200px;
+    justify-content: space-between;
+    gap: 40px;
 }
 
 .pv-masthead-text {
