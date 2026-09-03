@@ -28,7 +28,7 @@
     },
     "(ICML 2026) Vision Language Models Cannot Reason About Physical Transformation": {
       "title": "Vision Language Models Cannot Reason About Physical Transformation",
-      "authors": "Dezhi Luo, Yijiang Li, Maijunxian Wang, Tianwei Zhao, Bingyang Wang, Siheng Wang, Pinyuan Feng, Pooyan Rahmanzadehgervi, Ziqiao Ma, Hokin Deng",
+      "authors": "Dezhi Luo*, Yijiang Li*, Maijunxian Wang, Tianwei Zhao, Bingyang Wang, Siheng Wang, Pinyuan Feng, Pooyan Rahmanzadehgervi, Ziqiao Ma, Hokin Deng",
       "venue": "ICML 2026",
       "links": "[Paper] https://arxiv.org/pdf/2603.07109"
     },
