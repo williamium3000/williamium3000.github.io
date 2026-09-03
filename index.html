@@ -141,17 +141,23 @@
             </section>
 
             <section id="pv-chat">
-                <h2>Chat?</h2>
-                <p>I am happy to discuss collaborations and chat about research. Pick a time slot below, or just
-                    <a href="mailto:yijiangli@ucsd.edu">email me</a>.</p>
-                <div class="pv-calendly" id="pv-calendly">
-                    <div class="pv-calendly-status" id="pv-calendly-status">Loading the calendar…</div>
-                    <div class="calendly-inline-widget" id="pv-calendly-widget"
-                        data-url="https://calendly.com/liyijiang3000/30-min-chat?hide_gdpr_banner=1"
-                        style="min-width:300px;height:700px;"></div>
+                <h2 class="pv-h2-collapsible">
+                    <button type="button" id="pv-chat-toggle" aria-expanded="false" aria-controls="pv-chat-full">
+                        Chat? <span class="pv-caret" aria-hidden="true">↓</span>
+                    </button>
+                </h2>
+                <div class="pv-chat-full" id="pv-chat-full" hidden>
+                    <p>I am happy to discuss collaborations and chat about research. Pick a time slot below, or just
+                        <a href="mailto:yijiangli@ucsd.edu">email me</a>.</p>
+                    <div class="pv-calendly" id="pv-calendly">
+                        <div class="pv-calendly-status" id="pv-calendly-status">Loading the calendar…</div>
+                        <div class="calendly-inline-widget" id="pv-calendly-widget"
+                            data-url="https://calendly.com/liyijiang3000/30-min-chat?hide_gdpr_banner=1"
+                            style="min-width:300px;height:700px;"></div>
+                    </div>
+                    <p class="pv-calendly-fallback">Or book directly at
+                        <a href="https://calendly.com/liyijiang3000/30-min-chat" target="_blank" rel="noopener">calendly.com/liyijiang3000/30-min-chat</a>.</p>
                 </div>
-                <p class="pv-calendly-fallback">Or book directly at
-                    <a href="https://calendly.com/liyijiang3000/30-min-chat" target="_blank" rel="noopener">calendly.com/liyijiang3000/30-min-chat</a>.</p>
             </section>
 
             <div class="pv-globe" id="pv-globe"></div>
@@ -186,7 +192,7 @@
         // their container, so they must not load while the web view is still
         // display:none. Inject each one only once it is actually on screen.
         (function () {
-            whenVisible(document.getElementById('pv-chat'), loadCalendly);
+            whenVisible(document.getElementById('pv-calendly'), loadCalendly);
             whenVisible(document.getElementById('pv-globe'), loadGlobe);
 
             function whenVisible(target, load) {

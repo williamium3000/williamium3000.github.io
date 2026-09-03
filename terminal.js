@@ -652,6 +652,23 @@ async function init() {
 
     initScrollSpy();
 
+    // The "Chat?" heading expands and collapses its section.
+    const chatToggle = document.getElementById('pv-chat-toggle');
+    const chatFull = document.getElementById('pv-chat-full');
+    if (chatToggle && chatFull) {
+        const setChat = next => {
+            chatToggle.setAttribute('aria-expanded', String(next));
+            const caret = chatToggle.querySelector('.pv-caret');
+            if (caret) caret.textContent = next ? '↑' : '↓';
+            chatFull.hidden = !next;
+        };
+        chatToggle.addEventListener('click', () => {
+            setChat(chatToggle.getAttribute('aria-expanded') !== 'true');
+        });
+        const chatLink = document.querySelector('.pv-nav[href="#pv-chat"]');
+        if (chatLink) chatLink.addEventListener('click', () => setChat(true));
+    }
+
     // The "Beyond research" heading itself expands and collapses the section.
     const lifeToggle = document.getElementById('pv-life-toggle');
     if (lifeToggle) lifeToggle.addEventListener('click', () => togglePlainLife());

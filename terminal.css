@@ -1364,3 +1364,11 @@ body.pv-active {
 .pv-globe img {
     max-width: 100%;
 }
+
+.pv-chat-full {
+    margin-top: 16px;
+}
+
+.pv-chat-full[hidden] {
+    display: none;
+}
