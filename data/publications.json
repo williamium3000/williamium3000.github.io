@@ -47,7 +47,7 @@
     "(ICML 2026) Less is Enough: Synthesizing Diverse Data in Feature Space of LLMs": {
       "title": "Less is Enough: Synthesizing Diverse Data in Feature Space of LLMs",
       "authors": "Zhongzhi Li*, Xuansheng Wu*, Yijiang Li*, Lijie Hu, Ninghao Liu",
-      "venue": "ICML 2026",
+      "venue": "ICML 2026, Oral",
       "links": "[Website] https://website-sigma-three-35.vercel.app/ | [Paper] https://arxiv.org/pdf/2602.10388 | [Code] https://github.com/Zhongzhi660/FAC-Synthesis",
       "abstract": "Measures data diversity as Feature Activation Coverage in a sparse-autoencoder feature space, then synthesizes samples covering the features a seed set is missing — matching far larger synthetic corpora with 2K samples."
     },
