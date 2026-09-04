@@ -533,7 +533,7 @@ function pvHighlightSelf(authors) {
 }
 
 // Publications beyond this count sit behind a "more" toggle.
-const PV_PUBS_VISIBLE = 4;
+const PV_PUBS_VISIBLE = 5;
 
 function renderPlainPubs() {
     const host = document.getElementById('pv-pubs-body');

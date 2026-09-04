@@ -20,6 +20,21 @@
       "venue": "arXiv preprint, 2026",
       "links": "[Website] https://williamium3000.github.io/u-opsd/ | [Paper] https://arxiv.org/pdf/2608.06296"
     },
+    "(ICML 2025) Core Knowledge Deficits in Multi-Modal Language Models": {
+      "title": "Core Knowledge Deficits in Multi-Modal Language Models",
+      "authors": "Yijiang Li, Qingying Gao, Tianwei Zhao, Bingyang Wang, Haoran Sun, Haiyun Lyu, Dezhi Luo, Hokin Deng",
+      "venue": "ICML 2025",
+      "theme": "multimodal",
+      "links": "[Website] https://grow-ai-like-a-child.github.io/core-knowledge/ | [Paper] https://arxiv.org/pdf/2410.10855 | [Code] https://github.com/williamium3000/core-knowledge | [Dataset] https://huggingface.co/datasets/williamium/CoreCognition | [Slides] https://docs.google.com/presentation/d/1MNFMHPz2D6ih1PTWxgNwrKbSe-boHYyfFeCR5WJuDuE/edit?usp=sharing",
+      "abstract": "We evaluate multi-modal large language models on the core knowledge abilities that humans develop in infancy, and find systematic deficits that scale does not close."
+    },
+    "(ICML 2026) Less is Enough: Synthesizing Diverse Data in Feature Space of LLMs": {
+      "title": "Less is Enough: Synthesizing Diverse Data in Feature Space of LLMs",
+      "authors": "Zhongzhi Li*, Xuansheng Wu*, Yijiang Li*, Lijie Hu, Ninghao Liu",
+      "venue": "ICML 2026, Oral (top ~0.6%)",
+      "links": "[Website] https://website-sigma-three-35.vercel.app/ | [Paper] https://arxiv.org/pdf/2602.10388 | [Code] https://github.com/Zhongzhi660/FAC-Synthesis",
+      "abstract": "Measures data diversity as Feature Activation Coverage in a sparse-autoencoder feature space, then synthesizes samples covering the features a seed set is missing — matching far larger synthetic corpora with 2K samples."
+    },
     "(Preprint) ThinkJEPA: Empowering Latent World Models with Large Vision-Language Reasoning Model": {
       "title": "ThinkJEPA: Empowering Latent World Models with Large Vision-Language Reasoning Model",
       "authors": "Haichao Zhang, Yijiang Li, Shwai He, Tushar Nagarajan, Mingfei Chen, Jianglin Lu, Ang Li, Yun Fu",
@@ -44,27 +59,12 @@
       "venue": "COLM 2026",
       "links": "[Website] https://cocoabench.github.io/ | [Paper] https://arxiv.org/pdf/2604.11201"
     },
-    "(ICML 2026) Less is Enough: Synthesizing Diverse Data in Feature Space of LLMs": {
-      "title": "Less is Enough: Synthesizing Diverse Data in Feature Space of LLMs",
-      "authors": "Zhongzhi Li*, Xuansheng Wu*, Yijiang Li*, Lijie Hu, Ninghao Liu",
-      "venue": "ICML 2026, Oral (top ~0.6%)",
-      "links": "[Website] https://website-sigma-three-35.vercel.app/ | [Paper] https://arxiv.org/pdf/2602.10388 | [Code] https://github.com/Zhongzhi660/FAC-Synthesis",
-      "abstract": "Measures data diversity as Feature Activation Coverage in a sparse-autoencoder feature space, then synthesizes samples covering the features a seed set is missing — matching far larger synthetic corpora with 2K samples."
-    },
     "(Preprint) SkillsBench: Benchmarking How Well Agent Skills Work Across Diverse Tasks": {
       "title": "SkillsBench: Benchmarking How Well Agent Skills Work Across Diverse Tasks",
       "authors": "Xiangyi Li, Yimin Liu, Wenbo Chen, Bingran You, Zonglin Di, et al. (including Yijiang Li)",
       "venue": "arXiv preprint, 2026",
       "links": "[Website] https://www.skillsbench.ai/ | [Paper] https://arxiv.org/pdf/2602.12670 | [Code] https://github.com/benchflow-ai/skillsbench",
       "abstract": "A benchmark of 86 tasks across 11 domains, each paired with curated skills and deterministic verifiers, measuring how much agent skills actually help — and where they hurt."
-    },
-    "(ICML 2025) Core Knowledge Deficits in Multi-Modal Language Models": {
-      "title": "Core Knowledge Deficits in Multi-Modal Language Models",
-      "authors": "Yijiang Li, Qingying Gao, Tianwei Zhao, Bingyang Wang, Haoran Sun, Haiyun Lyu, Dezhi Luo, Hokin Deng",
-      "venue": "ICML 2025",
-      "theme": "multimodal",
-      "links": "[Website] https://grow-ai-like-a-child.github.io/core-knowledge/ | [Paper] https://arxiv.org/pdf/2410.10855 | [Code] https://github.com/williamium3000/core-knowledge | [Dataset] https://huggingface.co/datasets/williamium/CoreCognition | [Slides] https://docs.google.com/presentation/d/1MNFMHPz2D6ih1PTWxgNwrKbSe-boHYyfFeCR5WJuDuE/edit?usp=sharing",
-      "abstract": "We evaluate multi-modal large language models on the core knowledge abilities that humans develop in infancy, and find systematic deficits that scale does not close."
     },
     "(ICML 2025) EgoPrivacy: What Your First-Person Camera Says About You": {
       "title": "EgoPrivacy: What Your First-Person Camera Says About You",
