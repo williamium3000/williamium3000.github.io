@@ -1137,6 +1137,8 @@ body.pv-active {
 /* busuanzi reveals this once the count has loaded */
 #busuanzi_container_site_pv {
     display: none;
+    color: var(--pv-soft);
+    white-space: nowrap;
 }
 
 @media (max-width: 820px) {
