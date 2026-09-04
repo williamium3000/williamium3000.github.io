@@ -1349,11 +1349,10 @@ body.pv-active {
 }
 
 /* Visitor globe, carried over from the previous site. */
+/* The globe script sizes itself to this container's width. */
 .pv-globe {
-    display: flex;
-    justify-content: center;
-    margin: 48px 0 8px;
-    min-height: 0;
+    width: 320px;
+    margin: 48px auto 8px;
 }
 
 .pv-globe[hidden] {
@@ -1370,5 +1369,9 @@ body.pv-active {
 }
 
 .pv-chat-full[hidden] {
+    display: none;
+}
+
+.pv-pubs-rest[hidden] {
     display: none;
 }

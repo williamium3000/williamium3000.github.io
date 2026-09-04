@@ -532,13 +532,16 @@ function pvHighlightSelf(authors) {
     return pvEscape(authors).split(PV_SELF).join(`<span class="pv-self">${PV_SELF}</span>`);
 }
 
+// Publications beyond this count sit behind a "more" toggle.
+const PV_PUBS_VISIBLE = 4;
+
 function renderPlainPubs() {
     const host = document.getElementById('pv-pubs-body');
     if (!host) return;
     const pubs = content.publications && content.publications.files;
     if (!pubs) return;
 
-    host.innerHTML = Object.values(pubs).map(pub => {
+    const render = pub => {
         const links = pvParseLinks(pub.links);
         return `<div class="pv-pub">`
             + `<span class="pv-pub-title">${pvEscape(pub.title)}.</span> `
@@ -546,7 +549,29 @@ function renderPlainPubs() {
             + `<span class="pv-pub-venue">${pvHighlightAward(pub.venue)}.</span> `
             + `<span class="pv-pub-links">${links}</span>`
             + `</div>`;
-    }).join('');
+    };
+
+    const entries = Object.values(pubs);
+    const head = entries.slice(0, PV_PUBS_VISIBLE);
+    const rest = entries.slice(PV_PUBS_VISIBLE);
+
+    let html = head.map(render).join('');
+    if (rest.length) {
+        html += `<div class="pv-pubs-rest" id="pv-pubs-rest" hidden>${rest.map(render).join('')}</div>`;
+        html += `<button class="pv-cv-toggle" id="pv-pubs-toggle" aria-expanded="false" aria-controls="pv-pubs-rest">more ↓</button>`;
+    }
+    host.innerHTML = html;
+
+    const btn = document.getElementById('pv-pubs-toggle');
+    if (btn) {
+        btn.addEventListener('click', () => {
+            const full = document.getElementById('pv-pubs-rest');
+            const expanded = btn.getAttribute('aria-expanded') === 'true';
+            btn.setAttribute('aria-expanded', String(!expanded));
+            btn.textContent = expanded ? 'more ↓' : 'fewer ↑';
+            full.hidden = expanded;
+        });
+    }
 }
 
 function renderPlainCV() {
