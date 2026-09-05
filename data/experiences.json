@@ -75,6 +75,14 @@
       "note": "Prof. Manuela Vasconcelos",
       "duration": "Spring 2025"
     },
+    "teaching3.txt": {
+      "title": "Teaching Assistant",
+      "organization": "Johns Hopkins University",
+      "duration": "Spring 2024",
+      "description": "Teaching assistant for Introduction to Data Science.",
+      "department": "EN.553.436/636 Introduction to Data Science",
+      "note": "Prof. Tamás Budavári, Prof. Soledad Villar"
+    },
     "teaching1.txt": {
       "title": "Teaching Assistant",
       "organization": "Johns Hopkins University",
@@ -91,14 +99,6 @@
       "department": "CS 601.482/682 Machine Learning: Deep Learning",
       "note": "Prof. Mathias Unberath",
       "department_link": "https://deep.cs.jhu.edu/deeplearning.html"
-    },
-    "teaching3.txt": {
-      "title": "Teaching Assistant",
-      "organization": "Johns Hopkins University",
-      "duration": "Spring 2023",
-      "description": "Teaching assistant for Introduction to Data Science.",
-      "department": "EN.553.436/636 Introduction to Data Science",
-      "note": "Prof. Tamás Budavári, Prof. Soledad Villar"
     },
     "service1.txt": {
       "title": "Reviewer",
