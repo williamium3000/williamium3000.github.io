@@ -597,6 +597,7 @@ function renderPlainCV() {
             +   (exp.link
                     ? `<a class="pv-org" href="${pvEscapeAttr(exp.link)}" target="_blank" rel="noopener">${pvEscape(exp.organization)}</a>`
                     : `<span class="pv-org">${pvEscape(exp.organization)}</span>`)
+            +   (exp.location ? `<span class="pv-where"> · ${pvEscape(exp.location)}</span>` : '')
             +   (exp.note ? `<br><span class="pv-note">${pvRenderInlineMarkdown(exp.note)}</span>` : '')
             + `</div>`
             + `</div>`;
@@ -997,6 +998,9 @@ function formatFileContent(filename, file) {
         }
         if (file.duration) {
             content += `Duration: ${file.duration}\n`;
+        }
+        if (file.location) {
+            content += `Location: ${file.location}\n`;
         }
         if (file.note) {
             content += `With: ${file.note.replace(/\[([^\]]+)\]\((https?:[^)\s]+)\)/g, '$1 ($2)')}\n`;

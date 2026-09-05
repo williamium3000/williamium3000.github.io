@@ -1377,3 +1377,8 @@ body.pv-active {
 .pv-pubs-rest[hidden] {
     display: none;
 }
+
+/* Where a workshop or position took place. */
+.pv-exp-row .pv-where {
+    color: var(--pv-soft);
+}
