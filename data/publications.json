@@ -68,7 +68,7 @@
     },
     "(ICML 2025) EgoPrivacy: What Your First-Person Camera Says About You": {
       "title": "EgoPrivacy: What Your First-Person Camera Says About You",
-      "authors": "Yijiang Li, Jiacheng Cheng, Yi Li, Genpei Zhang, Xiaojun Shan, Dashan Gao, Jiancheng Lyu, Yuan Li, Ning Bi, Nuno Vasconcelos",
+      "authors": "Yijiang Li, Genpei Zhang, Jiacheng Cheng, Yi Li, Xiaojun Shan, Dashan Gao, Jiancheng Lyu, Yuan Li, Ning Bi, Nuno Vasconcelos",
       "venue": "ICML 2025",
       "theme": "multimodal",
       "links": "[Website] https://williamium3000.github.io/ego-privacy/ | [Paper] https://arxiv.org/abs/2506.12258 | [Code] https://github.com/williamium3000/ego-privacy",
