@@ -91,7 +91,7 @@
     },
     "(ICCV 2025) Dataset Distillation via the Wasserstein Metric": {
       "title": "Dataset Distillation via the Wasserstein Metric",
-      "authors": "Haoyang Liu, Yijiang Li, Tiancheng Xing, Vibhu Dalal, Luwei Li, Jingrui He, Haohan Wang",
+      "authors": "Haoyang Liu, Yijiang Li, Tiancheng Xing, Peiran Wang, Vibhu Dalal, Luwei Li, Jingrui He, Haohan Wang",
       "venue": "ICCV 2025",
       "theme": "efficient",
       "links": "[Website] https://liu-hy.github.io/WMDD/ | [Paper] https://arxiv.org/pdf/2311.18531 | [Code] https://github.com/Liu-Hy/WMDD",
