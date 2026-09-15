@@ -2,6 +2,11 @@
   "type": "directory",
   "description": "News and updates",
   "files": {
+    "2026-02-cvpr.txt": {
+      "title": "One paper accepted at CVPR 2026 as a Highlight",
+      "date": "2026.02",
+      "content": "One paper accepted at CVPR 2026 as a Highlight."
+    },
     "2026-01-iclr.txt": {
       "title": "One paper accepted by ICLR 2025",
       "date": "2026.01",
