@@ -7,15 +7,15 @@
       "date": "2026.09",
       "content": "Four papers accepted at NeurIPS 2026 main track and three at the Datasets & Benchmarks track, including one first-author paper."
     },
-    "2026-09-qualcomm.txt": {
-      "title": "Qualcomm Innovation Fellowship Finalist",
-      "date": "2026.09",
-      "content": "Selected as a Qualcomm Innovation Fellowship Finalist."
-    },
     "2026-05-icml.txt": {
       "title": "Four papers accepted at ICML 2026, including one Oral presentation",
       "date": "2026.05",
       "content": "Four papers accepted at ICML 2026, including one Oral presentation."
+    },
+    "2026-04-qualcomm.txt": {
+      "title": "Qualcomm Innovation Fellowship Finalist",
+      "date": "2026.04",
+      "content": "Selected as a Qualcomm Innovation Fellowship Finalist."
     },
     "2026-02-cvpr.txt": {
       "title": "One paper accepted at CVPR 2026 as a Highlight presentation",
