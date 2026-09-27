@@ -35,11 +35,30 @@
       "links": "[Website] https://website-sigma-three-35.vercel.app/ | [Paper] https://arxiv.org/pdf/2602.10388 | [Code] https://github.com/Zhongzhi660/FAC-Synthesis",
       "abstract": "Measures data diversity as Feature Activation Coverage in a sparse-autoencoder feature space, then synthesizes samples covering the features a seed set is missing — matching far larger synthetic corpora with 2K samples."
     },
+    "(NeurIPS 2026) Contextualized Evaluation of Vision Language Models through Dynamic, Multi-turn Interactions": {
+      "title": "Contextualized Evaluation of Vision Language Models through Dynamic, Multi-turn Interactions",
+      "authors": "Yijiang Li, Huiqi Zou, Bingyang Wang, Ziang Xiao",
+      "venue": "NeurIPS 2026",
+      "links": "[Paper] https://arxiv.org/pdf/2607.14499 | [Code] https://github.com/williamium3000/cedi",
+      "abstract": "CEDI recasts MLLM evaluation as a three-party interaction between evaluatee, automated examiner and grader, where multi-turn graph-guided conversations surface far more hallucinations than static benchmarks."
+    },
     "(NeurIPS 2026) ThinkJEPA: Empowering Latent World Models with Large Vision-Language Reasoning Model": {
       "title": "ThinkJEPA: Empowering Latent World Models with Large Vision-Language Reasoning Model",
       "authors": "Haichao Zhang, Yijiang Li, Shwai He, Tushar Nagarajan, Mingfei Chen, Jianglin Lu, Ang Li, Yun Fu",
       "venue": "NeurIPS 2026",
       "links": "[Website] https://www.zhanghaichao.xyz/ThinkJEPA/ | [Paper] https://arxiv.org/pdf/2603.22281 | [Code] https://github.com/Hai-chao-Zhang/ThinkJEPA"
+    },
+    "(NeurIPS 2026) Generalizing Action-Conditioned Latent World Models with Video Model Rewards": {
+      "title": "Generalizing Action-Conditioned Latent World Models with Video Model Rewards",
+      "authors": "Haichao Zhang, Yijiang Li, Shwai He, Van Thanh Le, Nuno Vasconcelos, Yun Fu",
+      "venue": "NeurIPS 2026",
+      "links": ""
+    },
+    "(NeurIPS 2026) DetectViT: Test-time Backdoor Detection for Vision Transformers via Inter-Head Attention Discrepancy": {
+      "title": "DetectViT: Test-time Backdoor Detection for Vision Transformers via Inter-Head Attention Discrepancy",
+      "authors": "Siquan Huang, Yijiang Li, Xingfu Yan, Ningzhi Gao, Leyu Shi, Ying Gao",
+      "venue": "NeurIPS 2026",
+      "links": ""
     },
     "(ICML 2026) Vision Language Models Cannot Reason About Physical Transformation": {
       "title": "Vision Language Models Cannot Reason About Physical Transformation",
@@ -53,6 +72,13 @@
       "venue": "ICML 2026",
       "links": "[Website] https://video-reason.com | [Paper] https://arxiv.org/pdf/2602.20159 | [Code] https://github.com/Video-Reason/VBVR-EvalKit"
     },
+    "(ICML 2026) RN-D: Discretized Categorical Actors for On-Policy Reinforcement Learning": {
+      "title": "RN-D: Discretized Categorical Actors for On-Policy Reinforcement Learning",
+      "authors": "Yuexin Bian, Jie Feng, Tao Wang, Yijiang Li, Sicun Gao, Yuanyuan Shi",
+      "venue": "ICML 2026",
+      "links": "[Paper] https://arxiv.org/pdf/2601.23075 | [Code] https://github.com/alwaysbyx/RND-RL",
+      "abstract": "Replacing the Gaussian actor in on-policy RL with a discretized categorical actor over per-dimension bins, paired with regularized networks, for state-of-the-art continuous control."
+    },
     "(COLM 2026) CocoaBench: Evaluating Unified Digital Agents in the Wild": {
       "title": "CocoaBench: Evaluating Unified Digital Agents in the Wild",
       "authors": "CocoaBench Team",
@@ -65,6 +91,13 @@
       "venue": "NeurIPS 2026",
       "links": "[Website] https://www.skillsbench.ai/ | [Paper] https://arxiv.org/pdf/2602.12670 | [Code] https://github.com/benchflow-ai/skillsbench",
       "abstract": "A benchmark of 86 tasks across 11 domains, each paired with curated skills and deterministic verifiers, measuring how much agent skills actually help — and where they hurt."
+    },
+    "(NeurIPS 2026) Harbor Adapters and Harbor-Index: Infrastructure and a Curated Meta-Dataset for Large-Scale Agentic Evaluation": {
+      "title": "Harbor Adapters and Harbor-Index: Infrastructure and a Curated Meta-Dataset for Large-Scale Agentic Evaluation",
+      "authors": "Lin Shi, Haowei Lin, Zixuan Zhu, Xiaoyue Zhou, Xiang Li, et al. (including Yijiang Li)",
+      "venue": "NeurIPS 2026",
+      "links": "[Paper] https://arxiv.org/pdf/2609.04298",
+      "abstract": "Evaluation infrastructure porting 80+ agentic benchmarks to arbitrary agents, plus Harbor-Index, a curated set of 82 difficult tasks across 29 benchmarks that no evaluated model-harness pair solves beyond a 30% pass rate."
     },
     "(ICML 2025) EgoPrivacy: What Your First-Person Camera Says About You": {
       "title": "EgoPrivacy: What Your First-Person Camera Says About You",
