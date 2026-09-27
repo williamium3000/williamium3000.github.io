@@ -59,10 +59,10 @@
       "venue": "COLM 2026",
       "links": "[Website] https://cocoabench.github.io/ | [Paper] https://arxiv.org/pdf/2604.11201"
     },
-    "(Preprint) SkillsBench: Benchmarking How Well Agent Skills Work Across Diverse Tasks": {
+    "(NeurIPS 2026) SkillsBench: Benchmarking How Well Agent Skills Work Across Diverse Tasks": {
       "title": "SkillsBench: Benchmarking How Well Agent Skills Work Across Diverse Tasks",
       "authors": "Xiangyi Li, Yimin Liu, Wenbo Chen, Bingran You, Zonglin Di, et al. (including Yijiang Li)",
-      "venue": "arXiv preprint, 2026",
+      "venue": "NeurIPS 2026",
       "links": "[Website] https://www.skillsbench.ai/ | [Paper] https://arxiv.org/pdf/2602.12670 | [Code] https://github.com/benchflow-ai/skillsbench",
       "abstract": "A benchmark of 86 tasks across 11 domains, each paired with curated skills and deterministic verifiers, measuring how much agent skills actually help — and where they hurt."
     },
