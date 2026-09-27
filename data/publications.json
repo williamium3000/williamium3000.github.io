@@ -54,12 +54,6 @@
       "venue": "NeurIPS 2026",
       "links": ""
     },
-    "(NeurIPS 2026) DetectViT: Test-time Backdoor Detection for Vision Transformers via Inter-Head Attention Discrepancy": {
-      "title": "DetectViT: Test-time Backdoor Detection for Vision Transformers via Inter-Head Attention Discrepancy",
-      "authors": "Siquan Huang, Yijiang Li, Xingfu Yan, Ningzhi Gao, Leyu Shi, Ying Gao",
-      "venue": "NeurIPS 2026",
-      "links": ""
-    },
     "(ICML 2026) Vision Language Models Cannot Reason About Physical Transformation": {
       "title": "Vision Language Models Cannot Reason About Physical Transformation",
       "authors": "Dezhi Luo*, Yijiang Li*, Maijunxian Wang, Tianwei Zhao, Bingyang Wang, Siheng Wang, Pinyuan Feng, Pooyan Rahmanzadehgervi, Ziqiao Ma, Hokin Deng",
@@ -71,13 +65,6 @@
       "authors": "Maijunxian Wang, Ruisi Wang, Juyi Lin, …, Vikash Kumar, Yijiang Li, Lei Yang, Zhongang Cai, Hokin Deng",
       "venue": "ICML 2026",
       "links": "[Website] https://video-reason.com | [Paper] https://arxiv.org/pdf/2602.20159 | [Code] https://github.com/Video-Reason/VBVR-EvalKit"
-    },
-    "(ICML 2026) RN-D: Discretized Categorical Actors for On-Policy Reinforcement Learning": {
-      "title": "RN-D: Discretized Categorical Actors for On-Policy Reinforcement Learning",
-      "authors": "Yuexin Bian, Jie Feng, Tao Wang, Yijiang Li, Sicun Gao, Yuanyuan Shi",
-      "venue": "ICML 2026",
-      "links": "[Paper] https://arxiv.org/pdf/2601.23075 | [Code] https://github.com/alwaysbyx/RND-RL",
-      "abstract": "Replacing the Gaussian actor in on-policy RL with a discretized categorical actor over per-dimension bins, paired with regularized networks, for state-of-the-art continuous control."
     },
     "(COLM 2026) CocoaBench: Evaluating Unified Digital Agents in the Wild": {
       "title": "CocoaBench: Evaluating Unified Digital Agents in the Wild",
